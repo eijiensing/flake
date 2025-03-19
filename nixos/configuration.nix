@@ -74,6 +74,9 @@
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
 
+  services.displayManager.ly ={
+    enable = true;
+  };
 
   programs.git.enable = true;
   programs.neovim.enable = true;
