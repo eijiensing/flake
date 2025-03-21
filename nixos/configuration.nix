@@ -74,14 +74,18 @@
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
 
-  services.displayManager.ly ={
+  services.displayManager.sddm ={
+    enable = true;
+    wayland.enable = true;
+  };
+  
+  programs.hyprland = {
     enable = true;
   };
 
   programs.git.enable = true;
   programs.neovim.enable = true;
   programs.fish.enable = true;
-  programs.hyprland.enable = true;
 
   environment.systemPackages = [
    pkgs.gh
