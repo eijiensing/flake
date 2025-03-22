@@ -74,13 +74,13 @@
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
 
-  services.displayManager.sddm ={
+  services.displayManager.ly ={
     enable = true;
-    wayland.enable = true;
   };
   
   programs.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
   programs.git.enable = true;
