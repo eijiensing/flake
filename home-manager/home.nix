@@ -18,6 +18,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ../modules/home-manager/neovim
   ];
 
   nixpkgs = {
@@ -64,6 +65,7 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      set -U fish-greeting ""
     '';
   };
 
@@ -71,10 +73,22 @@
   	enable = true;
 	systemd.variables = [ "--all" ];
 	settings = {
+	  input = {
+	    touchpad.natural_scroll = true;
+	  };
 	  "$mod" = "SUPER";
+	  "$terminal" = "alacritty";
+	  monitor = ", preferred, 0x0, 1";
 	  bind = [
-	    "$mod, Q, exec, alacritty"
+	    "$mod, Q, exec, $terminal"
+	    "$mod, C, killactive"
+	    "$mod, V, togglefloating"
 	    "$mod, F, exec, firefox"
+	    "$mod, M, exit"
+	    "$mod, H, movefocus, l"
+	    "$mod, J, movefocus, d"
+	    "$mod, K, movefocus, u"
+	    "$mod, L, movefocus, r"
 	  ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
