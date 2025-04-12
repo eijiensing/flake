@@ -86,6 +86,7 @@
   programs.git.enable = true;
   programs.neovim.enable = true;
   programs.fish.enable = true;
+  programs.command-not-found.enable = true;
 
   environment.systemPackages = [
    pkgs.gh
