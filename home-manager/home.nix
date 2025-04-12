@@ -12,6 +12,7 @@
     ../modules/home-manager/neovim
     ../modules/home-manager/hyprpaper
     ../modules/home-manager/hyprland
+    ../modules/home-manager/fish
   ];
 
   nixpkgs = {
@@ -40,7 +41,6 @@
 	  home-manager.enable = true;
 	  firefox.enable = true;
 	  alacritty.enable = true;
-	  fish.enable = true;
 	  git = {
 	    enable = true;
 	    userName = "eijiensing";
