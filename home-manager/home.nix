@@ -8,17 +8,9 @@
   pkgs,
   ...
 }: {
-  # You can import other home-manager modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
-
-    # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModules.default
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
     ../modules/home-manager/neovim
+    ../modules/home-manager/hyprpaper
   ];
 
   nixpkgs = {
@@ -28,16 +20,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -53,24 +35,22 @@
   };
 
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
-
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.firefox.enable = true;
-  programs.alacritty.enable = true;
-
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set -U fish-greeting ""
-    '';
+  programs = {
+	  home-manager.enable = true;
+	  firefox.enable = true;
+	  alacritty.enable = true;
+	  fish.enable = true;
+	  git = {
+	    enable = true;
+	    userName = "eijiensing";
+	    userEmail = "eijitron@gmail.com";
+	  };
   };
 
   wayland.windowManager.hyprland = {
   	enable = true;
+	plugins = [
+	];
 	systemd.variables = [ "--all" ];
 	settings = {
 	  input = {
@@ -104,11 +84,6 @@
 	};
   };
 
-  programs.git = {
-    enable = true;
-    userName = "eijiensing";
-    userEmail = "eijitron@gmail.com";
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

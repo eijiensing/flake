@@ -46,18 +46,12 @@ in
 
   programs.neovim = {
     enable = true;
-    vimAlias = true;
     coc.enable = false;
     withNodeJs = true;
 
     plugins = [
       treesitterWithGrammars
     ];
-  };
-
-  home.file."./.config/nvim/" = {
-    source = ./nvim;
-    recursive = true;
   };
 
   home.file."./.local/share/nvim/nix/nvim-treesitter/" = {
