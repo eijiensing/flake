@@ -13,6 +13,7 @@
     ../modules/home-manager/hyprpaper
     ../modules/home-manager/hyprland
     ../modules/home-manager/fish
+    ../modules/home-manager/alacritty
   ];
 
   nixpkgs = {
@@ -40,7 +41,6 @@
   programs = {
 	  home-manager.enable = true;
 	  firefox.enable = true;
-	  alacritty.enable = true;
 	  git = {
 	    enable = true;
 	    userName = "eijiensing";
