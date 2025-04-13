@@ -36,10 +36,6 @@
   home = {
     username = "eiji";
     homeDirectory = "/home/eiji";
-    packages = with pkgs; [
-  	wl-clipboard
-    ];
-
   };
 
 

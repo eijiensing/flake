@@ -7,8 +7,7 @@
        systemd.variables = [ "--all" ];
        settings = {
          exec-once = [
-	   "hyprpaper"
-
+	   "systemctl --user start hyprpaper.service"
 	 ];
        	 
          input = {
@@ -103,6 +102,9 @@
            "$mod, J, movefocus, d"
            "$mod, K, movefocus, u"
            "$mod, L, movefocus, r"
+	   ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+	   ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+	   ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
          ] ++ (
        # workspaces
        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
