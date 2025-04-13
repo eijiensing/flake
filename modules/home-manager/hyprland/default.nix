@@ -6,9 +6,19 @@
        ];
        systemd.variables = [ "--all" ];
        settings = {
+         exec-once = [
+	   "hyprpaper"
+
+	 ];
+       	 
          input = {
            touchpad.natural_scroll = true;
          };
+	 gestures = {
+          workspace_swipe = true;
+          workspace_swipe_distance = 200;
+          workspace_swipe_forever = true;
+        };
 	 decoration = {
         rounding = 0;
         active_opacity = 0.90;

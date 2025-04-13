@@ -14,6 +14,7 @@
     ../modules/home-manager/hyprland
     ../modules/home-manager/fish
     ../modules/home-manager/alacritty
+    ../modules/home-manager/nix-index
   ];
 
   nixpkgs = {

@@ -78,6 +78,11 @@
     enable = true;
   };
   
+  services.pipewire = {
+	enable = true;
+	audio.enable = true;
+  };
+  
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -86,7 +91,7 @@
   programs.git.enable = true;
   programs.neovim.enable = true;
   programs.fish.enable = true;
-  programs.command-not-found.enable = true;
+  programs.command-not-found.enable = false;
 
   environment.systemPackages = [
    pkgs.gh
