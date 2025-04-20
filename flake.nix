@@ -16,6 +16,9 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    # Ags
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = {
