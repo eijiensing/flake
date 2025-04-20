@@ -4,7 +4,6 @@ const audio = await Service.import("audio")
 const battery = await Service.import("battery")
 const systemtray = await Service.import("systemtray")
 const network = await Service.import("network")
-import { OpenWallpaper, Wallpaper } from "./wallpapers.js"
 
 const mem = Variable(0, {
     poll: [5000, App.configDir + '/mem.sh']
@@ -70,7 +69,6 @@ function Bottom() {
             SysTray(),
             Bluetooth(),
             Network(),
-            OpenWallpaper(),
             Time(),
             Date(),
             // Notification(),
