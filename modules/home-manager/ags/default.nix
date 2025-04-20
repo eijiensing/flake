@@ -7,6 +7,6 @@
 	};
 	
 	home.file = {
-		".config/ags/config.js".source = ./config/config.js;
+		".config/ags/app.js".source = ./config/app.js;
 	};
 }
