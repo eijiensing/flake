@@ -9,12 +9,7 @@
   ...
 }: {
   imports = [
-    ../modules/home-manager/neovim
-    ../modules/home-manager/hyprpaper
-    ../modules/home-manager/hyprland
-    ../modules/home-manager/fish
-    ../modules/home-manager/alacritty
-    ../modules/home-manager/nix-index
+    ../modules/home-manager
   ];
 
   nixpkgs = {
