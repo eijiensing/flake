@@ -4,9 +4,6 @@
 
 	programs.ags = {
 		enable = true;
-	};
-	
-	home.file = {
-		".config/ags/app.js".source = ./config/app.js;
+		configDir = ./config;
 	};
 }
