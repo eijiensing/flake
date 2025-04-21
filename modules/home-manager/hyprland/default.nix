@@ -8,6 +8,7 @@
        settings = {
          exec-once = [
 	   "systemctl --user start hyprpaper.service"
+	   "ags run"
 	 ];
        	 
          input = {
