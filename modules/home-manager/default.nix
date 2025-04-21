@@ -7,5 +7,6 @@
     ./hyprpaper
     ./neovim
     ./nix-index
+    ./gtk
   ];
 }
