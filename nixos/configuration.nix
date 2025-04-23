@@ -48,18 +48,22 @@
 	enable = true;
 	audio.enable = true;
   };
-  
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  };
 
-  programs.command-not-found.enable = false;
+  programs = {
+	  hyprland = {
+	    enable = true;
+	    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+	  };
+	  fish.enable = true;
+	  command-not-found.enable = false;
+  };
+  
 
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     eiji = {
+      shell = pkgs.fish;
       isNormalUser = true;
       extraGroups = ["wheel" "networkmanager" "audio"];
     };

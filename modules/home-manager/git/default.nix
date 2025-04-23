@@ -1,13 +1,15 @@
-{ config, lib, pkgs, name, email, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
 
 {
   options = {
-    gitName = lib.mkOption {
-      type = lib.types.str;
+    gitName = mkOption {
+      type = types.str;
       description = "Git user name";
     };
-    gitEmail = lib.mkOption {
-      type = lib.types.str;
+    gitEmail = mkOption {
+      type = types.str;
       description = "Git user email";
     };
   };
@@ -15,11 +17,10 @@
   config = {
     programs.git = {
       enable = true;
-      userName = name;
-      userEmail = email;
+      userName = config.gitName;
+      userEmail = config.gitEmail;
     };
 
     home.packages = [ pkgs.gh ];
   };
 }
-

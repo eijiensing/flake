@@ -25,6 +25,9 @@
     homeDirectory = "/home/eiji";
   };
 
+  gitName = "eijiensing";
+  gitEmail = "eijitron@gmail.com";
+
 
   programs = {
 	  home-manager.enable = true;
