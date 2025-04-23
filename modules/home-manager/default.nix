@@ -9,5 +9,6 @@
     ./nix-index
     ./gtk
     ./teams
+    ./git
   ];
 }
