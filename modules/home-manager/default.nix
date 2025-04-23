@@ -8,5 +8,6 @@
     ./neovim
     ./nix-index
     ./gtk
+    ./teams
   ];
 }
