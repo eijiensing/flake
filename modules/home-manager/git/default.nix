@@ -20,7 +20,7 @@ with lib;
       userName = config.gitName;
       userEmail = config.gitEmail;
     };
-
-    home.packages = [ pkgs.gh ];
+  programs.gh.enable = true;
   };
+  
 }
