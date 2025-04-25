@@ -1,6 +1,6 @@
 local colorschemeName = nixCats('colorscheme')
 if not require('nixCatsUtils').isNixCats then
-  colorschemeName = 'onedark'
+  colorschemeName = 'gruvbox'
 end
 -- Could I lazy load on colorscheme with lze?
 -- sure. But I was going to call vim.cmd.colorscheme() during startup anyway
@@ -31,16 +31,15 @@ if nixCats('general.extra') then
   vim.g.loaded_netrwPlugin = 1
   require("oil").setup({
     default_file_explorer = true,
+    skip_confirm_for_simple_edits = true,
     view_options = {
       show_hidden = true
     },
     columns = {
       "icon",
-      "permissions",
-      "size",
-      -- "mtime",
     },
     keymaps = {
+      ["\\"] = { "actions.close", mode = "n" },
       ["g?"] = "actions.show_help",
       ["<CR>"] = "actions.select",
       ["<C-s>"] = "actions.select_vsplit",
@@ -60,7 +59,7 @@ if nixCats('general.extra') then
     },
   })
   vim.keymap.set("n", "-", "<cmd>Oil<CR>", { noremap = true, desc = 'Open Parent Directory' })
-  vim.keymap.set("n", "<leader>-", "<cmd>Oil .<CR>", { noremap = true, desc = 'Open nvim root directory' })
+  vim.keymap.set("n", "\\", "<cmd>Oil<CR>", { noremap = true, desc = 'Open nvim root directory' })
 end
 
 require('lze').load {

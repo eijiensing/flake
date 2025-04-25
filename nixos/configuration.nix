@@ -40,6 +40,15 @@
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
 
+fonts = {
+    packages = with pkgs; [
+          nerdfonts
+        ];
+    fontconfig = {
+      hinting.autohint = true;
+    };
+  };
+
   services.displayManager.ly ={
     enable = true;
   };

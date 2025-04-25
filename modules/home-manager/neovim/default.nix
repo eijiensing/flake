@@ -78,8 +78,9 @@
           # packageDefinitions of the package this was packaged with.
           # :help nixCats.flake.outputs.categoryDefinitions.scheme
           themer = with pkgs.vimPlugins;
-            (builtins.getAttr (categories.colorscheme or "onedark") {
+            (builtins.getAttr (categories.colorscheme or "gruvbox-material") {
                 # Theme switcher without creating a new category
+                "gruvbox-material" = gruvbox-material;
                 "onedark" = onedark-nvim;
                 "catppuccin" = catppuccin-nvim;
                 "catppuccin-mocha" = catppuccin-nvim;
@@ -259,7 +260,7 @@
           # OR see :help nixCats.flake.outputs.settings for all of the settings available
           wrapRc = true;
           configDirName = "nixCats-nvim";
-          # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+          # neovim-unwrapped = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.neovim;
           hosts.python3.enable = true;
           hosts.node.enable = true;
         };
@@ -284,7 +285,7 @@
           # you could also pass something else:
           # see :help nixCats
           themer = true;
-          colorscheme = "onedark";
+          colorscheme = "gruvbox-material";
         };
         extra = {
           # to keep the categories table from being filled with non category things that you want to pass
@@ -328,7 +329,7 @@
           # go = true; # <- disabled but you could enable it with override or module on install
           lspDebugMode = false;
           themer = true;
-          colorscheme = "catppuccin";
+          colorscheme = "gruvbox-material";
         };
         extra = {
           # nixCats.extra("path.to.val") will perform vim.tbl_get(nixCats.extra, "path" "to" "val")
