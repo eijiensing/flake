@@ -14,13 +14,15 @@ with lib;
     };
   };
 
-  config = {
-    programs.git = {
-      enable = true;
-      userName = config.gitName;
-      userEmail = config.gitEmail;
-    };
-  programs.gh.enable = true;
+ config = {
+  programs.git = {
+  enable = true;
+    userName = config.gitName;
+    userEmail = config.gitEmail;
+  };
+  programs.gh = {
+    enable = true;
+  };
   };
   
 }

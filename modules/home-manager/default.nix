@@ -10,5 +10,6 @@
     ./gtk
     ./teams
     ./git
+    ./helix
   ];
 }

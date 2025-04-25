@@ -1,6 +1,7 @@
 {
   description = "Your new nix config";
 
+
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
@@ -19,6 +20,9 @@
 
     # Ags
     ags.url = "github:Aylur/ags";
+    
+    # NixCats
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
   outputs = {
@@ -37,6 +41,16 @@
       "x86_64-darwin"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
+
+    pkgs = import inputs.nixpkgs {
+	    system = "x86_64-linux";
+	    config.allowUnfree = true;
+	  };
+
+    unstablePkgs = inputs.nixpkgs-unstable {
+	    system = "x86_64-linux";
+	    config.allowUnfree = true;
+	  };
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
@@ -55,8 +69,8 @@
 
     homeConfigurations = {
       "eiji@laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+      inherit pkgs;
+        extraSpecialArgs = {inherit inputs outputs unstablePkgs;};
         modules = [
           ./home-manager/home.nix
         ];
