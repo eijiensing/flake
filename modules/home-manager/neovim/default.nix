@@ -260,8 +260,8 @@
           # OR see :help nixCats.flake.outputs.settings for all of the settings available
           wrapRc = true;
           configDirName = "nixCats-nvim";
-          neovim-unwrapped = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.neovim-unwrapped;
-          hosts.python3.enable = true;
+        neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+        hosts.python3.enable = true;
           hosts.node.enable = true;
         };
         # enable the categories you want from categoryDefinitions

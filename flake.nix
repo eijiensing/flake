@@ -23,6 +23,7 @@
     
     # NixCats
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = {
