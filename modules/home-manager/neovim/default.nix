@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }: let
+{ unstablePkgs, config, lib, inputs, ... }: let
   utils = inputs.nixCats.utils; in {
   imports = [
     inputs.nixCats.homeModule
@@ -8,7 +8,7 @@
     # it will be the namespace for your options.
     nixCats = {
       enable = true;
-      nixpkgs_version = inputs.nixpkgs-unstable;
+      # nixpkgs_version = unstablePkgs;
       luaPath = "${./.}";
 
       packageNames = [ "nixCats" ];
@@ -59,7 +59,7 @@
           debug = with pkgs.vimPlugins; [
             nvim-nio
           ];
-          general = with pkgs.vimPlugins; {
+          general = with unstablePkgs.vimPlugins; {
             # you can make subcategories!!!
             # (always isnt a special name, just the one I chose for this subcategory)
             always = [
@@ -122,7 +122,7 @@
             lazydev-nvim
           ];
           general = {
-            blink = with pkgs.vimPlugins; [
+            blink = with unstablePkgs.vimPlugins; [
               luasnip
               cmp-cmdline
               blink-cmp
@@ -260,7 +260,7 @@
           # OR see :help nixCats.flake.outputs.settings for all of the settings available
           wrapRc = true;
           configDirName = "nixCats-nvim";
-          # neovim-unwrapped = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.neovim;
+          neovim-unwrapped = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.neovim-unwrapped;
           hosts.python3.enable = true;
           hosts.node.enable = true;
         };

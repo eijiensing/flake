@@ -37,20 +37,10 @@
       "aarch64-linux"
       "i686-linux"
       "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    pkgs = import inputs.nixpkgs {
-	    system = "x86_64-linux";
-	    config.allowUnfree = true;
-	  };
-
-    unstablePkgs = inputs.nixpkgs-unstable {
-	    system = "x86_64-linux";
-	    config.allowUnfree = true;
-	  };
+    unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
@@ -69,7 +59,7 @@
 
     homeConfigurations = {
       "eiji@laptop" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs unstablePkgs;};
         modules = [
           ./home-manager/home.nix
