@@ -56,7 +56,9 @@ function BatteryLevel() {
             <circularprogress
                 className="circular"
                 rounded
-                start-at={0.75}
+                start-at={bind(bat, "percentage").as(p => {
+                    return p && !isNaN(p) ? 1 - p : 0;
+                })}
                 value={bind(bat, "percentage")}
             >
                 <icon

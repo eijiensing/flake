@@ -3,7 +3,8 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      defaultMode = "locked";
+      default_mode = "locked";
+      default_layout = "compact";
     };
   };
 }
