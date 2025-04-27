@@ -1,26 +1,48 @@
 @use "sass:color";
 
-$bg: #212223;
 $fg: #f1f1f1;
 $accent: #378DF7;
 $radius: 7px;
 
+.circular {
+    background-color: $fg;
+    color: $accent;
+    font-size: 4px;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+.icon {
+  font-size: 12px;
+}
+
 window.Bar {
     border: none;
     box-shadow: none;
-    background-color: $bg;
     color: $fg;
     font-size: 1.1em;
     font-weight: bold;
 
-    label {
-        margin: 0 8px;
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+    }
+
+    .Time {
+        font-size: 20px;
+        font-family: "Noto Sans";
+        font-weight: bold;
     }
 
     .Workspaces  {
         button {
             all: unset;
             background-color: transparent;
+            min-width: 44px;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
 
             &:hover label {
                 background-color: color.adjust($fg, $alpha: -0.84);
@@ -34,36 +56,15 @@ window.Bar {
 
         label {
             transition: 200ms;
-            padding: 0 8px;
+            padding-top: 5px;
+            padding-bottom: 5px;
             margin: 2px;
             border-radius: $radius;
-            border: 1pt solid transparent;
         }
 
         .focused label {
-            color: $accent;
-            border-color: $accent;
+            background-color: $accent;
         }
-    }
-
-    .SysTray {
-        margin-right: 8px;
-
-        button {
-            padding: 0 4px;
-        }
-    }
-
-    .FocusedClient {
-        color: $accent;
-    }
-
-    .Media .Cover {
-        min-height: 1.2em;
-        min-width: 1.2em;
-        border-radius: $radius;
-        background-position: center;
-        background-size: contain;
     }
 
     .Battery label {

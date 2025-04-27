@@ -26,6 +26,10 @@
         workspace_swipe_distance = 200;
         workspace_swipe_forever = true;
       };
+      misc = {
+        disable_hyprland_logo=true;
+        disable_splash_rendering=true;
+      };
       decoration = {
         rounding = 8;
         active_opacity = 0.95;
@@ -66,22 +70,10 @@
         ];
 
         animation = [
-          # name, enable, speed, curve, style
-
-          # Windows
-          "windowsIn,   0, 4, easeOutCubic,  popin 20%" # window open
-          "windowsOut,  0, 4, fluent_decel,  popin 80%" # window close.
-          "windowsMove, 1, 2, fluent_decel, slide" # everything in between, moving, dragging, resizing.
-
-          # Fade
-          "fadeIn,      1, 3,   fade_curve" # fade in (open) -> layers and windows
-          "fadeOut,     1, 3,   fade_curve" # fade out (close) -> layers and windows
-          "fadeSwitch,  0, 1,   easeOutCirc" # fade on changing activewindow and its opacity
-          "fadeShadow,  1, 10,  easeOutCirc" # fade on changing activewindow for shadows
-          "fadeDim,     1, 4,   fluent_decel" # the easing of the dimming of inactive windows
-          # "border,      1, 2.7, easeOutCirc"  # for animating the border's color switch speed
-          # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
-          "workspaces,  1, 4,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
+          "windows,1,4,default,slide" # window open
+          "border,1,5,default" # fade in (open) -> layers and windows
+          "fade,1,5,default" # fade out (close) -> layers and windows
+          "workspaces,1,3,default" # fade on changing activewindow and its opacity
         ];
       };
 

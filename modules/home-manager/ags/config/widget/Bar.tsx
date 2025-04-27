@@ -28,7 +28,7 @@ function Wifi() {
     const network = Network.get_default()
     const wifi = bind(network, "wifi")
 
-    return <box visible={wifi.as(Boolean)}>
+    return <box vertical visible={wifi.as(Boolean)}>
         {wifi.as(wifi => wifi && (
             <icon
                 tooltipText={bind(wifi, "ssid").as(String)}
@@ -45,54 +45,33 @@ function AudioSlider() {
 
     return <box className="AudioSlider" css="min-width: 140px">
         <icon icon={bind(speaker, "volumeIcon")} />
-        <slider
-            hexpand
-            onDragged={({ value }) => speaker.volume = value}
-            value={bind(speaker, "volume")}
-        />
     </box>
 }
 
 function BatteryLevel() {
-    const bat = Battery.get_default()
-	return <box className="Battery"
-        visible={bind(bat, "isPresent")}> 
-	<icon icon={bind(bat, "batteryIconName")} />
-        <label label={bind(bat, "percentage").as(p =>
-            `${Math.floor(p * 100)} %`
-        )} />
-    </box>
-}
+    const bat = Battery.get_default();
 
-function Media() {
-    const mpris = Mpris.get_default()
-
-    return <box className="Media">
-        {bind(mpris, "players").as(ps => ps[0] ? (
-            <box>
-                <box
-                    className="Cover"
-                    valign={Gtk.Align.CENTER}
-                    css={bind(ps[0], "coverArt").as(cover =>
-                        `background-image: url('${cover}');`
-                    )}
+    return (
+        <box className="battery" vertical>
+            <circularprogress
+                className="circular"
+                rounded
+                start-at={0.75}
+                value={bind(bat, "percentage")}
+            >
+                <icon
+                    className="icon"
+                    icon={bind(bat, "battery-icon-name")}
                 />
-                <label
-                    label={bind(ps[0], "metadata").as(() =>
-                        `${ps[0].title} - ${ps[0].artist}`
-                    )}
-                />
-            </box>
-        ) : (
-            <label label="Nothing Playing" />
-        ))}
-    </box>
+            </circularprogress>
+        </box>
+    );
 }
 
 function Workspaces() {
     const hypr = Hyprland.get_default()
 
-    return <box className="Workspaces">
+    return <box vertical className="Workspaces">
         {bind(hypr, "workspaces").as(wss => wss
             .filter(ws => !(ws.id >= -99 && ws.id <= -2)) // filter out special workspaces
             .sort((a, b) => a.id - b.id)
@@ -108,53 +87,40 @@ function Workspaces() {
     </box>
 }
 
-function FocusedClient() {
-    const hypr = Hyprland.get_default()
-    const focused = bind(hypr, "focusedClient")
-
-    return <box
-        className="Focused"
-        visible={focused.as(Boolean)}>
-        {focused.as(client => (
-            client && <label label={bind(client, "title").as(String)} />
-        ))}
-    </box>
-}
-
-function Time({ format = "%H:%M - %A %e." }) {
+function Time() {
     const time = Variable<string>("").poll(1000, () =>
-        GLib.DateTime.new_now_local().format(format)!)
+        GLib.DateTime.new_now_local().format("%H\n%M")!)
 
     return <label
-        className="Time"
-        onDestroy={() => time.drop()}
-        label={time()}
-    />
+                className="Time"
+                onDestroy={() => time.drop()}
+                label={time()}
+            />
+
 }
 
 export default function Bar(monitor: Gdk.Monitor) {
-    const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
+    const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor
 
     return <window
         className="Bar"
         gdkmonitor={monitor}
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
-        anchor={TOP | LEFT | RIGHT}>
-        <centerbox>
-            <box hexpand halign={Gtk.Align.START}>
-                <Workspaces />
-                <FocusedClient />
-            </box>
-            <box>
-                <Media />
-            </box>
-            <box hexpand halign={Gtk.Align.END} >
-                <SysTray />
-                <Wifi />
-                <AudioSlider />
-                <BatteryLevel />
-                <Time />
-            </box>
-        </centerbox>
+        anchor={TOP | LEFT | BOTTOM}>
+        <centerbox vertical className="container"
+                start-widget={
+                  <box spacing={8} vertical halign={Gtk.Align.CENTER} hexpand={false}>
+                    <BatteryLevel/>
+                    <Workspaces/>
+                  </box>
+                }
+                end-widget={
+                <box spacing={8} valign={Gtk.Align.END} vertical halign={Gtk.Align.CENTER} hexpand={false}>
+                  <SysTray/>
+                  <Wifi/>
+                  <Time/>
+                </box>
+                }
+        />
     </window>
 }
