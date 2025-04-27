@@ -11,5 +11,6 @@
     ./teams
     ./git
     ./helix
+    ./zellij
   ];
 }

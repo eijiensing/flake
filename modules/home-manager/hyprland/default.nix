@@ -1,28 +1,35 @@
-{...}: {
+{ pkgs, ...}: {
+  home.packages = with pkgs; [
+    brightnessctl
+    wl-clipboard
+  ];
 
- wayland.windowManager.hyprland = {
- 	enable = true;
-       plugins = [
-       ];
-       systemd.variables = [ "--all" ];
-       settings = {
-         exec-once = [
-	   "systemctl --user start hyprpaper.service"
-	   "ags run"
-	 ];
-       	 
-         input = {
-           touchpad.natural_scroll = true;
-         };
-	 gestures = {
-          workspace_swipe = true;
-          workspace_swipe_distance = 200;
-          workspace_swipe_forever = true;
-        };
-	 decoration = {
-        rounding = 0;
-        active_opacity = 0.90;
-        inactive_opacity = 0.90;
+  wayland.windowManager.hyprland = {
+    enable = true;
+
+    plugins = [
+    ];
+
+    systemd.variables = [ "--all" ];
+
+    settings = {
+      exec-once = [
+        "systemctl --user start hyprpaper.service"
+        "ags run"
+      ];
+       
+      input = {
+        touchpad.natural_scroll = true;
+      };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_distance = 200;
+        workspace_swipe_forever = true;
+      };
+      decoration = {
+        rounding = 8;
+        active_opacity = 0.95;
+        inactive_opacity = 0.83;
         fullscreen_opacity = 1.0;
 
         blur = {
@@ -39,7 +46,6 @@
 
         shadow = {
           enabled = true;
-
           ignore_window = true;
           offset = "0 2";
           range = 20;
@@ -48,7 +54,7 @@
         };
       };
 
-      
+
       animations = {
         enabled = true;
 
@@ -78,6 +84,7 @@
           "workspaces,  1, 4,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
         ];
       };
+
       general = {
         "$mod" = "SUPER";
         "$terminal" = "alacritty";
@@ -91,37 +98,37 @@
         no_border_on_floating = false;
       };
 
-         monitor = ", preferred, 0x0, 1";
-         bind = [
-           "$mod, Q, exec, $terminal"
-           "$mod, C, killactive"
-           "$mod, V, togglefloating"
-           "$mod, F, fullscreen"
-           "$mod, B, exec, firefox"
-           "$mod, M, exit"
-           "$mod, H, movefocus, l"
-           "$mod, J, movefocus, d"
-           "$mod, K, movefocus, u"
-           "$mod, L, movefocus, r"
-	   ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-	   ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-	   ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-         ] ++ (
-       # workspaces
-       # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-       builtins.concatLists (builtins.genList (i:
-           let ws = i + 1;
-           in [
-             "$mod, code:1${toString i}, workspace, ${toString ws}"
-             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-           ]
-         )
-         9)
-     );
-     bindm = [
-          "$mod, mouse:272, movewindow"
-          "$mod, mouse:273, resizewindow"
-        ];
-		 };
- };
- }
+      monitor = ", preferred, 0x0, 1";
+      bind = [
+        "$mod, Q, exec, $terminal"
+        "$mod, C, killactive"
+        "$mod, V, togglefloating"
+        "$mod, F, fullscreen"
+        "$mod, B, exec, firefox"
+        "$mod, M, exit"
+        "$mod, H, movefocus, l"
+        "$mod, J, movefocus, d"
+        "$mod, K, movefocus, u"
+        "$mod, L, movefocus, r"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      ] ++ (
+      builtins.concatLists (builtins.genList (i:
+         let ws = i + 1;
+         in [
+           "$mod, code:1${toString i}, workspace, ${toString ws}"
+           "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+         ]
+       )
+       9)
+      );
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
+    };
+  };
+}
