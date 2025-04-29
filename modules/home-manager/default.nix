@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./wpgtk
     ./alacritty
     ./fish
     ./hyprland

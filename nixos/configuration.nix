@@ -39,6 +39,7 @@
   time.timeZone = "Europe/Amsterdam";
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
+  networking.networkmanager.waitOnline = false;
 
 fonts = {
     packages = with pkgs; [
