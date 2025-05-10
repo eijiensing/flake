@@ -6,33 +6,33 @@
   config = {
     nixCats = {
       enable = true;
-      nixpkgs_version = pkgs.unstable;
+      # nixpkgs_version = pkgs.unstable;
       luaPath = "${./.}";
 
       packageNames = [ "nixCats" ];
 
       categoryDefinitions.replace = { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
         lspsAndRuntimeDeps = {
-          general = with pkgs; [
+          general = with pkgs.unstable; [
             universal-ctags
             ripgrep
             fd
           ];
-          rust = with pkgs; [
+          rust = with pkgs.unstable; [
             rust-analyzer
             rustc
             cargo
           ];
           neonixdev = {
-            inherit (pkgs) nix-doc lua-language-server nixd;
+            inherit (pkgs.unstable) nix-doc lua-language-server nixd;
           };
         };
 
         startupPlugins = {
-          debug = with pkgs.vimPlugins; [
+          debug = with pkgs.unstable.vimPlugins; [
             nvim-nio
           ];
-          general = with pkgs.vimPlugins; {
+          general = with pkgs.unstable.vimPlugins; {
             always = [
               lze
               lzextras
@@ -47,46 +47,46 @@
         };
 
         optionalPlugins = {
-          debug = with pkgs.vimPlugins; {
+          debug = with pkgs.unstable.vimPlugins; {
             default = [
               nvim-dap
               nvim-dap-ui
               nvim-dap-virtual-text
             ];
           };
-          lint = with pkgs.vimPlugins; [
+          lint = with pkgs.unstable.vimPlugins; [
             nvim-lint
           ];
-          format = with pkgs.vimPlugins; [
+          format = with pkgs.unstable.vimPlugins; [
             conform-nvim
           ];
-          markdown = with pkgs.vimPlugins; [
+          markdown = with pkgs.unstable.vimPlugins; [
             markdown-preview-nvim
           ];
-          rust = with pkgs.vimPlugins; [
+          rust = with pkgs.unstable.vimPlugins; [
             rustaceanvim
           ];
-          neonixdev = with pkgs.vimPlugins; [
+          neonixdev = with pkgs.unstable.vimPlugins; [
             lazydev-nvim
           ];
           general = {
-            blink = with pkgs.vimPlugins; [
+            blink = with pkgs.unstable.vimPlugins; [
               luasnip
               cmp-cmdline
               blink-cmp
               blink-compat
               colorful-menu-nvim
             ];
-            treesitter = with pkgs.vimPlugins; [
+            treesitter = with pkgs.unstable.vimPlugins; [
               nvim-treesitter-textobjects
               nvim-treesitter.withAllGrammars
             ];
-            telescope = with pkgs.vimPlugins; [
+            telescope = with pkgs.unstable.vimPlugins; [
               telescope-fzf-native-nvim
               telescope-ui-select-nvim
               telescope-nvim
             ];
-            always = with pkgs.vimPlugins; [
+            always = with pkgs.unstable.vimPlugins; [
               nvim-lspconfig
               lualine-nvim
               gitsigns-nvim
@@ -95,7 +95,7 @@
               vim-rhubarb
               nvim-surround
             ];
-            extra = with pkgs.vimPlugins; [
+            extra = with pkgs.unstable.vimPlugins; [
               fidget-nvim
               which-key-nvim
               comment-nvim
@@ -148,7 +148,7 @@
         };
         extra = {
           nixdExtras = {
-            nixpkgs = ''import ${pkgs.path} {}'';
+            nixpkgs = ''import ${pkgs.unstable.path} {}'';
           };
         };
       };
