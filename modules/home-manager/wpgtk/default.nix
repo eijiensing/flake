@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [ wpgtk ];
     home.file.".config/wpg/wpg.conf".text = ''

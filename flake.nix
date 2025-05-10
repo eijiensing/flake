@@ -40,8 +40,6 @@
       "x86_64-linux"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
-
-    unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
@@ -61,7 +59,7 @@
     homeConfigurations = {
       "eiji@laptop" = home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs unstablePkgs;};
+        extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/home.nix
         ];

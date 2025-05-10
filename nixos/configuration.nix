@@ -39,7 +39,7 @@
   time.timeZone = "Europe/Amsterdam";
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
-  networking.networkmanager.waitOnline = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
 fonts = {
     packages = with pkgs; [
