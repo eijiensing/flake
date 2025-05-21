@@ -3,9 +3,9 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ (builtins.toString ./totoro.png) ];
+      preload = [ (builtins.toString ./fy_bnb.jpg) ];
       wallpaper = [
-        ", ${builtins.toString ./totoro.png}"
+        ", ${builtins.toString ./fy_bnb.jpg}"
       ];
     };
   };

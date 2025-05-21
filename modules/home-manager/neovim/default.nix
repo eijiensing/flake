@@ -42,6 +42,7 @@
               gruvbox-material
               oil-nvim
               nvim-web-devicons
+              rustaceanvim
             ];
           };
         };
