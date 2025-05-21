@@ -40,6 +40,7 @@
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
+  security.pam.services.hyprlock = {};
 
 fonts = {
     packages = with pkgs; [
