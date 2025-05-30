@@ -9,20 +9,33 @@
         bind -M insert \cy accept-autosuggestion
       end
 
-      function fish_mode_prompt
-        switch $fish_bind_mode
-          case insert
-            printf '\e[6 q'; # Beam (bar) cursor
-            echo -n '[I] '
-          case default
-            printf '\e[2 q'; # Block cursor
-            echo -n '[N] '
-          case visual
-            printf '\e[4 q'; # Underline cursor
-            echo -n '[V] '
-        end
+      function fish_greeting
+        echo Good afternoon, Mr. Fool~\n 
+      end
+      function fish_prompt -d "Write out the prompt"
+          printf '%s%s%s ' (prompt_pwd) (set_color normal) (fish_git_prompt)
       end
 
+      function fish_mode_prompt
+        switch $fish_bind_mode
+          case default
+            set_color --bold red
+            printf '%s ' $USER
+          case insert
+            set_color --bold green
+            printf '%s ' $USER
+          case replace_one
+            set_color --bold green
+            printf '%s ' $USER
+          case visual
+            set_color --bold brmagenta
+            printf '%s ' $USER
+          case '*'
+            set_color --bold red
+            printf '%s ' $USER
+        end
+        set_color normal
+      end
       '';
   };
 }
