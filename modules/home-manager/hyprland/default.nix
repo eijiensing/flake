@@ -18,6 +18,7 @@
       exec-once = [
         "systemctl --user start hyprpaper.service"
         "ags run"
+        "ags toggle launcher -i launcher"
       ];
        
       input = {
@@ -105,6 +106,7 @@
         "$mod, K, movefocus, u"
         "$mod, L, movefocus, r"
         "$mod, P, exec, hyprlock"
+        "$mod, R, exec, ags toggle launcher -i launcher"
         "$mod SHIFT, P, movecurrentworkspacetomonitor, +1"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

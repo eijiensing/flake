@@ -6,6 +6,7 @@
 		enable = true;
 		configDir = ./config;
 		extraPackages = with pkgs; [
+			inputs.ags.packages.${system}.apps
 			inputs.ags.packages.${system}.hyprland
 			inputs.ags.packages.${system}.mpris
 			inputs.ags.packages.${system}.battery

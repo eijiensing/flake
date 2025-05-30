@@ -11,7 +11,7 @@ import Tray from "gi://AstalTray"
 function SysTray() {
     const tray = Tray.get_default()
 
-    return <box className="SysTray">
+    return <box vertical className="SysTray">
         {bind(tray, "items").as(items => items.map(item => (
             <menubutton
                 tooltipMarkup={bind(item, "tooltipMarkup")}
