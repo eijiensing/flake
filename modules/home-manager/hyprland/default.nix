@@ -5,6 +5,7 @@
   ];
 
   wayland.windowManager.hyprland = {
+    xwayland.enable = true;
     enable = true;
 
     plugins = [
