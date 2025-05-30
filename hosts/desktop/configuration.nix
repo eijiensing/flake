@@ -34,17 +34,20 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+  hardware.graphics.enable = true;
+  hardware.nvidia.open = true;  # see the note above
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   time.timeZone = "Europe/Amsterdam";
-  networking.hostName = "laptop";
+  networking.hostName = "desktop";
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
   security.pam.services.hyprlock = {};
 
 fonts = {
     packages = with pkgs; [
-          nerdfonts
+          nerd-fonts.caskaydia-mono
         ];
     fontconfig = {
       hinting.autohint = true;
@@ -83,5 +86,5 @@ fonts = {
   services.upower.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system.stateVersion = "25.05";
 }

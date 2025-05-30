@@ -13,6 +13,7 @@
     systemd.variables = [ "--all" ];
 
     settings = {
+      
       exec-once = [
         "systemctl --user start hyprpaper.service"
         "ags run"
@@ -90,7 +91,7 @@
         no_border_on_floating = false;
       };
 
-      monitor = ", preferred, 0x0, 1";
+      monitor = ["DP-3, preferred, 0x0, 1" "HDMI-A-1,preferred, 1920x0, 1"];
       bind = [
         "$mod, Q, exec, $terminal"
         "$mod, C, killactive"
@@ -103,6 +104,7 @@
         "$mod, K, movefocus, u"
         "$mod, L, movefocus, r"
         "$mod, P, exec, hyprlock"
+        "$mod SHIFT, P, movecurrentworkspacetomonitor, +1"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
