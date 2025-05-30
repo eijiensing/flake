@@ -1,6 +1,5 @@
 {
-  description = "Your new nix config";
-
+  description = "My nix flake";
 
   inputs = {
     # Nixpkgs
@@ -52,12 +51,14 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/desktop/configuration.nix
+          self.nixosModules
         ];
       };
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/desktop/configuration.nix
+          self.nixosModules
         ];
       };
     };
@@ -67,14 +68,14 @@
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/desktop/configuration.nix
+          ./hosts/desktop/home.nix
         ];
       };
       "eiji@laptop" = home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/desktop/configuration.nix
+          ./hosts/desktop/home.nix
         ];
       };
     };
