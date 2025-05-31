@@ -5,6 +5,7 @@
     xdg.desktopEntries = {
         discord = {
             name = "Discord";
+            comment = "Video calls, text messaging, and media.";
             genericName = "Discord";
             exec = "discord";
             terminal = false;

@@ -89,6 +89,19 @@ function Workspaces() {
     </box>
 }
 
+
+function Date() {
+    const date = Variable<string>("").poll(1000, () =>
+        GLib.DateTime.new_now_local().format("%d/%m")!)
+
+    return <label
+                className="Date"
+                onDestroy={() => time.drop()}
+                label={date()}
+            />
+
+}
+
 function Time() {
     const time = Variable<string>("").poll(1000, () =>
         GLib.DateTime.new_now_local().format("%H\n%M")!)
@@ -121,6 +134,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                   <SysTray/>
                   <Wifi/>
                   <Time/>
+                  <Date/>
                 </box>
                 }
         />
