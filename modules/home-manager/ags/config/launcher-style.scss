@@ -1,0 +1,172 @@
+@use "sass:color";
+
+@use "sass:string";
+
+@function gtkalpha($c, $a) {
+    @return string.unquote("alpha(#{$c},#{$a})");
+}
+
+$fg: #f1f1f1;
+$bg: #515151;
+$accent: #378DF7;
+$radius: 7px;
+
+.circular {
+    background-color: $fg;
+    color: $accent;
+    font-size: 4px;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+.icon {
+  font-size: 12px;
+}
+
+window.Bar {
+    border: none;
+    box-shadow: none;
+    color: $fg;
+    font-size: 1.1em;
+    font-weight: bold;
+
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+    }
+
+    .Time {
+        font-size: 20px;
+        font-family: "Noto Sans";
+        font-weight: bold;
+    }
+
+    .Date {
+        color: $fg;
+        font-size: 11px;
+    }
+
+    .Workspaces  {
+      margin-top: 10px;
+
+        button {
+            all: unset;
+            background-color: transparent;
+            min-width: 44px;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+
+            &:hover label {
+                background-color: color.adjust($fg, $alpha: -0.84);
+                border-color: color.adjust($accent, $alpha: -0.8);
+            }
+
+            &:active label {
+                background-color: color.adjust($fg, $alpha: -0.8)
+            }
+        }
+
+        label {
+            transition: 200ms;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin: 2px;
+            border-radius: $radius;
+        }
+
+        .focused label {
+            background-color: $accent;
+        }
+    }
+
+    .Battery label {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .AudioSlider {
+        * {
+            all: unset;
+        }
+
+        icon {
+            margin-right: .6em;
+        }
+
+        & {
+            margin: 0 1em;
+        }
+
+        trough {
+            background-color: color.adjust($fg, $alpha: -0.8);
+            border-radius: $radius;
+        }
+
+        highlight {
+            background-color: $accent;
+            min-height: .8em;
+            border-radius: $radius;
+        }
+
+        slider {
+            background-color: $fg;
+            border-radius: $radius;
+            min-height: 1em;
+            min-width: 1em;
+            margin: -.2em;
+        }
+    }
+}
+
+
+window#launcher {
+    all: unset;
+
+    box.Applauncher {
+        background-color: $bg;
+        border-radius: 11px;
+        margin: 1rem;
+        padding: .8rem;
+        box-shadow: 2px 3px 8px 0 gtkalpha(black, .4);
+
+        entry {
+            margin-bottom: .8rem;
+        }
+
+        button {
+            min-width: 0;
+            min-height: 0;
+            padding: .5rem;
+
+            icon {
+                font-size: 3em;
+                margin-right: .3rem;
+            }
+
+            label.name {
+                font-weight: bold;
+                font-size: 1.1em
+            }
+
+            label.description {
+                color: gtkalpha($fg, .8);
+            }
+        }
+
+        box.not-found {
+            padding: 1rem;
+
+            icon {
+                font-size: 6em;
+                color: gtkalpha($fg, .7);
+            }
+
+            label {
+                color: gtkalpha($fg, .9);
+                font-size: 1.2em;
+            }
+        }
+    }
+}

@@ -17,7 +17,7 @@
       
       exec-once = [
         "systemctl --user start hyprpaper.service"
-        "ags run"
+        "ags run ~/.config/ags/bar.ts"
         "ags toggle launcher -i launcher"
       ];
        
