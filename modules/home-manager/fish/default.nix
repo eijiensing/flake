@@ -13,6 +13,7 @@
         echo Good afternoon, Mr. Fool~\n 
       end
       function fish_prompt -d "Write out the prompt"
+          set -g __fish_git_prompt_showdirtystate 1
           printf '%s%s%s ' (prompt_pwd) (set_color normal) (fish_git_prompt)
       end
 

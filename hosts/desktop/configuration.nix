@@ -37,6 +37,10 @@
   boot.kernelModules = [ "nvidia" ];
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  boot.loader.grub.extraConfig = ''
+    set os-prober=true
+  '';
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;

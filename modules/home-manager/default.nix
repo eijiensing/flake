@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./macchina
     ./discord
     ./hyprlock
     ./wpgtk
