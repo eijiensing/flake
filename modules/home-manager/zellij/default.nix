@@ -1,10 +1,10 @@
 {
   programs.zellij = {
     enable = true;
-    # enableFishIntegration = true;
     settings = {
+      pane.borderless=true;
       default_mode = "locked";
-      default_layout = "compact";
+      # default_layout = "compact";
     };
   };
 }
