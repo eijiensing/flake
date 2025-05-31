@@ -12,7 +12,7 @@ $accent: #378DF7;
 $radius: 7px;
 
 .circular {
-    background-color: $fg;
+    background-color: $bg;
     color: $accent;
     font-size: 4px;
     min-width: 30px;
@@ -36,19 +36,19 @@ window.Bar {
         padding-left: 10px;
     }
 
-    .Time {
+    .time {
         font-size: 20px;
         font-family: "Noto Sans";
         font-weight: bold;
     }
 
-    .Date {
+    .date {
         color: $fg;
         font-size: 11px;
     }
 
-    .Workspaces  {
-      margin-top: 10px;
+    .workspaces  {
+        margin-top: 10px;
 
         button {
             all: unset;
@@ -78,95 +78,6 @@ window.Bar {
 
         .focused label {
             background-color: $accent;
-        }
-    }
-
-    .Battery label {
-        padding-left: 0;
-        margin-left: 0;
-    }
-
-    .AudioSlider {
-        * {
-            all: unset;
-        }
-
-        icon {
-            margin-right: .6em;
-        }
-
-        & {
-            margin: 0 1em;
-        }
-
-        trough {
-            background-color: color.adjust($fg, $alpha: -0.8);
-            border-radius: $radius;
-        }
-
-        highlight {
-            background-color: $accent;
-            min-height: .8em;
-            border-radius: $radius;
-        }
-
-        slider {
-            background-color: $fg;
-            border-radius: $radius;
-            min-height: 1em;
-            min-width: 1em;
-            margin: -.2em;
-        }
-    }
-}
-
-
-window#launcher {
-    all: unset;
-
-    box.Applauncher {
-        background-color: $bg;
-        border-radius: 11px;
-        margin: 1rem;
-        padding: .8rem;
-        box-shadow: 2px 3px 8px 0 gtkalpha(black, .4);
-
-        entry {
-            margin-bottom: .8rem;
-        }
-
-        button {
-            min-width: 0;
-            min-height: 0;
-            padding: .5rem;
-
-            icon {
-                font-size: 3em;
-                margin-right: .3rem;
-            }
-
-            label.name {
-                font-weight: bold;
-                font-size: 1.1em
-            }
-
-            label.description {
-                color: gtkalpha($fg, .8);
-            }
-        }
-
-        box.not-found {
-            padding: 1rem;
-
-            icon {
-                font-size: 6em;
-                color: gtkalpha($fg, .7);
-            }
-
-            label {
-                color: gtkalpha($fg, .9);
-                font-size: 1.2em;
-            }
         }
     }
 }

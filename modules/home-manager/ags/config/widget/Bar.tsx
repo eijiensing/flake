@@ -40,12 +40,26 @@ function Wifi() {
 
 }
 
-function AudioSlider() {
+function Audio() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!
 
-    return <box className="AudioSlider" css="min-width: 140px">
-        <icon icon={bind(speaker, "volumeIcon")} />
-    </box>
+    return (
+        <box className="audio" vertical>
+            <circularprogress
+                className="circular"
+                rounded
+                start-at={-0.25}
+                end-at={0.75}
+                value={bind(speaker, "volume")}
+            >
+                <icon
+                    className="icon"
+                    tooltipText={bind(speaker, "volume").as(String)}
+                    icon={bind(speaker, "volumeIcon")}
+                />
+            </circularprogress>
+        </box>
+    );
 }
 
 function BatteryLevel() {
@@ -56,13 +70,13 @@ function BatteryLevel() {
             <circularprogress
                 className="circular"
                 rounded
-                start-at={bind(bat, "percentage").as(p => {
-                    return p && !isNaN(p) ? 1 - p : 0;
-                })}
-                value={bind(bat, "percentage")}
+                start-at={-0.25}
+                end-at={0.75}
+                value={bind(bat, "is-battery").as(Boolean) ? bind(bat, "percentage") : 1}
             >
                 <icon
                     className="icon"
+                    tooltipText={bind(bat, "percentage").as(String)}
                     icon={bind(bat, "battery-icon-name")}
                 />
             </circularprogress>
@@ -126,6 +140,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                 start-widget={
                   <box spacing={8} vertical halign={Gtk.Align.CENTER} hexpand={false}>
                     <BatteryLevel/>
+                    <Audio/>
                     <Workspaces/>
                   </box>
                 }
