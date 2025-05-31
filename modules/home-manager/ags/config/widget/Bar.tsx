@@ -11,7 +11,7 @@ import Tray from "gi://AstalTray"
 function SysTray() {
     const tray = Tray.get_default()
 
-    return <box vertical className="SysTray">
+    return <box vertical className="systray">
         {bind(tray, "items").as(items => items.map(item => (
             <menubutton
                 tooltipMarkup={bind(item, "tooltipMarkup")}
@@ -32,7 +32,7 @@ function Wifi() {
         {wifi.as(wifi => wifi && (
             <icon
                 tooltipText={bind(wifi, "ssid").as(String)}
-                className="Wifi"
+                className="wifi"
                 icon={bind(wifi, "iconName")}
             />
         ))}
@@ -87,7 +87,7 @@ function BatteryLevel() {
 function Workspaces() {
     const hypr = Hyprland.get_default()
 
-    return <box vertical className="Workspaces">
+    return <box vertical className="workspaces">
         {bind(hypr, "workspaces").as(wss => wss
             .filter(ws => !(ws.id >= -99 && ws.id <= -2)) // filter out special workspaces
             .sort((a, b) => a.id - b.id)
@@ -109,7 +109,7 @@ function Date() {
         GLib.DateTime.new_now_local().format("%d/%m")!)
 
     return <label
-                className="Date"
+                className="date"
                 onDestroy={() => time.drop()}
                 label={date()}
             />
@@ -132,7 +132,7 @@ export default function Bar(monitor: Gdk.Monitor) {
     const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor
 
     return <window
-        className="Bar"
+        className="bar"
         gdkmonitor={monitor}
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
         anchor={TOP | LEFT | BOTTOM}>
