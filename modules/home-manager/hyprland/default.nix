@@ -4,6 +4,8 @@
     wl-clipboard
   ];
 
+  home.file.".local/bin/app-launcher-toggle.sh".source = ./app-launcher-toggle.sh;
+
   wayland.windowManager.hyprland = {
     xwayland.enable = true;
     enable = true;
@@ -18,7 +20,6 @@
       exec-once = [
         "systemctl --user start hyprpaper.service"
         "ags run ~/.config/ags/bar.ts"
-        "ags toggle launcher -i launcher"
       ];
        
       input = {
@@ -93,7 +94,7 @@
         no_border_on_floating = false;
       };
 
-      monitor = ["DP-3, preferred, 0x0, 1" "HDMI-A-1,preferred, 1920x0, 1"];
+      monitor = ["HDMI-A-1, preferred, 1920x0, 1" "DP-3,preferred, 0x0, 1"];
       bind = [
         "$mod, Q, exec, $terminal"
         "$mod, C, killactive"
