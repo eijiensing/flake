@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./thunar
     ./macchina
     ./discord
     ./hyprlock

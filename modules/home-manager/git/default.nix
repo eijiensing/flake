@@ -1,15 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-{
+{ config, lib, ... }: {
   options = {
-    gitName = mkOption {
-      type = types.str;
+    gitName = lib.mkOption {
+      type = lib.types.str;
       description = "Git user name";
     };
-    gitEmail = mkOption {
-      type = types.str;
+    gitEmail = lib.mkOption {
+      type = lib.types.str;
       description = "Git user email";
     };
   };

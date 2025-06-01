@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.alacritty = {
     enable = true;
-    # package = pkgs.unstable.alacritty;
     settings = {
     font.normal.family = "CaskaydiaMono Nerd Font Mono";
     font.normal.style = "regular";

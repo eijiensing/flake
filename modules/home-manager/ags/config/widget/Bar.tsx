@@ -121,7 +121,7 @@ function Time() {
         GLib.DateTime.new_now_local().format("%H\n%M")!)
 
     return <label
-                className="Time"
+                className="time"
                 onDestroy={() => time.drop()}
                 label={time()}
             />
