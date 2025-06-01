@@ -84,6 +84,7 @@
       general = {
         "$mod" = "SUPER";
         "$terminal" = "alacritty";
+        "$file_browser" = "thunar";
         layout = "dwindle";
         gaps_in = 6;
         gaps_out = 12;
@@ -97,6 +98,7 @@
       monitor = ["HDMI-A-1, preferred, 1920x0, 1" "DP-3,preferred, 0x0, 1"];
       bind = [
         "$mod, Q, exec, $terminal"
+        "$mod, G, exec, $file_browser"
         "$mod, C, killactive"
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
