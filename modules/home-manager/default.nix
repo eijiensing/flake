@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./atlauncher
     ./thunar
     ./macchina
     ./discord

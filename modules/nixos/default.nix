@@ -1,5 +1,6 @@
 {
   imports = [
+    ./java
     ./rust
     ./steam
   ];
