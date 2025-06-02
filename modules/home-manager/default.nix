@@ -5,7 +5,6 @@
     ./thunar
     ./macchina
     ./discord
-    ./hyprlock
     ./wpgtk
     ./alacritty
     ./fish

@@ -6,12 +6,14 @@
     @return string.unquote("alpha(#{$c},#{$a})");
 }
 
-$fg: #f1f1f1;
-$bg: #515151;
-$accent: #378DF7;
+$fg: #fffffb;
+$bg: #9A9D9C;
+$accent: #81A8DE;
 $radius: 7px;
 
 .circular {
+    border: none;
+    border-image-width: 0px;
     background-color: $bg;
     color: $accent;
     font-size: 5px;
@@ -20,7 +22,8 @@ $radius: 7px;
 }
 
 .icon {
-  font-size: 15px;
+  color: $fg;
+  font-size: 13px;
 }
 
 window.bar {
@@ -34,6 +37,21 @@ window.bar {
         padding-top: 20px;
         padding-bottom: 20px;
         padding-left: 10px;
+    }
+
+    .sysbutton {
+        border-image: none;
+        background-image: none;
+        background-color: transparent;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        background-color: color.adjust($fg, $alpha: -0.84);
+        border-color: color.adjust($accent, $alpha: -0.8);
+    }
+
+
+    .sysbutton icon {
+        text-shadow: none;
     }
 
     .time {

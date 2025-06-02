@@ -95,7 +95,7 @@
         no_border_on_floating = false;
       };
 
-      monitor = ["HDMI-A-1, preferred, 1920x0, 1" "DP-3,preferred, 0x0, 1"];
+      monitor = ["HDMI-A-1, highrr, 1920x0, 1" "DP-3, highrr, 0x0, 1"];
       bind = [
         "$mod, Q, exec, $terminal"
         "$mod, G, exec, $file_browser"
@@ -108,7 +108,6 @@
         "$mod, J, movefocus, d"
         "$mod, K, movefocus, u"
         "$mod, L, movefocus, r"
-        "$mod, P, exec, hyprlock"
         "$mod, R, exec, ~/.local/bin/app-launcher-toggle.sh"
         "$mod SHIFT, P, movecurrentworkspacetomonitor, +1"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"

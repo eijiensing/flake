@@ -14,6 +14,7 @@ function SysTray() {
     return <box vertical className="systray">
         {bind(tray, "items").as(items => items.map(item => (
             <menubutton
+                className=""
                 tooltipMarkup={bind(item, "tooltipMarkup")}
                 usePopover={false}
                 actionGroup={bind(item, "actionGroup").as(ag => ["dbusmenu", ag])}
@@ -110,7 +111,7 @@ function Date() {
 
     return <label
                 className="date"
-                onDestroy={() => time.drop()}
+                onDestroy={() => date.drop()}
                 label={date()}
             />
 
