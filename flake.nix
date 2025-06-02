@@ -51,7 +51,7 @@
       laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/desktop/configuration.nix
+          ./hosts/laptop/configuration.nix
           self.nixosModules
         ];
       };
@@ -76,7 +76,7 @@
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/desktop/home.nix
+          ./hosts/laptop/home.nix
         ];
       };
     };
