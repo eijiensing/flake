@@ -20,6 +20,9 @@
           neonixdev = {
             inherit (pkgs) nix-doc lua-language-server nixd;
           };
+          typescript = {
+            inherit (pkgs) vtsls;
+          };
         };
 
         startupPlugins = {
@@ -136,6 +139,7 @@
           lint = true;
           format = true;
           neonixdev = true;
+          typescript = true;
           lspDebugMode = true;
           rust = true;
           colorscheme = "gruvbox-material";
