@@ -1,5 +1,8 @@
 {
   imports = [
+    ./ly
+    ./hyprland
+    ./fonts
     ./nix-ld
     ./java
     ./utils
