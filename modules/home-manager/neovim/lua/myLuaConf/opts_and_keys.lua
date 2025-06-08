@@ -3,7 +3,6 @@ vim.g.maplocalleader = ' '
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.hlsearch = true
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.opt.inccommand = 'split'
 vim.opt.scrolloff = 10
 vim.wo.number = true
@@ -47,6 +46,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.g.netrw_liststyle=0
 vim.g.netrw_banner=0
 
+
+vim.keymap.set("v", ">", ">gv", { desc = "Indent and reselect" })
+vim.keymap.set("v", "<", "<gv", { desc = "Outdent and reselect" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Moves Line Down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Moves Line Up' })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Scroll Down' })
