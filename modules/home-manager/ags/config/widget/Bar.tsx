@@ -14,7 +14,7 @@ function SysTray() {
     return <box vertical className="systray">
         {bind(tray, "items").as(items => items.map(item => (
             <menubutton
-                className=""
+                className="sysbutton"
                 tooltipMarkup={bind(item, "tooltipMarkup")}
                 usePopover={false}
                 actionGroup={bind(item, "actionGroup").as(ag => ["dbusmenu", ag])}
