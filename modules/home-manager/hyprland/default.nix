@@ -95,7 +95,7 @@
         no_border_on_floating = false;
       };
 
-      monitor = ["HDMI-A-1, highrr, 1920x0, 1" "DP-3, highrr, 0x0, 1"];
+      monitor = ["DP-3, highrr, 0x0, 1" "HDMI-A-1, highrr, 1920x0, 1"];
       bind = [
         "$mod, Q, exec, $terminal"
         "$mod, G, exec, $file_browser"
