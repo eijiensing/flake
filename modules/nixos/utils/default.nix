@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = [
     pkgs.unzip
+    pkgs.unrar
   ];
   services.upower.enable = true;
   time.timeZone = "Europe/Amsterdam";
