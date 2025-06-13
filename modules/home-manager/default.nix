@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./proton
     ./atlauncher
     ./thunar
     ./macchina
