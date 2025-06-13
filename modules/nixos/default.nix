@@ -1,7 +1,6 @@
 {
   imports = [
     ./ly
-    ./opengl
     ./hyprland
     ./fonts
     ./nix-ld
