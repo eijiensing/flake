@@ -13,6 +13,7 @@
 			inputs.ags.packages.${system}.wireplumber
 			inputs.ags.packages.${system}.tray
 			inputs.ags.packages.${system}.network
+			inputs.ags.packages.${system}.notifd
 			adwaita-icon-theme
 		];
 	};
