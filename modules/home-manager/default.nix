@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./lutris
     ./proton
     ./atlauncher
     ./thunar
