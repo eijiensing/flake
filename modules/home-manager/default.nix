@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./easyeffects
     ./lutris
     ./proton
     ./atlauncher
