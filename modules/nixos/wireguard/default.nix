@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: {
-    boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
-    environment.systemPackages = [ pkgs.wireguard pkgs.wireguard-tools ];
+{ pkgs, ... }: {
+    networking.wireguard = {
+        enable = true;
+    };
+    environment.systemPackages = with pkgs; [
+        wireguard-tools
+    ];
 }

@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./quickshell
     ./lutris
     ./proton
     ./atlauncher
