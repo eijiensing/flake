@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./clapper
     ./easyeffects
     ./lutris
     ./proton
