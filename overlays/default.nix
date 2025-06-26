@@ -9,9 +9,12 @@
   modifications = final: prev: {
     atlauncher = prev.atlauncher.overrideAttrs (old: rec {
       version = "3.4.40.1";
+      pname = "atlauncher";
 
       mitmCache = final.gradle.fetchDeps {
-        inherit (final.finalattrs) pname;
+        inherit (final);
+
+      pname = "atlauncher";
         data = ./deps.json;
       };
 
