@@ -47,10 +47,7 @@ require('lze').load {
   {
     "vtsls",
     enabled = nixCats('typescript') or false,
-    lsp = {
-      filetypes = { 'ts', 'tsx' },
-      settings = {},
-    },
+    lsp = {},
   },
   {
     "lua_ls",

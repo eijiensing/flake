@@ -14,8 +14,8 @@
       mitmCache = final.gradle.fetchDeps {
         inherit (final);
 
-      pname = "atlauncher";
-        data = ./deps.json;
+        pname = "atlauncher";
+        data = ./atlauncher_deps.json;
       };
 
       gradleFlags = [
