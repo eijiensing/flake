@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     brightnessctl
     wl-clipboard
+    playerctl
   ];
 
   home.file.".local/bin/app-launcher-toggle.sh".source = ./app-launcher-toggle.sh;
@@ -20,6 +21,8 @@
         "systemctl --user start hyprpaper.service"
         "ags run ~/.config/ags/bar.ts"
         "ags run ~/.config/ags/notifications.ts"
+        "[workspace name:code silent] $terminal"
+        "[workspace name:web silent] $browser"
       ];
        
       input = {
@@ -36,8 +39,8 @@
       };
       decoration = {
         rounding = 8;
-        active_opacity = 0.95;
-        inactive_opacity = 0.83;
+        active_opacity = 0.99;
+        inactive_opacity = 0.95;
         fullscreen_opacity = 1.0;
 
         blur = {
@@ -74,16 +77,19 @@
         ];
 
         animation = [
-          "windows,1,4,default,slide" # window open
-          "border,1,5,default" # fade in (open) -> layers and windows
-          "fade,1,5,default" # fade out (close) -> layers and windows
-          "workspaces,1,3,default" # fade on changing activewindow and its opacity
+          "windows,1,4,default,slide"
+          "border,1,5,default"
+          "fade,1,5,default"
+          "workspaces,1,3,default"
         ];
       };
+
+      workspace = ["name:code, monitor:DP-3" "name:web, monitor:HDMI-A-1"];
 
       general = {
         "$mod" = "SUPER";
         "$terminal" = "alacritty";
+        "$browser" = "alacritty";
         "$file_browser" = "thunar";
         layout = "dwindle";
         gaps_in = 6;
@@ -91,7 +97,6 @@
         border_size = 2;
         "col.active_border" = "rgb(81A8DE) rgb(8fb5eb) 45deg";
         "col.inactive_border" = "0x00000000";
-        # border_part_of_window = false;
         no_border_on_floating = false;
       };
 
@@ -102,14 +107,16 @@
         "$mod, C, killactive"
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
-        "$mod, B, exec, firefox"
+        "$mod, B, exec, $browser"
         "$mod, M, exit"
+        "$mod, A, workspace, name:code"
+        "$mod, S, workspace, name:web"
         "$mod, H, movefocus, l"
         "$mod, J, movefocus, d"
         "$mod, K, movefocus, u"
         "$mod, L, movefocus, r"
         "$mod, R, exec, ~/.local/bin/app-launcher-toggle.sh"
-        "$mod SHIFT, P, movecurrentworkspacetomonitor, +1"
+        "$mod, P, movecurrentworkspacetomonitor, +1"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
