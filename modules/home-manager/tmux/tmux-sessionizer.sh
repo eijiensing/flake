@@ -1,29 +1,29 @@
-#!/usr/bin/env bash
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
+#!/usr/bin/env fish
+if test (count $argv) -eq 1
+    set selected $argv[1]
 else
-    selected=$(find ~/projects ~/tests -mindepth 1 -maxdepth 1 -type d | fzf)
-fi
+    set selected (find ~/projects ~/tests -mindepth 1 -maxdepth 1 -type d | fzf)
+end
 
-if [[ -z $selected ]]; then
+if test -z "$selected"
     exit 0
-fi
+end
 
-selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
+set selected_name (basename "$selected" | tr . _)
+set tmux_running (pgrep tmux 2>/dev/null)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+if test -z "$TMUX"; and test -z "$tmux_running"
     tmux new-session -s $selected_name -c $selected
     exit 0
-fi
+end
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
+if not tmux has-session -t=$selected_name 2>/dev/null
     tmux new-session -ds $selected_name -c $selected
-fi
+end
 
-if [[ -z $TMUX ]]; then
+if test -z "$TMUX"
     tmux attach -t $selected_name
 else
     tmux switch-client -t $selected_name
-fi
+end

@@ -1,5 +1,8 @@
 {
-  home.".local/scripts/tmux-sessionizer.sh" = ./tmux-sessionizer.sh;
+  home.file.".local/scripts/tmux-sessionizer.fish"  = {
+    source = ./tmux-sessionizer.fish;
+    executable = true;
+  };
   programs.tmux = {
     enable = true;
   };
