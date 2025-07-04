@@ -1,5 +1,5 @@
-
 #!/usr/bin/env fish
+
 if test (count $argv) -eq 1
     set selected $argv[1]
 else
