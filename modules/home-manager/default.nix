@@ -21,6 +21,6 @@
     ./teams
     ./git
     ./helix
-    ./zellij
+    ./tmux
   ];
 }

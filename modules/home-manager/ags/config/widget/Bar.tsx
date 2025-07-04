@@ -85,30 +85,19 @@ function BatteryLevel() {
     );
 }
 
-function getWorkspaceSymbolFromName(name: string) {
-    switch (name) {
-        case "web":
-            return "🌐"
-        case "code":
-            return "💻"
-        default:
-            return name[0]
-    }
-}
-
 function Workspaces() {
     const hypr = Hyprland.get_default()
 
     return <box vertical className="workspaces">
         {bind(hypr, "workspaces").as(wss => wss
-            .filter(ws => !(ws.id >= -99 && ws.id <= -2)) // filter out special workspaces
+            .filter(ws => ws.id > 0)
             .sort((a, b) => a.id - b.id)
             .map(ws => (
                 <button
                     className={bind(hypr, "focusedWorkspace").as(fw =>
                         ws === fw ? "focused" : "")}
                     onClicked={() => ws.focus()}>
-                    {ws.name !== undefined ? getWorkspaceSymbolFromName(ws.name) : ws.id}
+                    {ws.id}
                 </button>
             ))
         )}

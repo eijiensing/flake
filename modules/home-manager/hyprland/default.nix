@@ -89,7 +89,7 @@
       general = {
         "$mod" = "SUPER";
         "$terminal" = "alacritty";
-        "$browser" = "alacritty";
+        "$browser" = "firefox";
         "$file_browser" = "thunar";
         layout = "dwindle";
         gaps_in = 6;
