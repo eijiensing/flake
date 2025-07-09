@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./hurl
     ./fzf
     ./transmission
     ./clapper
