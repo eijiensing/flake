@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./fzf
     ./transmission
     ./clapper
     ./easyeffects

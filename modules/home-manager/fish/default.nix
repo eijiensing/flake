@@ -1,50 +1,51 @@
 {...}: {
-  programs.fish = {
-    enable = true;
+programs.fish = {
+  enable = true;
 
-    shellInit = ''
-      set -g fish_key_bindings fish_vi_key_bindings
+  shellInit = ''
+    # 0. Use vi‑style keys
+    set -g fish_key_bindings fish_vi_key_bindings
 
-      function fish_user_key_bindings
+    # 1. Define *all* custom bindings here
+    function fish_user_key_bindings
+        # Keep the ↵ autosuggestion accept in insert mode
         bind -M insert \cy accept-autosuggestion
-      end
+        bind -M insert  \cf 'tmux-sessionizer.fish'
+        bind -M default \cf 'tmux-sessionizer.fish'
+    end
 
-      function fish_greeting
-        echo Good afternoon, Mr. Fool~\n 
-      end
-      function fish_prompt -d "Write out the prompt"
-          set -g __fish_git_prompt_showdirtystate 1
-          printf '%s%s%s ' (prompt_pwd) (set_color normal) (fish_git_prompt)
-      end
+    # 2. Misc prompt & helpers (unchanged)
+    function fish_greeting
+      echo Good afternoon, Mr. Fool~\n
+    end
 
-      function fish_mode_prompt
-        switch $fish_bind_mode
-          case default
-            set_color --bold red
-            printf '%s ' $USER
-          case insert
-            set_color --bold green
-            printf '%s ' $USER
-          case replace_one
-            set_color --bold green
-            printf '%s ' $USER
-          case visual
-            set_color --bold brmagenta
-            printf '%s ' $USER
-          case '*'
-            set_color --bold red
-            printf '%s ' $USER
-        end
-        set_color normal
-      end
+    function fish_prompt
+      set -g __fish_git_prompt_showdirtystate 1
+      printf '%s%s%s ' (prompt_pwd) (set_color normal) (fish_git_prompt)
+    end
 
-      function develop --wraps='nix develop'
-        env ANY_NIX_SHELL_PKGS=(basename (pwd))"#"(git describe --tags --dirty) (type -P nix) develop --command fish
+    function fish_mode_prompt
+      switch $fish_bind_mode
+        case default
+          set_color --bold red
+        case insert replace_one
+          set_color --bold green
+        case visual
+          set_color --bold brmagenta
+        case '*'
+          set_color --bold red
       end
+      printf '%s ' $USER
+      set_color normal
+    end
 
-      set PATH "$PATH":"$HOME/.local/scripts/"
-      bind \cf "tmux-sessionizer"
-      '';
-  };
+    function develop --wraps='nix develop'
+      env ANY_NIX_SHELL_PKGS=(basename (pwd))"#"(git describe --tags --dirty) (type -P nix) develop --command fish
+    end
+
+    # 3. Ensure the script directory is on PATH
+    fish_add_path -g $HOME/.local/scripts
+  '';
+};
 }
 

@@ -21,12 +21,11 @@
         "systemctl --user start hyprpaper.service"
         "ags run ~/.config/ags/bar.ts"
         "ags run ~/.config/ags/notifications.ts"
-        "[workspace name:code silent] $terminal"
-        "[workspace name:web silent] $browser"
       ];
        
       input = {
         touchpad.natural_scroll = true;
+        kb_options = ["caps:escape"];
       };
       gestures = {
         workspace_swipe = true;
@@ -84,8 +83,6 @@
         ];
       };
 
-      workspace = ["name:code, monitor:DP-3" "name:web, monitor:HDMI-A-1"];
-
       general = {
         "$mod" = "SUPER";
         "$terminal" = "alacritty";
@@ -109,8 +106,6 @@
         "$mod, F, fullscreen"
         "$mod, B, exec, $browser"
         "$mod, M, exit"
-        "$mod, A, workspace, name:code"
-        "$mod, S, workspace, name:web"
         "$mod, H, movefocus, l"
         "$mod, J, movefocus, d"
         "$mod, K, movefocus, u"
