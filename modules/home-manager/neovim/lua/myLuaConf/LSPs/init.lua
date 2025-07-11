@@ -50,6 +50,11 @@ require('lze').load {
     lsp = {},
   },
   {
+    "mrcjkb/rustaceanvim",
+    enabled = nixCats('rust') or false,
+    lsp = {},
+  },
+  {
     "lua_ls",
     enabled = nixCats('lua') or nixCats('neonixdev') or false,
     lsp = {
