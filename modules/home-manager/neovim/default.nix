@@ -26,9 +26,6 @@
         };
 
         startupPlugins = {
-          debug = with pkgs.vimPlugins; [
-            nvim-nio
-          ];
           general = with pkgs.vimPlugins; {
             always = [
               lze
@@ -44,13 +41,6 @@
         };
 
         optionalPlugins = {
-          debug = with pkgs.vimPlugins; {
-            default = [
-              nvim-dap
-              nvim-dap-ui
-              nvim-dap-virtual-text
-            ];
-          };
           lint = with pkgs.vimPlugins; [
             nvim-lint
           ];
@@ -102,22 +92,6 @@
             ];
           };
         };
-
-        python3.libraries = {
-          test = (_:[]);
-        };
-        extraLuaPackages = {
-          general = [ (_:[]) ];
-        };
-
-        extraCats = {
-          test = [
-            [ "test" "default" ]
-          ];
-          debug = [
-            [ "debug" "default" ]
-          ];
-        };
       };
 
 
@@ -130,8 +104,6 @@
           aliases = [ "nvim" ];
           wrapRc = true;
           configDirName = "nixCats-nvim";
-          hosts.python3.enable = true;
-          hosts.node.enable = true;
         };
         categories = {
           markdown = true;

@@ -1,1 +1,1 @@
-require('myLuaConf')
+require('luaConfig')

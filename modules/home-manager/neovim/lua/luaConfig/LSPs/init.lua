@@ -27,7 +27,7 @@ require('lze').load {
     end,
     before = function(_)
       vim.lsp.config('*', {
-        on_attach = require('myLuaConf.LSPs.on_attach'),
+        on_attach = require('luaConfig.LSPs.on_attach'),
       })
     end,
   },
@@ -47,11 +47,6 @@ require('lze').load {
   {
     "vtsls",
     enabled = nixCats('typescript') or false,
-    lsp = {},
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    enabled = nixCats('rust') or false,
     lsp = {},
   },
   {
