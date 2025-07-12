@@ -1,10 +1,4 @@
-local colorschemeName = nixCats('colorscheme')
-if not require('nixCatsUtils').isNixCats then
-  colorschemeName = 'gruvbox'
-end
--- Could I lazy load on colorscheme with lze?
--- sure. But I was going to call vim.cmd.colorscheme() during startup anyway
--- this is just an example, feel free to do a better job!
+local colorschemeName = "gruvbox-material"
 vim.cmd.colorscheme(colorschemeName)
 
 local ok, notify = pcall(require, "notify")
@@ -40,22 +34,22 @@ if nixCats('general.extra') then
     },
     keymaps = {
       ["\\"] = { "actions.close", mode = "n" },
-      ["g?"] = "actions.show_help",
-      ["<CR>"] = "actions.select",
-      ["<C-s>"] = "actions.select_vsplit",
-      ["<C-h>"] = "actions.select_split",
-      ["<C-t>"] = "actions.select_tab",
-      ["<C-p>"] = "actions.preview",
-      ["<C-c>"] = "actions.close",
-      ["<C-l>"] = "actions.refresh",
-      ["-"] = "actions.parent",
-      ["_"] = "actions.open_cwd",
-      ["`"] = "actions.cd",
-      ["~"] = "actions.tcd",
-      ["gs"] = "actions.change_sort",
-      ["gx"] = "actions.open_external",
-      ["g."] = "actions.toggle_hidden",
-      ["g\\"] = "actions.toggle_trash",
+      -- ["g?"] = "actions.show_help",
+      -- ["<CR>"] = "actions.select",
+      -- ["<C-s>"] = "actions.select_vsplit",
+      -- ["<C-h>"] = "actions.select_split",
+      -- ["<C-t>"] = "actions.select_tab",
+      -- ["<C-p>"] = "actions.preview",
+      -- ["<C-c>"] = "actions.close",
+      -- ["<C-l>"] = "actions.refresh",
+      -- ["-"] = "actions.parent",
+      -- ["_"] = "actions.open_cwd",
+      -- ["`"] = "actions.cd",
+      -- ["~"] = "actions.tcd",
+      -- ["gs"] = "actions.change_sort",
+      -- ["gx"] = "actions.open_external",
+      -- ["g."] = "actions.toggle_hidden",
+      -- ["g\\"] = "actions.toggle_trash",
     },
   })
   vim.keymap.set("n", "-", "<cmd>Oil<CR>", { noremap = true, desc = 'Open Parent Directory' })
@@ -119,16 +113,6 @@ require('lze').load {
     -- keys = "",
     after = function(plugin)
       require('nvim-surround').setup()
-    end,
-  },
-  {
-    "vim-startuptime",
-    for_cat = 'general.extra',
-    cmd = { "StartupTime" },
-    before = function(_)
-      vim.g.startuptime_event_width = 0
-      vim.g.startuptime_tries = 10
-      vim.g.startuptime_exe_path = nixCats.packageBinPath
     end,
   },
   {

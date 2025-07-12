@@ -114,7 +114,6 @@
           typescript = true;
           lspDebugMode = true;
           rust = true;
-          colorscheme = "gruvbox-material";
         };
         extra = {
           nixdExtras = {
