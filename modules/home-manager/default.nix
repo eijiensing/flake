@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./flameshot
     ./hurl
     ./fzf
     ./transmission
