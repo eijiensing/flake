@@ -1,7 +1,7 @@
 {
   imports = [
     ./ags
-    ./flameshot
+    ./screenshot
     ./hurl
     ./fzf
     ./transmission
