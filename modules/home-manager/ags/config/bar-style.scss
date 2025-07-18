@@ -30,7 +30,6 @@ window.bar {
     border: none;
     box-shadow: none;
     color: $fg;
-    background-color: color.adjust($bg, $alpha: -0.84);
     font-size: 1.1em;
     font-weight: bold;
 

@@ -1,6 +1,8 @@
 {
   imports = [
     ./ags
+    ./quickshell
+    ./firefox
     ./screenshot
     ./hurl
     ./fzf

@@ -19,6 +19,12 @@
 
     # Ags
     ags.url = "github:Aylur/ags";
+
+    # Quickshell
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     # NixCats
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
