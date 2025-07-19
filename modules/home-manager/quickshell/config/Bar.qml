@@ -16,10 +16,8 @@ Scope {
       anchors {
         top: true
         left: true
-        right: true
+        bottom: true
       }
-
-      implicitHeight: 30
 
       Text {
         anchors.centerIn: parent
