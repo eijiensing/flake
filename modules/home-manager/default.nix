@@ -21,7 +21,7 @@
     ./hyprland
     ./hyprpaper
     ./neovim
-    ./nix-index
+    # ./nix-index
     ./gtk
     ./teams
     ./git

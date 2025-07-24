@@ -2,6 +2,7 @@
   environment.systemPackages = [
     pkgs.unzip
     pkgs.unrar
+    pkgs.p7zip
     pkgs.htop
   ];
   services.upower.enable = true;
