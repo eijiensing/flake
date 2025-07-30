@@ -30,12 +30,14 @@
             always = [
               lze
               lzextras
-              vim-repeat
+              # vim-repeat
               plenary-nvim
-              nvim-notify
+              # nvim-notify
               gruvbox-material
               oil-nvim
               nvim-web-devicons
+              indent-blankline-nvim
+              comment-nvim
             ];
           };
         };
@@ -58,7 +60,7 @@
           ];
           general = {
             blink = with pkgs.vimPlugins; [
-              luasnip
+              # luasnip
               cmp-cmdline
               blink-cmp
               blink-compat
@@ -75,20 +77,19 @@
             ];
             always = with pkgs.vimPlugins; [
               nvim-lspconfig
-              lualine-nvim
+              # lualine-nvim
               gitsigns-nvim
               vim-sleuth
-              vim-fugitive
-              vim-rhubarb
-              nvim-surround
+              # vim-fugitive
+              # vim-rhubarb
+              # nvim-surround
             ];
             extra = with pkgs.vimPlugins; [
-              fidget-nvim
+              # fidget-nvim
               which-key-nvim
-              comment-nvim
-              undotree
-              indent-blankline-nvim
-              vim-startuptime
+              # comment-nvim
+              # undotree
+              # vim-startuptime
             ];
           };
         };
@@ -112,8 +113,8 @@
           format = true;
           neonixdev = true;
           typescript = true;
-          lspDebugMode = true;
           rust = true;
+          extra = true;
         };
         extra = {
           nixdExtras = {

@@ -1,6 +1,7 @@
 {
   imports = [
     ./ags
+    ./krita
     ./quickshell
     ./firefox
     ./screenshot

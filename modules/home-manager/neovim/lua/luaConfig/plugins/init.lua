@@ -2,19 +2,6 @@ local colorschemeName = "gruvbox-material"
 vim.g.gruvbox_material_background = "hard"
 vim.cmd.colorscheme(colorschemeName)
 
-local ok, notify = pcall(require, "notify")
-if ok then
-  notify.setup({
-    on_open = function(win)
-      vim.api.nvim_win_set_config(win, { focusable = false })
-    end,
-  })
-  vim.notify = notify
-  vim.keymap.set("n", "<Esc>", function()
-    notify.dismiss({ silent = true, })
-    vim.cmd("nohlsearch")
-  end, { desc = "dismiss notify popup and clear hlsearch" })
-end
 -- NOTE: you can check if you included the category with the thing wherever you want.
 if nixCats('general.extra') then
   -- I didnt want to bother with lazy loading this.
@@ -66,16 +53,6 @@ require('lze').load {
     end,
   },
   {
-    "undotree",
-    for_cat = 'general.extra',
-    cmd = { "UndotreeToggle", "UndotreeHide", "UndotreeShow", "UndotreeFocus", "UndotreePersistUndo", },
-    keys = { { "<leader>U", "<cmd>UndotreeToggle<CR>", mode = { "n" }, desc = "Undo Tree" }, },
-    before = function(_)
-      vim.g.undotree_WindowLayout = 1
-      vim.g.undotree_SplitWidth = 40
-    end,
-  },
-  {
     "comment.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",
@@ -89,24 +66,6 @@ require('lze').load {
     event = "DeferredUIEnter",
     after = function(plugin)
       require("ibl").setup()
-    end,
-  },
-  {
-    "nvim-surround",
-    for_cat = 'general.always',
-    event = "DeferredUIEnter",
-    -- keys = "",
-    after = function(plugin)
-      require('nvim-surround').setup()
-    end,
-  },
-  {
-    "fidget.nvim",
-    for_cat = 'general.extra',
-    event = "DeferredUIEnter",
-    -- keys = "",
-    after = function(plugin)
-      require('fidget').setup({})
     end,
   },
   -- {
@@ -123,41 +82,6 @@ require('lze').load {
   --     vim.cmd([[hi link @lsp.type.parameter Hlargs]])
   --   end,
   -- },
-  {
-    "lualine.nvim",
-    for_cat = 'general.always',
-    -- cmd = { "" },
-    event = "DeferredUIEnter",
-    -- ft = "",
-    -- keys = "",
-    -- colorscheme = "",
-    after = function (plugin)
-
-      require('lualine').setup({
-        options = {
-          icons_enabled = false,
-          theme = colorschemeName,
-          component_separators = '|',
-          section_separators = '',
-        },
-        sections = {
-          lualine_c = {
-            {
-              'filename', path = 1, status = true,
-            },
-          },
-        },
-        inactive_sections = {
-          lualine_b = {
-            {
-              'filename', path = 3, status = true,
-            },
-          },
-          lualine_x = {'filetype'},
-        },
-      })
-    end,
-  },
   {
     "gitsigns.nvim",
     for_cat = 'general.always',
