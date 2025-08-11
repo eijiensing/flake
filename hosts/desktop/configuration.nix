@@ -9,7 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/nvidia
-    ../../modules/nixos/wireguard
   ];
 
   nixpkgs = {

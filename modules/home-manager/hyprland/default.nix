@@ -97,6 +97,11 @@
         no_border_on_floating = false;
       };
 
+      device = {
+        name = "ugtablet-deco-01-stylus";
+        output = "DP-3";
+      };
+
       monitor = ["DP-3, highrr, 0x0, 1" "HDMI-A-1, highrr, 1920x0, 1"];
       bind = [
         "$mod, Q, exec, $terminal"
