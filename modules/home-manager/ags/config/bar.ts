@@ -1,4 +1,4 @@
-import { App } from "astal/gtk3"
+import { App } from "ags/gtk3"
 import style from "./bar-style.scss"
 import Bar from "./widget/Bar"
 import Applauncher from "./widget/Applauncher"

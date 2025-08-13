@@ -19,7 +19,7 @@
     settings = {
       exec-once = [
         "systemctl --user start hyprpaper.service"
-        "ags run ~/.config/ags/bar.ts"
+        "quickshell"
         "ags run ~/.config/ags/notifications.ts"
       ];
        
