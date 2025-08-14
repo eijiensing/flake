@@ -32,7 +32,6 @@ require('lze').load {
   { import = "luaConfig.plugins.telescope", },
   { import = "luaConfig.plugins.treesitter", },
   { import = "luaConfig.plugins.completion", },
-  { import = "luaConfig.plugins.rustaceanvim", },
   {
     "markdown-preview.nvim",
     -- NOTE: for_cat is a custom handler that just sets enabled value for us,

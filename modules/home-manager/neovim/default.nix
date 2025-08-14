@@ -23,6 +23,9 @@
           typescript = {
             inherit (pkgs) vtsls;
           };
+          rust = {
+            inherit (pkgs) vtsls;
+          };
         };
 
         startupPlugins = {
@@ -30,9 +33,7 @@
             always = [
               lze
               lzextras
-              # vim-repeat
               plenary-nvim
-              # nvim-notify
               gruvbox-material
               oil-nvim
               nvim-web-devicons
@@ -52,15 +53,11 @@
           markdown = with pkgs.vimPlugins; [
             markdown-preview-nvim
           ];
-          rust = with pkgs.vimPlugins; [
-            rustaceanvim
-          ];
           neonixdev = with pkgs.vimPlugins; [
             lazydev-nvim
           ];
           general = {
             blink = with pkgs.vimPlugins; [
-              # luasnip
               cmp-cmdline
               blink-cmp
               blink-compat
@@ -77,19 +74,11 @@
             ];
             always = with pkgs.vimPlugins; [
               nvim-lspconfig
-              # lualine-nvim
               gitsigns-nvim
               vim-sleuth
-              # vim-fugitive
-              # vim-rhubarb
-              # nvim-surround
             ];
             extra = with pkgs.vimPlugins; [
-              # fidget-nvim
               which-key-nvim
-              # comment-nvim
-              # undotree
-              # vim-startuptime
             ];
           };
         };

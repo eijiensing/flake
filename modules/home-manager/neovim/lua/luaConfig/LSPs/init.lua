@@ -45,6 +45,11 @@ require('lze').load {
     end,
   },
   {
+    "rust-analyzer",
+    enabled = nixCats('rust') or false,
+    lsp = {},
+  },
+  {
     "vtsls",
     enabled = nixCats('typescript') or false,
     lsp = {},
