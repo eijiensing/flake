@@ -34,7 +34,7 @@ map("n", "grf", vim.lsp.buf.format)
 map("n", "grd", vim.diagnostic.open_float)
 map("n", "gd", vim.lsp.buf.definition)
 
-vim.lsp.enable({ "lua_ls", "vtsls", "rust_analyzer" })
+vim.lsp.enable({ "lua_ls", "vtsls", "rust_analyzer", "qmlls" })
 
 -- colors
 vim.g.gruvbox_material_background = "hard"
