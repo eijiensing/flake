@@ -1,0 +1,217 @@
+12:56:40.420 [ATL-Logging-Thread] INFO  - Organising filesystem
+
+12:56:40.422 [ATL-Logging-Thread] INFO  - ATLauncher Version: 3.4.38.2 [b6f3b1ac61b9be9f3d4573d01dc291077f7ad130]
+
+12:56:40.422 [ATL-Logging-Thread] INFO  - App Arguments: ["--working-dir","**USERSDIR**","--no-launcher-update"]
+
+12:56:40.423 [ATL-Logging-Thread] INFO  - JVM Arguments: []
+
+12:56:40.434 [ATL-Logging-Thread] INFO  - Java Version: Java 21 (21.0.7)
+
+12:56:40.436 [ATL-Logging-Thread] INFO  - Java Path: /nix/store/qagnl38l96xcbx17ll0v9zswhcl1nqw6-openjdk-21.0.7+6/lib/openjdk
+
+12:56:40.438 [ATL-Logging-Thread] INFO  - 64 Bit Java: true
+
+12:56:40.439 [ATL-Logging-Thread] INFO  - RAM Available: 32020MB
+
+12:56:40.440 [ATL-Logging-Thread] INFO  - Launcher Directory: **USERSDIR**
+
+12:56:40.477 [ATL-Logging-Thread] INFO  - GPU: TU116 [GeForce GTX 1660 SUPER] (NVIDIA Corporation (0x10de)) unknown 288MB VRAM
+
+12:56:40.573 [ATL-Logging-Thread] INFO  - CPU: AMD Ryzen 7 5700X 8-Core Processor 8 cores/16 threads
+
+12:56:40.573 [ATL-Logging-Thread] INFO  - Operating System: NixOS (25.05 (Warbler) build 6.12.41)
+
+12:56:40.575 [ATL-Logging-Thread] INFO  - Bitness: 64
+
+12:56:40.576 [ATL-Logging-Thread] INFO  - Uptime: 325
+
+12:56:40.577 [ATL-Logging-Thread] INFO  - Manufacturer: GNU/Linux
+
+12:56:40.578 [ATL-Logging-Thread] INFO  - Showing splash screen and loading everything
+
+12:56:40.579 [ATL-Logging-Thread] INFO  - Checking for updated files!
+
+12:56:46.082 [ATL-Logging-Thread] ERROR - Exception loading accounts
+
+12:56:46.083 [ATL-Logging-Thread] ERROR - java.lang.NullPointerException: Cannot invoke "com.google.gson.JsonElement.getAsString()" because the return value of "com.google.gson.JsonObject.get(String)" is null
+
+12:56:46.085 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.data.AccountTypeAdapter.deserialize(AccountTypeAdapter.java:46)
+
+12:56:46.087 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.data.AccountTypeAdapter.deserialize(AccountTypeAdapter.java:30)
+
+12:56:46.087 [ATL-Logging-Thread] ERROR - 	at com.google.gson.internal.bind.TreeTypeAdapter.read(TreeTypeAdapter.java:76)
+
+12:56:46.089 [ATL-Logging-Thread] ERROR - 	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+
+12:56:46.090 [ATL-Logging-Thread] ERROR - 	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:82)
+
+12:56:46.091 [ATL-Logging-Thread] ERROR - 	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:61)
+
+12:56:46.091 [ATL-Logging-Thread] ERROR - 	at com.google.gson.Gson.fromJson(Gson.java:1227)
+
+12:56:46.092 [ATL-Logging-Thread] ERROR - 	at com.google.gson.Gson.fromJson(Gson.java:1137)
+
+12:56:46.095 [ATL-Logging-Thread] ERROR - 	at com.google.gson.Gson.fromJson(Gson.java:1107)
+
+12:56:46.096 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.managers.AccountManager.loadAccounts(AccountManager.java:106)
+
+12:56:46.097 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.Launcher.loadEverything(Launcher.java:132)
+
+12:56:46.099 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.App.main(App.java:363)
+
+12:56:46.100 [ATL-Logging-Thread] ERROR - java.lang.NullPointerException: Cannot invoke "com.google.gson.JsonElement.getAsString()" because the return value of "com.google.gson.JsonObject.get(String)" is null
+	at com.atlauncher.data.AccountTypeAdapter.deserialize(AccountTypeAdapter.java:46)
+	at com.atlauncher.data.AccountTypeAdapter.deserialize(AccountTypeAdapter.java:30)
+	at com.google.gson.internal.bind.TreeTypeAdapter.read(TreeTypeAdapter.java:76)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:82)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:61)
+	at com.google.gson.Gson.fromJson(Gson.java:1227)
+	at com.google.gson.Gson.fromJson(Gson.java:1137)
+	at com.google.gson.Gson.fromJson(Gson.java:1107)
+	at com.atlauncher.managers.AccountManager.loadAccounts(AccountManager.java:106)
+	at com.atlauncher.Launcher.loadEverything(Launcher.java:132)
+	at com.atlauncher.App.main(App.java:363)
+
+12:56:46.171 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+12:56:46.171 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+12:56:46.172 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+12:56:46.172 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+12:56:46.175 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+12:56:46.176 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+12:56:46.177 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+12:56:46.178 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+12:56:46.179 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+12:56:46.179 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+12:56:46.228 [ATL-Logging-Thread] INFO  - Launcher finished loading everything
+
+12:56:46.244 [ATL-Logging-Thread] INFO  - Launcher opening
+
+12:56:46.245 [ATL-Logging-Thread] INFO  - Made By Bob*
+
+12:56:46.245 [ATL-Logging-Thread] INFO  - *(Not Actually)
+
+12:56:46.249 [ATL-Logging-Thread] INFO  - Setting up Bottom Bar
+
+12:56:46.278 [ATL-Logging-Thread] INFO  - Finished Setting up Bottom Bar
+
+12:56:46.278 [ATL-Logging-Thread] INFO  - Setting up Tabs
+
+12:56:46.468 [ATL-Logging-Thread] INFO  - Finished Setting up Tabs
+
+12:56:46.475 [ATL-Logging-Thread] INFO  - Showing Launcher
+
+12:56:50.110 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+12:56:50.110 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+12:56:50.111 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+12:56:50.111 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+12:56:50.111 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+12:56:50.111 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+12:56:50.111 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+12:56:50.111 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+12:56:50.112 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+12:56:50.112 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+12:58:14.632 [ATL-Logging-Thread] INFO  - Added Microsoft Account Afrodos
+
+12:58:14.634 [ATL-Logging-Thread] INFO  - Changed account to Afrodos
+
+12:58:14.642 [ATL-Logging-Thread] INFO  - Downloading skin for Afrodos
+
+12:58:23.703 [ATL-Logging-Thread] INFO  - Started install of GT New Horizons version GT-New-Horizons-2.7.4
+
+12:58:27.762 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+12:58:27.762 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+12:58:27.763 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+12:58:27.763 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+12:58:27.764 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+12:58:27.765 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+12:58:27.765 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+12:58:27.766 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+12:58:27.766 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+12:58:27.766 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+12:58:27.766 [ATL-Logging-Thread] ERROR - java.lang.Exception: Failed to find loader version for 10.13.4.1614
+
+12:58:27.766 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForgeManifest(InstanceInstaller.java:665)
+
+12:58:27.767 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForge(InstanceInstaller.java:1012)
+
+12:58:27.767 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:326)
+
+12:58:27.767 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+
+12:58:27.767 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+
+12:58:27.767 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+
+12:58:27.767 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+
+12:58:27.768 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+12:58:27.768 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+12:58:27.768 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+12:58:27.768 [ATL-Logging-Thread] ERROR - java.lang.Exception: Failed to find loader version for 10.13.4.1614
+	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForgeManifest(InstanceInstaller.java:665)
+	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForge(InstanceInstaller.java:1012)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:326)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
