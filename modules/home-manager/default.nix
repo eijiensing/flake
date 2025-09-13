@@ -1,7 +1,7 @@
 {
   imports = [
-    ./ags
 		./obsidian
+		./rofi
     ./vscode
     ./krita
     ./quickshell
