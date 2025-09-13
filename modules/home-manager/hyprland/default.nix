@@ -5,8 +5,6 @@
     playerctl
   ];
 
-  home.file.".local/bin/app-launcher-toggle.sh".source = ./app-launcher-toggle.sh;
-
   wayland.windowManager.hyprland = {
     xwayland.enable = true;
     enable = true;
@@ -20,7 +18,6 @@
       exec-once = [
         "systemctl --user start hyprpaper.service"
         "quickshell"
-        "ags run ~/.config/ags/notifications.ts"
       ];
        
       input = {
@@ -115,7 +112,7 @@
         "$mod, J, movefocus, d"
         "$mod, K, movefocus, u"
         "$mod, L, movefocus, r"
-        "$mod, R, global, quickshell:sidebarLeftToggle"
+        "$mod, R, exec, rofi -show drun"
         "$mod, P, movecurrentworkspacetomonitor, +1"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
