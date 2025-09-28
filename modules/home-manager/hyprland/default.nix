@@ -35,9 +35,6 @@
       };
       decoration = {
         rounding = 8;
-        active_opacity = 0.99;
-        inactive_opacity = 0.95;
-        fullscreen_opacity = 1.0;
 
         blur = {
           enabled = true;
@@ -104,6 +101,7 @@
         "$mod, Q, exec, $terminal"
         "$mod, G, exec, $file_browser"
         "$mod, C, killactive"
+        "$mod, SHIFT, C, exec, ~/.config/hypr/center_all.fish"
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
         "$mod, B, exec, $browser"
@@ -113,6 +111,7 @@
         "$mod, K, movefocus, u"
         "$mod, L, movefocus, r"
         "$mod, R, exec, rofi -show drun"
+        "$mod, E, global, quickshell:sidebarToggle"
         "$mod, P, movecurrentworkspacetomonitor, +1"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

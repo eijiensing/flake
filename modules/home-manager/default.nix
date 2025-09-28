@@ -1,6 +1,7 @@
 {
   imports = [
 		./obsidian
+		./jq
 		./rofi
     ./vscode
     ./krita
