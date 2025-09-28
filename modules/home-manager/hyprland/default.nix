@@ -5,6 +5,8 @@
     playerctl
   ];
 
+	home.file.".local/bin/center_all.fish".source = ./center_all.fish;
+
   wayland.windowManager.hyprland = {
     xwayland.enable = true;
     enable = true;
@@ -101,7 +103,6 @@
         "$mod, Q, exec, $terminal"
         "$mod, G, exec, $file_browser"
         "$mod, C, killactive"
-        "$mod, SHIFT, C, exec, ~/.config/hypr/center_all.fish"
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
         "$mod, B, exec, $browser"
@@ -113,6 +114,7 @@
         "$mod, R, exec, rofi -show drun"
         "$mod, E, global, quickshell:sidebarToggle"
         "$mod, P, movecurrentworkspacetomonitor, +1"
+        "SUPER_SHIFT, C, exec, ~/.local/bin/center_all.fish"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
