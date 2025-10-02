@@ -1,6 +1,7 @@
 {
   imports = [
 		./obsidian
+		./postman
 		./jq
 		./rofi
     ./vscode
