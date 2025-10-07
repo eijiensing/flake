@@ -3,6 +3,7 @@
 		./obsidian
 		./postman
 		./jq
+		./yt-dlp
 		./rofi
     ./vscode
     ./krita
