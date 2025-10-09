@@ -24,7 +24,7 @@ programs.fish = {
 
 				# Nix shell indicator
 				if set -q IN_NIX_SHELL
-						set nix_indicator "(nix)"
+						set nix_indicator " (nix)"
 				else
 						set nix_indicator ""
 				end
