@@ -2,6 +2,7 @@
   imports = [
 		./obsidian
 		./postman
+		./pgadmin
 		./jq
 		./yt-dlp
 		./rofi
