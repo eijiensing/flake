@@ -1,5 +1,5 @@
 { pkgs, ... }: {
 	home.packages = with pkgs; [
-	  pgadmin4
+	  pgadmin4-desktopmode
 	];
 }

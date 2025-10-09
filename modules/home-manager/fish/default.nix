@@ -19,10 +19,18 @@ programs.fish = {
       echo Good afternoon, Mr. Fool~\n
     end
 
-    function fish_prompt
-      set -g __fish_git_prompt_showdirtystate 1
-      printf '%s%s%s ' (prompt_pwd) (set_color normal) (fish_git_prompt)
-    end
+		function fish_prompt
+				set -g __fish_git_prompt_showdirtystate 1
+
+				# Nix shell indicator
+				if set -q IN_NIX_SHELL
+						set nix_indicator "(nix)"
+				else
+						set nix_indicator ""
+				end
+
+				printf '%s%s%s%s ' (prompt_pwd) $nix_indicator (set_color normal) (fish_git_prompt)
+		end
 
     function fish_mode_prompt
       switch $fish_bind_mode
@@ -39,9 +47,32 @@ programs.fish = {
       set_color normal
     end
 
-    function develop --wraps='nix develop'
-      env ANY_NIX_SHELL_PKGS=(basename (pwd))"#"(git describe --tags --dirty) (type -P nix) develop --command fish
+    function dev --wraps='nix develop'
+				nix develop --command fish
     end
+
+		function hm --wraps=home-manager --description "home-manager switch --flake . (shortcut)"
+				home-manager switch --flake . $argv
+		end
+
+		function nr --wraps=nixos-rebuild --description "nixos-rebuild switch --flake . (shortcut)"
+				if test (id -u) -ne 0
+						sudo nixos-rebuild switch --flake . $argv
+				else
+						nixos-rebuild switch --flake . $argv
+				end
+		end
+
+		function cd --wraps=cd --description 'Change directory and auto-enter nix develop if flake.nix is found'
+				builtin cd $argv
+
+				if test $status -eq 0
+						if test -f flake.nix
+								echo "flake.nix detected → entering nix develop..."
+								nix develop --command fish
+						end
+				end
+		end
 
     # 3. Ensure the script directory is on PATH
     fish_add_path -g $HOME/.local/scripts
