@@ -11,6 +11,10 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 
+vim.diagnostic.config({
+	severity_sort = true
+})
+
 local map = vim.keymap.set
 vim.g.mapleader = " "
 
