@@ -68,8 +68,10 @@ programs.fish = {
 
 				if test $status -eq 0
 						if test -f flake.nix
-								echo "flake.nix detected → entering nix develop..."
-								nix develop --command fish
+							if command nix flake show --json . 2>/dev/null | command jq -e '.devShell != null and (.devShell|length > 0)' >/dev/null 2>&1
+									echo "flake.nix with dev shell detected → entering nix develop..."
+									nix develop --command fish
+							end
 						end
 				end
 		end
