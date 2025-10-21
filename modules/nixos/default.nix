@@ -1,6 +1,7 @@
 {
   imports = [
     ./ly
+		./thunar
     ./hyprland
     ./fonts
     ./nix-ld

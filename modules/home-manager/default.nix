@@ -20,7 +20,6 @@
     ./lutris
     ./proton
     ./atlauncher
-    ./thunar
     ./macchina
     ./discord
     ./wpgtk
