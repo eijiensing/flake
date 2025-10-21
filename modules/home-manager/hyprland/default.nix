@@ -20,6 +20,7 @@
       exec-once = [
         "systemctl --user start hyprpaper.service"
         "quickshell"
+				"hyprctl dispatch workspace 1"
       ];
        
       input = {
@@ -98,6 +99,7 @@
         output = "DP-3";
       };
 
+			workspace=["1,monitor:DP-3" "2,monitor:HDMI-A-1"];
       monitor = ["DP-3, highrr, 0x0, 1" "HDMI-A-1, highrr, 1920x0, 1"];
       bind = [
         "$mod, Q, exec, $terminal"
