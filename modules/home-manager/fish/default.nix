@@ -63,19 +63,6 @@ programs.fish = {
 				end
 		end
 
-		function cd --wraps=cd --description 'Change directory and auto-enter nix develop if flake.nix is found'
-				builtin cd $argv
-
-				if test $status -eq 0
-						if test -f flake.nix
-							if command nix flake show --json . 2>/dev/null | command jq -e '.devShell != null and (.devShell|length > 0)' >/dev/null 2>&1
-									echo "flake.nix with dev shell detected → entering nix develop..."
-									nix develop --command fish
-							end
-						end
-				end
-		end
-
     # 3. Ensure the script directory is on PATH
     fish_add_path -g $HOME/.local/scripts
   '';

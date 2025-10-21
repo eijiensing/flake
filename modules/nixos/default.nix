@@ -6,7 +6,7 @@
     ./nix-ld
     ./java
     ./utils
-    ./rust
+    # ./rust
     ./steam
   ];
 }

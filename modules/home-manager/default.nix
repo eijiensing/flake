@@ -1,6 +1,7 @@
 {
   imports = [
 		./obsidian
+		./audacity
 		./postman
 		./pgadmin
 		./jq
