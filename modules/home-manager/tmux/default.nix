@@ -1,10 +1,7 @@
 {
-  home.file.".local/scripts/tmux-sessionizer.fish"  = {
-    source = ./tmux-sessionizer.fish;
-    executable = true;
-  };
   programs.tmux = {
     enable = true;
+		terminal = "screen-256color";
     keyMode = "vi";
     escapeTime = 0;
   };

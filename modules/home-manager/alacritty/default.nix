@@ -12,5 +12,14 @@
       };
     };
   };
+  xdg.desktopEntries.alacritty = {
+    name = "Alacritty";
+    comment = "GPU-accelerated terminal emulator";
+    exec = "alacritty %F";
+    icon = "alacritty";
+    type = "Application";
+    categories = [ "System" "TerminalEmulator" "Utility" ];
+    noDisplay = false;
+  };
 }
 
