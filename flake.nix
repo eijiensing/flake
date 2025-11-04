@@ -16,9 +16,12 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-
-    # Ags
-    ags.url = "github:Aylur/ags";
+		
+		# Envoluntary 
+		envoluntary = {
+      url = "github:dfrankland/envoluntary";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Quickshell
     quickshell = {

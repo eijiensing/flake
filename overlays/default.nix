@@ -18,4 +18,6 @@
       config.allowUnfree = true;
     };
   };
+
+	envoluntary = final: prev: inputs.envoluntary.overlays.default final prev;
 }
