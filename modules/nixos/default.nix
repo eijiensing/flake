@@ -2,6 +2,7 @@
   imports = [
     ./ly
 		./thunar
+		./envoluntary
     ./hyprland
     ./fonts
     ./nix-ld

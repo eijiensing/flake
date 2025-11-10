@@ -24,22 +24,19 @@ vim.pack.add({
 	{ src = "https://github.com/echasnovski/mini.pick" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/mason-org/mason.nvim" },
 })
 
-require("mason").setup()
 require("mini.pick").setup()
 require("oil").setup({ keymaps = { ["\\"] = "actions.close" } })
 
-
+map("v", ">", ">gv")
+map("v", "<", "<gv")
 map("n", "\\", ":Oil<CR>")
 map("n", "<leader>f", ":Pick files<CR>")
 map("n", "<leader>g", ":Pick grep_live<CR>")
 map("n", "grf", vim.lsp.buf.format)
 map("n", "grd", vim.diagnostic.open_float)
 map("n", "gd", vim.lsp.buf.definition)
-map("v", ">", ">gv")
-map("v", "<", "<gv")
 
 vim.lsp.enable({ "lua_ls", "vtsls", "rust_analyzer", "qmlls" })
 

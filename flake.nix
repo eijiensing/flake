@@ -17,20 +17,13 @@
       inputs.hyprland.follows = "hyprland";
     };
 		
-		# Envoluntary 
-		envoluntary = {
-      url = "github:dfrankland/envoluntary";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Quickshell
     quickshell = {
       url = "github:quickshell-mirror/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    # NixCats
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+		# Neovim
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
