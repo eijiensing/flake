@@ -8,7 +8,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/nvidia
+    ../../modules/nixos/amd
   ];
 
   nixpkgs = {
@@ -36,6 +36,12 @@
       extraGroups = ["wheel" "networkmanager" "audio"];
     };
   };
+
+
+	fileSystems."/mnt/data" = {
+		device = "/dev/sdb1";
+		fsType = "ext4";
+	};
 
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
