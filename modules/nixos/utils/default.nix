@@ -4,6 +4,8 @@
     pkgs.unrar
     pkgs.p7zip
     pkgs.htop
+    pkgs.nvtopPackages.amd
+    pkgs.nvtopPackages.nvidia
   ];
   services.upower.enable = true;
   time.timeZone = "Europe/Amsterdam";
