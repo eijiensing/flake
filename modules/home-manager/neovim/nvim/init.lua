@@ -21,24 +21,23 @@ vim.g.mapleader = " "
 vim.pack.add({
 	{ src = "https://github.com/sainnhe/gruvbox-material" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
-	{ src = "https://github.com/echasnovski/mini.pick" },
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
-require("mini.pick").setup()
 require("oil").setup({ keymaps = { ["\\"] = "actions.close" } })
 
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 map("n", "\\", ":Oil<CR>")
-map("n", "<leader>f", ":Pick files<CR>")
-map("n", "<leader>g", ":Pick grep_live<CR>")
+map("n", "<leader>f", ":FzfLua files<CR>")
+map("n", "<leader>g", ":FzfLua live_grep<CR>")
 map("n", "grf", vim.lsp.buf.format)
 map("n", "grd", vim.diagnostic.open_float)
 map("n", "gd", vim.lsp.buf.definition)
 
-vim.lsp.enable({ "lua_ls", "vtsls", "rust_analyzer", "qmlls" })
+vim.lsp.enable({ "lua_ls", "vtsls", "rust_analyzer", "qmlls", "nixd" })
 
 -- colors
 vim.g.gruvbox_material_background = "hard"

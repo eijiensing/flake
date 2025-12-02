@@ -3,11 +3,11 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland
@@ -19,8 +19,8 @@
 		
     # Quickshell
     quickshell = {
-      url = "github:quickshell-mirror/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:quickshell-mirror/quickshell?rev=e9bad67619ee9937a1bbecfc6ad3b4231d2ecdc3";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     
 		# Neovim

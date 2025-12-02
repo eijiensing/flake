@@ -13,8 +13,10 @@
 	config = {
 		programs.git = {
 			enable = true;
-			userName = config.gitName;
-			userEmail = config.gitEmail;
+			settings = {
+				user.email = config.gitEmail;
+				user.name = config.gitName;
+			};
 		};
 		programs.gh = {
 			enable = true;
