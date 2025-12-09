@@ -55,11 +55,6 @@
 					touchpad.natural_scroll = true;
 					kb_options = ["caps:escape"];
 				};
-				gestures = {
-					workspace_swipe = true;
-					workspace_swipe_distance = 200;
-					workspace_swipe_forever = true;
-				};
 				misc = {
 					disable_hyprland_logo=true;
 					disable_splash_rendering=true;
