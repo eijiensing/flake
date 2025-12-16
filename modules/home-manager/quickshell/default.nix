@@ -2,7 +2,7 @@
   # home.file.".config/quickshell".source = ./config;
 	qt = {
 		enable = true;
-		platformTheme.name = "kde";
+		platformTheme.name = "org.kde.desktop";
 	};
   home.packages = [
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default

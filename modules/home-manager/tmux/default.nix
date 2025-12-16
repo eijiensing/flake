@@ -1,8 +1,9 @@
 {
   programs.tmux = {
     enable = true;
-		terminal = "screen-256color";
+		terminal = "tmux-256color";
     keyMode = "vi";
     escapeTime = 0;
+		extraConfig = "set -ag terminal-overrides \",xterm-256color:RGB\"";
   };
 }
