@@ -1,11 +1,12 @@
-{ ... }: {
+{ inputs, pkgs, ... }: {
   home.file.".config/quickshell".source = ./config;
 	qt = {
 		enable = true;
 		# platformTheme.name = "org.kde.desktop";
 	};
-  # home.packages = [
-  #   inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+  home.packages = [
+    inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+	];
   # pkgs.unstable.kdePackages.kdialog
   # pkgs.unstable.kdePackages.kirigami
   # pkgs.unstable.kdePackages.kirigami-addons
