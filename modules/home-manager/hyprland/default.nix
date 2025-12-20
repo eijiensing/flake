@@ -60,7 +60,7 @@
 					disable_splash_rendering=true;
 				};
 				decoration = {
-					rounding = 8;
+					rounding = 16;
 
 					blur = {
 						enabled = true;
@@ -110,7 +110,7 @@
 					"$file_browser" = "thunar";
 					layout = "dwindle";
 					gaps_in = 4;
-					gaps_out = 4;
+					gaps_out = 8;
 					border_size = 2;
 					"col.active_border" = "rgb(81A8DE) rgb(8fb5eb) 45deg";
 					"col.inactive_border" = "0x00000000";

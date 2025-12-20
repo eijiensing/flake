@@ -1,5 +1,12 @@
+import QtQuick
+import QtQuick.Window
 import Quickshell
+import Quickshell.Io
+import Quickshell.Hyprland
 
-Scope {
-  Bar {}
+ShellRoot {
+    id: root
+    // LazyLoader { identifier: "iiSidebarLeft"; component: SidebarLeft {} }
+			VerticalBar {} 
 }
+
