@@ -28,7 +28,10 @@ Scope {
                 Rectangle {
                     anchors.fill: parent
                     color: bgColor
+
+										VerticalBarContent {}
                 }
+
             }
             PanelWindow {
                 screen: modelData
