@@ -1,39 +1,62 @@
 // VerticalBarContent.qml
 import QtQuick
 import QtQuick.Layouts
+import Quickshell
 
 Item {
     anchors.fill: parent
+
+		property var textColor: "#978d74"
+
+    SystemClock {
+        id: clock
+        precision: SystemClock.Minutes
+    }
 
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
 
-        // ─────────────────────────────
         // Top section
-        // ─────────────────────────────
         ColumnLayout {
+						Layout.topMargin: 12
             Layout.fillWidth: true
         }
 
-        // ─────────────────────────────
         // Middle section (fills space)
-        // ─────────────────────────────
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
 
-        // ─────────────────────────────
-        // Bottom section
-        // ─────────────────────────────
+        // Bottom section (clock)
         ColumnLayout {
+						Layout.bottomMargin: 12
             Layout.fillWidth: true
+            spacing: 0
 
             Text {
-                text: Qt.formatTime(new Date(), "HH:mm")
-                horizontalAlignment: Text.AlignHCenter
+								color: textColor 
                 Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: Qt.formatDateTime(clock.date, "HH")
+                font.pixelSize: 16
+            }
+
+            Text {
+								color: textColor 
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: Qt.formatDateTime(clock.date, "mm")
+                font.pixelSize: 16
+            }
+
+            Text {
+								color: textColor 
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: Qt.formatDateTime(clock.date, "dd/MM")
+                font.pixelSize: 8
             }
         }
     }
