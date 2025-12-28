@@ -49,6 +49,7 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "mm")
                 font.pixelSize: 16
+								Layout.bottomMargin: 6
             }
 
             Text {
@@ -58,6 +59,17 @@ Item {
                 text: Qt.formatDateTime(clock.date, "dd/MM")
                 font.pixelSize: 8
             }
+						Text {
+								color: textColor
+								Layout.fillWidth: true
+								horizontalAlignment: Text.AlignHCenter
+								font.pixelSize: 8
+
+								text: {
+										const youbi = ["日", "月", "火", "水", "木", "金", "土"]
+										return youbi[clock.date.getDay()] + "曜日"
+								}
+						}
         }
     }
 }
