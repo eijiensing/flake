@@ -1,8 +1,5 @@
 { pkgs, ... }: {
   environment.systemPackages = [
-    pkgs.unzip
-    pkgs.unrar
-    pkgs.p7zip
     pkgs.htop
     pkgs.nvtopPackages.amd
     pkgs.nvtopPackages.nvidia
