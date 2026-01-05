@@ -1,5 +1,6 @@
 {
   imports = [
+		./android-studio
 		./obsidian
 		./extraction
 		./dotnet
