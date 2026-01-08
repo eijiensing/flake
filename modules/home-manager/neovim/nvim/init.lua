@@ -28,12 +28,24 @@ vim.pack.add({
 
 require("oil").setup({ keymaps = { ["\\"] = "actions.close" } })
 
+require("fzf-lua").setup({
+  grep = {
+    rg_opts = table.concat({
+      "--column",
+      "--line-number",
+      "--no-heading",
+      "--color=always",
+      "--smart-case",
+      "--hidden",
+    }, " "),
+  },
+})
+
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 map("n", "\\", ":Oil<CR>")
-map("n", "<leader>f", ":FzfLua git_files<CR>")
-map("n", "<leader>F", ":FzfLua files<CR>")
-map("n", "<leader>g", ":FzfLua live_grep<CR>")
+map("n", "<leader>f", ":FzfLua files<CR>")
+map("n", "<leader>g", ":FzfLua grep_project<CR>")
 map("n", "grf", vim.lsp.buf.format)
 map("n", "grd", vim.diagnostic.open_float)
 map("n", "gd", ":FzfLua lsp_definitions<CR>")

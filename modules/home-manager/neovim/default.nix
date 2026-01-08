@@ -3,6 +3,7 @@
 	home.packages = [
 		pkgs.nixd
 		pkgs.lua-language-server
+		pkgs.ripgrep
 	];
   programs.neovim = {
     enable = true;
