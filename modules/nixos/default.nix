@@ -1,6 +1,7 @@
 {
   imports = [
     ./ly
+		./flatpak
 		./thunar
     ./hyprland
     ./fonts
