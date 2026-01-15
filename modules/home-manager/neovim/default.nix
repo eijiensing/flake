@@ -2,6 +2,7 @@
   home.file.".config/nvim/init.lua".source = ./nvim/init.lua;
 	home.packages = [
 		pkgs.nixd
+		pkgs.nixfmt
 		pkgs.lua-language-server
 		pkgs.ripgrep
 	];

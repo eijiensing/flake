@@ -1,14 +1,14 @@
 {
   imports = [
-    ./ly
 		./flatpak
 		./thunar
-    ./hyprland
     ./fonts
-    ./nix-ld
+    ./hyprland
     ./java
-    ./utils
-    # ./rust
+    ./ly
+    ./nix-ld
+    ./rust
     ./steam
+    ./utils
   ];
 }

@@ -1,41 +1,41 @@
 {
   imports = [
 		./android-studio
-		./obsidian
-		./extraction
-		./dotnet
 		./audacity
-		./postman
-		./pgadmin
+		./dotnet
+		./extraction
 		./jq
-		./yt-dlp
+		./obsidian
+		./pgadmin
+		./postman
 		./rofi
-    ./vscode
-    ./krita
-    ./quickshell
-    ./firefox
-    ./screenshot
-    ./hurl
-    ./fzf
-    ./transmission
-    ./clapper
-    ./easyeffects
-    ./lutris
-    ./proton
-    ./atlauncher
-    ./macchina
-    ./discord
-    ./wpgtk
+		./yt-dlp
+    # ./nix-index
     ./alacritty
+    ./atlauncher
+    ./clapper
+    ./discord
+    ./easyeffects
+    ./firefox
     ./fish
+    ./fzf
+    ./git
+    ./gtk
+    ./helix
+    ./hurl
     ./hyprland
     ./hyprpaper
+    ./krita
+    ./lutris
+    ./macchina
     ./neovim
-    # ./nix-index
-    ./gtk
+    ./proton
+    ./quickshell
+    ./screenshot
     ./teams
-    ./git
-    ./helix
     ./tmux
+    ./transmission
+    ./vscode
+    ./wpgtk
   ];
 }

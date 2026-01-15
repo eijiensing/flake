@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    rustup
-    clang
+    cargo
+    rustc
+    rust-analyzer
+    rustfmt
   ];
 }
