@@ -16,6 +16,7 @@
 			settings = {
 				user.email = config.gitEmail;
 				user.name = config.gitName;
+				init.defaultBranch = "main";
 			};
 		};
 		programs.gh = {
