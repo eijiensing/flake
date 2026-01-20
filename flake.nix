@@ -48,17 +48,24 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/laptop/configuration.nix
-          self.nixosModules
-        ];
-      };
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/desktop/configuration.nix
+          self.nixosModules
+        ];
+      };
+      laptop-home = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/laptop-home/configuration.nix
+          self.nixosModules
+        ];
+      };
+      laptop-work = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/laptop-work/configuration.nix
           self.nixosModules
         ];
       };
@@ -72,11 +79,18 @@
           ./hosts/desktop/home.nix
         ];
       };
-      "eiji@laptop" = home-manager.lib.homeManagerConfiguration {
+      "eiji@laptop-home" = home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/laptop/home.nix
+          ./hosts/laptop-home/home.nix
+        ];
+      };
+      "eiji@laptop-work" = home-manager.lib.homeManagerConfiguration {
+        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/laptop-work/home.nix
         ];
       };
     };

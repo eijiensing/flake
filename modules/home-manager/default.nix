@@ -1,41 +1,19 @@
 {
   imports = [
-		./android-studio
-		./audacity
-		./dotnet
 		./extraction
 		./jq
-		./obsidian
-		./pgadmin
-		./postman
 		./rofi
-		./yt-dlp
-    # ./nix-index
     ./alacritty
-    ./atlauncher
-    ./clapper
-    ./discord
-    ./easyeffects
     ./firefox
     ./fish
     ./fzf
     ./git
     ./gtk
-    ./helix
-    ./hurl
     ./hyprland
     ./hyprpaper
-    ./krita
-    ./lutris
-    ./macchina
     ./neovim
-    ./proton
     ./quickshell
     ./screenshot
-    ./teams
     ./tmux
-    ./transmission
-    ./vscode
-    ./wpgtk
   ];
 }

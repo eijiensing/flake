@@ -5,9 +5,12 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
-    ../../modules/home-manager
+		../../modules/home-manager
+    ../../modules/home-manager/discord
+    ../../modules/home-manager/neovim
   ];
 
   nixpkgs = {
@@ -28,12 +31,10 @@
   gitName = "eijiensing";
   gitEmail = "eijitron@gmail.com";
 
-
   programs = {
-  home-manager.enable = true;
-  firefox.enable = true;
+    home-manager.enable = true;
+    firefox.enable = true;
   };
-
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

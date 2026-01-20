@@ -8,7 +8,8 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/nvidia
+		../../modules/nixos
+    ../../modules/nixos/amd
   ];
 
   nixpkgs = {
@@ -22,7 +23,7 @@
     };
   };
 
-  networking.hostName = "desktop";
+  networking.hostName = "laptop-work";
 
   programs = {
     fish.enable = true;

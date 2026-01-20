@@ -10,10 +10,6 @@
     ./hardware-configuration.nix
 		../../modules/nixos
     ../../modules/nixos/amd
-		../../modules/flatpak
-    ../../modules/java
-    ../../modules/nix-ld
-    ../../modules/steam
   ];
 
   nixpkgs = {
@@ -27,7 +23,7 @@
     };
   };
 
-  networking.hostName = "desktop";
+  networking.hostName = "laptop-home";
 
   programs = {
     fish.enable = true;
@@ -42,6 +38,7 @@
     };
   };
 
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "25.11";
+  system.stateVersion = "25.05";
 }
