@@ -22,12 +22,8 @@
       type = lib.types.nullOr (
         lib.types.submodule {
           options = {
-            name = lib.mkOption {
-              type = lib.types.str;
-            };
-            output = lib.mkOption {
-              type = lib.types.str;
-            };
+            name = lib.mkOption { type = lib.types.str; };
+            output = lib.mkOption { type = lib.types.str; };
           };
         }
       );
@@ -52,9 +48,9 @@
       systemd.variables = [ "--all" ];
 
       settings = {
-        device = config.hyprlandDevice;
         workspace = config.hyprlandWorkspace;
         monitor = config.hyprlandMonitor;
+        device = lib.mkIf (config.hyprlandDevice != null) config.hyprlandDevice;
 
         exec-once = [
           "systemctl --user start hyprpaper.service"
