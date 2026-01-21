@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
 		../../modules/nixos
     ../../modules/nixos/amd
+    ../../modules/nixos/docker
 		../../modules/nixos/flatpak
     ../../modules/nixos/java
     ../../modules/nixos/nix-ld

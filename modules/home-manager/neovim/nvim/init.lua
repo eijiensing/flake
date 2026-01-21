@@ -26,7 +26,7 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
-require'nvim-treesitter'.install { 'all' }
+-- require'nvim-treesitter'.install { 'all' }
 
 require("oil").setup({ keymaps = { ["\\"] = "actions.close" } })
 
