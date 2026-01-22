@@ -2,12 +2,18 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import Quickshell.Services.Pipewire
 
 Item {
     anchors.fill: parent
+    property var textColor: "#978d74"
 
-		property var textColor: "#978d74"
+    // Bind all nodes so audio properties become available
+    // PwObjectTracker {
+    //     objects: Pipewire.nodes.values
+    // }
 
+    // Clock
     SystemClock {
         id: clock
         precision: SystemClock.Minutes
@@ -17,10 +23,13 @@ Item {
         anchors.fill: parent
         spacing: 0
 
-        // Top section
+        // Top spacer
         ColumnLayout {
-						Layout.topMargin: 12
+            Layout.topMargin: 12
             Layout.fillWidth: true
+						Layout.alignment: Qt.AlignHCenter
+
+						RadialVolume {}
         }
 
         // Middle section (fills space)
@@ -29,14 +38,15 @@ Item {
             Layout.fillHeight: true
         }
 
-        // Bottom section (clock)
+        // Bottom section (clock + volume)
         ColumnLayout {
-						Layout.bottomMargin: 12
+            Layout.bottomMargin: 12
             Layout.fillWidth: true
-            spacing: 0
+            spacing: 2
 
+            // Clock HH/MM
             Text {
-								color: textColor 
+                color: textColor
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "HH")
@@ -44,32 +54,35 @@ Item {
             }
 
             Text {
-								color: textColor 
+                color: textColor
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "mm")
                 font.pixelSize: 16
-								Layout.bottomMargin: 6
+                Layout.bottomMargin: 6
             }
 
+            // Date dd/MM
             Text {
-								color: textColor 
+                color: textColor
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "dd/MM")
                 font.pixelSize: 8
             }
-						Text {
-								color: textColor
-								Layout.fillWidth: true
-								horizontalAlignment: Text.AlignHCenter
-								font.pixelSize: 8
 
-								text: {
-										const youbi = ["日", "月", "火", "水", "木", "金", "土"]
-										return youbi[clock.date.getDay()] + "曜日"
-								}
-						}
+            // Day of week
+            Text {
+                color: textColor
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 8
+
+                text: {
+                    const youbi = ["日", "月", "火", "水", "木", "金", "土"]
+                    return youbi[clock.date.getDay()] + "曜日"
+                }
+            }
         }
     }
 }

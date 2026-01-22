@@ -39,7 +39,7 @@
     eiji = {
       shell = pkgs.fish;
       isNormalUser = true;
-      extraGroups = ["wheel" "networkmanager" "audio"];
+      extraGroups = ["wheel" "networkmanager" "audio" "docker"];
     };
   };
 
