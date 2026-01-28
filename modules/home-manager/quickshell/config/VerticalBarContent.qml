@@ -2,16 +2,10 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import Quickshell.Services.Pipewire
 
 Item {
     anchors.fill: parent
     property var textColor: "#978d74"
-
-    // Bind all nodes so audio properties become available
-    // PwObjectTracker {
-    //     objects: Pipewire.nodes.values
-    // }
 
     // Clock
     SystemClock {
@@ -30,6 +24,7 @@ Item {
 						Layout.alignment: Qt.AlignHCenter
 
 						RadialVolume {}
+						RadialBattery {}
         }
 
         // Middle section (fills space)
