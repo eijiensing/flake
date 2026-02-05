@@ -5,7 +5,9 @@ import Quickshell
 
 Item {
     anchors.fill: parent
-    property var textColor: "#978d74"
+		property color backgroundColor: "#000000"
+		property color primaryColor: "#000000"
+		property color secondaryColor: "#000000"
 
     // Clock
     SystemClock {
@@ -25,6 +27,11 @@ Item {
 
 						RadialVolume {}
 						RadialBattery {}
+						NotificationCounter {
+							backgroundColor: root.backgroundColor
+							primaryColor: root.primaryColor
+							secondaryColor: root.secondaryColor
+						}
         }
 
         // Middle section (fills space)
@@ -41,7 +48,7 @@ Item {
 
             // Clock HH/MM
             Text {
-                color: textColor
+                color: secondaryColor
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "HH")
@@ -49,7 +56,7 @@ Item {
             }
 
             Text {
-                color: textColor
+                color: secondaryColor
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "mm")
@@ -59,7 +66,7 @@ Item {
 
             // Date dd/MM
             Text {
-                color: textColor
+                color: secondaryColor
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "dd/MM")
@@ -68,7 +75,7 @@ Item {
 
             // Day of week
             Text {
-                color: textColor
+                color: secondaryColor
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 8

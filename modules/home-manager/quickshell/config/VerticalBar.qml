@@ -1,19 +1,25 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import Quickshell.Widgets
+import Quickshell.Services.Notifications
 
 Scope {
     id: root
 
-		property var bgColor: "#fcf6ea"
+		property color backgroundColor: "#000000"
+		property color primaryColor: "#000000"
+		property color secondaryColor: "#000000"
 
     Variants {
         model: Quickshell.screens
 
         Item {
+
             property var modelData
 
             PanelWindow {
+								id: rootPanelWindow
                 screen: modelData
 
                 anchors {
@@ -27,9 +33,13 @@ Scope {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: bgColor
+                    color: backgroundColor 
 
-										VerticalBarContent {}
+										VerticalBarContent {
+												backgroundColor: root.backgroundColor
+												primaryColor: root.primaryColor
+												secondaryColor: root.secondaryColor
+										}
                 }
 
             }
@@ -59,7 +69,7 @@ Scope {
                             left: parent.left
                         }
                         implicitSize: parent.width
-                        color: bgColor
+                        color: backgroundColor  
                         corner: RoundCorner.CornerEnum.TopLeft
                     }
 
@@ -69,7 +79,7 @@ Scope {
                             left: parent.left
                         }
                         implicitSize: parent.width
-                        color: bgColor
+                        color: backgroundColor  
                         corner: RoundCorner.CornerEnum.BottomLeft
                     }
                 }
