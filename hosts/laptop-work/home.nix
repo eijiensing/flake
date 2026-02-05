@@ -15,6 +15,7 @@
     ../../modules/home-manager/hurl
     ../../modules/home-manager/teams
     ../../modules/home-manager/vscode
+    ../../modules/home-manager/libreoffice
   ];
 
 
