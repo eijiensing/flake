@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
 		../../modules/nixos
     ../../modules/nixos/nvidia
+    ../../modules/nixos/postgresql
   ];
 
   nixpkgs = {
