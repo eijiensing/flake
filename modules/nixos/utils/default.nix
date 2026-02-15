@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = [
+    pkgs.file
     pkgs.htop
     pkgs.nvtopPackages.amd
     pkgs.nvtopPackages.nvidia
