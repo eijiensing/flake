@@ -15,6 +15,7 @@
     ../../modules/nixos/java
     ../../modules/nixos/nix-ld
     ../../modules/nixos/steam
+    ../../modules/nixos/ratbag
   ];
 
   nixpkgs = {

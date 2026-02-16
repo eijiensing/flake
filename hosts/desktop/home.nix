@@ -26,7 +26,6 @@
     ../../modules/home-manager/teams
     ../../modules/home-manager/transmission
     ../../modules/home-manager/vscode
-    ../../modules/home-manager/solaar
   ];
 
   nixpkgs = {
