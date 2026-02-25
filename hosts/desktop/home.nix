@@ -27,6 +27,7 @@
     ../../modules/home-manager/transmission
     ../../modules/home-manager/vscode
     ../../modules/home-manager/zig
+    ../../modules/home-manager/android-studio
   ];
 
   nixpkgs = {
