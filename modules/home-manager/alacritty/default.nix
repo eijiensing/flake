@@ -18,8 +18,19 @@
     exec = "alacritty %F";
     icon = "alacritty";
     type = "Application";
-    categories = [ "System" "TerminalEmulator" "Utility" ];
+    categories = [
+      "System"
+      "TerminalEmulator"
+      "Utility"
+    ];
     noDisplay = false;
   };
-}
 
+  xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/terminal" = "alacritty.desktop";
+  };
+
+  home.sessionVariables = {
+    TERMINAL = "alacritty";
+  };
+}
