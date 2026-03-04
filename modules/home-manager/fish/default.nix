@@ -48,7 +48,7 @@
 			end
 
 			function dev --wraps='nix develop'
-					nix develop --command fish
+					nix develop $argv --command fish
 			end
 
 			function hm --wraps=home-manager --description "home-manager switch --flake . (shortcut)"
