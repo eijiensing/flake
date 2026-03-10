@@ -12,7 +12,7 @@
 		../../modules/home-manager/dotnet
 		../../modules/home-manager/obsidian
 		../../modules/home-manager/pgadmin
-		../../modules/home-manager/postman
+		../../modules/home-manager/bruno
 		../../modules/home-manager/yt-dlp
     ../../modules/home-manager/atlauncher
     ../../modules/home-manager/clapper
