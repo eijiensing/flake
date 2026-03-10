@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-	home.packages = with pkgs; [
-		bruno
+	home.packages = [
+			pkgs.unstable.bruno
 	];
 }
