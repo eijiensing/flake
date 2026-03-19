@@ -61,6 +61,7 @@
         input = {
           touchpad.natural_scroll = true;
           kb_options = [ "caps:escape" ];
+					accel_profile = "flat";
         };
         misc = {
           disable_hyprland_logo = true;
