@@ -19,13 +19,13 @@
       expat
       libxkbcommon
       at-spi2-core
-      xorg.libxcb
-      xorg.libX11
-      xorg.libXcomposite
-      xorg.libXdamage
-      xorg.libXext
-      xorg.libXfixes
-      xorg.libXrandr
+      libxcb
+      libX11
+      libXcomposite
+      libXdamage
+      libXext
+      libXfixes
+      libXrandr
       mesa
       pango
       cairo

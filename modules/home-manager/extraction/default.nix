@@ -4,5 +4,6 @@
     unrar
     p7zip
 		dtrx # Do The Right eXtraction
+		xarchiver
   ];
 }
