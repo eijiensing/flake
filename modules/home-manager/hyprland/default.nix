@@ -124,7 +124,6 @@
           border_size = 2;
           "col.active_border" = "rgb(81A8DE) rgb(8fb5eb) 45deg";
           "col.inactive_border" = "0x00000000";
-          no_border_on_floating = false;
         };
 
         bind = [
