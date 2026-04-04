@@ -13,7 +13,6 @@
     ../../modules/nixos/docker
 		../../modules/nixos/flatpak
     ../../modules/nixos/java
-    ../../modules/nixos/nix-ld
     ../../modules/nixos/steam
     ../../modules/nixos/ratbag
     ../../modules/nixos/postgresql
