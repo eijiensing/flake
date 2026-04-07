@@ -20,12 +20,12 @@
       libxkbcommon
       at-spi2-core
       libxcb
-      libX11
-      libXcomposite
-      libXdamage
-      libXext
-      libXfixes
-      libXrandr
+      # libX11
+      # libXcomposite
+      # libXdamage
+      # libXext
+      # libXfixes
+      # libXrandr
       mesa
       pango
       cairo

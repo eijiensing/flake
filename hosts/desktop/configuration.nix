@@ -16,6 +16,7 @@
     ../../modules/nixos/steam
     ../../modules/nixos/ratbag
     ../../modules/nixos/postgresql
+    ../../modules/nixos/nix-ld
   ];
 
   nixpkgs = {
