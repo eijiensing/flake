@@ -15,6 +15,7 @@
 		../../modules/home-manager/bruno
 		../../modules/home-manager/yt-dlp
     ../../modules/home-manager/atlauncher
+    ../../modules/home-manager/prismlauncher
     ../../modules/home-manager/clapper
     ../../modules/home-manager/discord
     ../../modules/home-manager/easyeffects
