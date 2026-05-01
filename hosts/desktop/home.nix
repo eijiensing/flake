@@ -5,16 +5,17 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
+    ../../modules/home-manager/audacity
+    ../../modules/home-manager/bruno
+    ../../modules/home-manager/dotnet
+    ../../modules/home-manager/obsidian
+    ../../modules/home-manager/pgadmin
+    ../../modules/home-manager/yt-dlp
     ../../modules/home-manager
-		../../modules/home-manager/audacity
-		../../modules/home-manager/dotnet
-		../../modules/home-manager/obsidian
-		../../modules/home-manager/pgadmin
-		../../modules/home-manager/bruno
-		../../modules/home-manager/yt-dlp
-    ../../modules/home-manager/prismlauncher
+    ../../modules/home-manager/android-studio
     ../../modules/home-manager/clapper
     ../../modules/home-manager/discord
     ../../modules/home-manager/easyeffects
@@ -22,12 +23,13 @@
     ../../modules/home-manager/krita
     ../../modules/home-manager/lutris
     ../../modules/home-manager/macchina
+    ../../modules/home-manager/prismlauncher
     ../../modules/home-manager/proton
     ../../modules/home-manager/teams
     ../../modules/home-manager/transmission
     ../../modules/home-manager/vscode
+    ../../modules/home-manager/zed
     ../../modules/home-manager/zig
-    ../../modules/home-manager/android-studio
   ];
 
   nixpkgs = {
@@ -48,18 +50,22 @@
   gitName = "eijiensing";
   gitEmail = "eijitron@gmail.com";
 
-	hyprlandDevice = {
-		name = "ugtablet-deco-01-stylus";
-		output = "DP-3";
-	};
-	hyprlandWorkspace = ["1,monitor:DP-3" "2,monitor:HDMI-A-1"];
-	hyprlandMonitor = ["DP-3, highrr, 0x0, 1" "HDMI-A-1, highrr, 1920x0, 1"];
-
+  hyprlandDevice = {
+    name = "ugtablet-deco-01-stylus";
+    output = "DP-3";
+  };
+  hyprlandWorkspace = [
+    "1,monitor:DP-3"
+    "2,monitor:HDMI-A-1"
+  ];
+  hyprlandMonitor = [
+    "DP-3, highrr, 0x0, 1"
+    "HDMI-A-1, highrr, 1920x0, 1"
+  ];
 
   programs = {
     home-manager.enable = true;
   };
-
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
