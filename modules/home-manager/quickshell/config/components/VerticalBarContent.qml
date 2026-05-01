@@ -8,6 +8,7 @@ Item {
 		property color backgroundColor: "#000000"
 		property color primaryColor: "#000000"
 		property color secondaryColor: "#000000"
+		property var sidebar
 
     // Clock
     SystemClock {
@@ -25,13 +26,31 @@ Item {
             Layout.fillWidth: true
 						Layout.alignment: Qt.AlignHCenter
 
+						Rectangle {
+								width: 24
+								height: 24
+								radius: 12
+								color: primaryColor
+								Layout.alignment: Qt.AlignHCenter
+								Layout.bottomMargin: 8
+
+								Text {
+										anchors.centerIn: parent
+										text: "≡"
+										color: backgroundColor
+										font.pixelSize: 14
+										font.bold: true
+								}
+
+								MouseArea {
+										anchors.fill: parent
+										cursorShape: Qt.PointingHandCursor
+										onClicked: sidebar.toggle()
+								}
+						}
+
 						RadialVolume {}
 						RadialBattery {}
-						NotificationCounter {
-							backgroundColor: root.backgroundColor
-							primaryColor: root.primaryColor
-							secondaryColor: root.secondaryColor
-						}
         }
 
         // Middle section (fills space)

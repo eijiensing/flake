@@ -69,14 +69,14 @@ Item {
 
         source: {
             const sink = Pipewire.defaultAudioSink
-            if (!Pipewire.ready || !sink?.ready || !sink?.audio) return "volume-off.svg"
+            if (!Pipewire.ready || !sink?.ready || !sink?.audio) return "../assets/volume-off.svg"
 
-            if (sink.audio.muted) return "volume-off.svg"
+            if (sink.audio.muted) return "../assets/volume-off.svg"
 
             const vol = Number(sink.audio.volume) || 0
-            if (vol <= 0.33) return "volume.svg"
-            else if (vol <= 0.66) return "volume-1.svg"
-            else return "volume-2.svg"
+            if (vol <= 0.33) return "../assets/volume.svg"
+            else if (vol <= 0.66) return "../assets/volume-1.svg"
+            else return "../assets/volume-2.svg"
         }
     }
 

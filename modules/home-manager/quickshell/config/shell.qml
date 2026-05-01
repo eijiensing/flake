@@ -1,9 +1,14 @@
+//@ pragma UseQApplication
+
 import QtQuick
 import QtQuick.Window
 import Quickshell
 import Quickshell.Io
 import Quickshell.Hyprland
 import Quickshell.Services.Pipewire
+import Quickshell.Services.Notifications
+import "components"
+import "windows"
 
 ShellRoot {
     id: root
@@ -11,10 +16,23 @@ ShellRoot {
 		property color primaryColor: "#81A8DE"
 		property color secondaryColor: "#978D74"
 
+		NotificationServer {
+			id: notifServer
+			onNotification: n => n.tracked = true
+		}
+
+		Sidebar {
+			id: sidebar
+			backgroundColor: root.backgroundColor
+			primaryColor: root.primaryColor
+			secondaryColor: root.secondaryColor
+			notifications: notifServer
+		}
+
 		VerticalBar {
 			backgroundColor: root.backgroundColor
 			primaryColor: root.primaryColor
 			secondaryColor: root.secondaryColor
-		} 
+			sidebar: sidebar
+		}
 }
-

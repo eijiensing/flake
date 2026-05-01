@@ -66,12 +66,12 @@ Item {
 
         source: {
             const bat = UPower.displayDevice
-            if (!UPower.onBattery) return "battery-charging.svg"
+            if (!UPower.onBattery) return "../assets/battery-charging.svg"
 
             const pct = Number(bat.percentage)
-            if (pct <= 0.33) return "battery-low.svg"
-            else if (pct <= 0.66) return "battery-medium.svg"
-            else return "battery-full.svg"
+            if (pct <= 0.33) return "../assets/battery-low.svg"
+            else if (pct <= 0.66) return "../assets/battery-medium.svg"
+            else return "../assets/battery-full.svg"
         }
     }
 }

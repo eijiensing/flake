@@ -3,6 +3,7 @@ import Quickshell.Io
 import QtQuick
 import Quickshell.Widgets
 import Quickshell.Services.Notifications
+import "../components"
 
 Scope {
     id: root
@@ -10,6 +11,7 @@ Scope {
 		property color backgroundColor: "#000000"
 		property color primaryColor: "#000000"
 		property color secondaryColor: "#000000"
+		property var sidebar
 
     Variants {
         model: Quickshell.screens
@@ -33,12 +35,13 @@ Scope {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: backgroundColor 
+                    color: backgroundColor
 
 										VerticalBarContent {
 												backgroundColor: root.backgroundColor
 												primaryColor: root.primaryColor
 												secondaryColor: root.secondaryColor
+												sidebar: root.sidebar
 										}
                 }
 
@@ -69,7 +72,7 @@ Scope {
                             left: parent.left
                         }
                         implicitSize: parent.width
-                        color: backgroundColor  
+                        color: backgroundColor
                         corner: RoundCorner.CornerEnum.TopLeft
                     }
 
@@ -79,7 +82,7 @@ Scope {
                             left: parent.left
                         }
                         implicitSize: parent.width
-                        color: backgroundColor  
+                        color: backgroundColor
                         corner: RoundCorner.CornerEnum.BottomLeft
                     }
                 }
