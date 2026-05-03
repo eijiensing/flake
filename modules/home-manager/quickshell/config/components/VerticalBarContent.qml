@@ -27,18 +27,19 @@ Item {
 						Layout.alignment: Qt.AlignHCenter
 
 						Rectangle {
-								width: 24
-								height: 24
-								radius: 12
-								color: primaryColor
+								width: 28
+								height: 28
+								radius: 14
+								color: secondaryColor
 								Layout.alignment: Qt.AlignHCenter
-								Layout.bottomMargin: 8
+								Layout.bottomMargin: 4
 
 								Text {
+										anchors.horizontalCenterOffset: 0.6
 										anchors.centerIn: parent
-										text: "≡"
+										text: ""
 										color: backgroundColor
-										font.pixelSize: 14
+										font.pixelSize: 24
 										font.bold: true
 								}
 

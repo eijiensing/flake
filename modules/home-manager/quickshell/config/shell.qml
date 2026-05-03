@@ -3,11 +3,7 @@
 import QtQuick
 import QtQuick.Window
 import Quickshell
-import Quickshell.Io
-import Quickshell.Hyprland
-import Quickshell.Services.Pipewire
 import Quickshell.Services.Notifications
-import "components"
 import "windows"
 
 ShellRoot {

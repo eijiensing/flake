@@ -5,5 +5,6 @@
 	};
   home.packages = [
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+		pkgs.kdePackages.qtdeclarative # also includes qmlls
 	];
 }
