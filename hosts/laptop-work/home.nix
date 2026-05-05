@@ -9,16 +9,15 @@
 {
   imports = [
     ../../modules/home-manager
-		../../modules/home-manager/dotnet
-		../../modules/home-manager/pgadmin
-		../../modules/home-manager/bruno
+    ../../modules/home-manager/bruno
+    ../../modules/home-manager/dotnet
+    ../../modules/home-manager/pgadmin
+    ../../modules/home-manager/android-studio
     ../../modules/home-manager/hurl
+    ../../modules/home-manager/libreoffice
     ../../modules/home-manager/teams
     ../../modules/home-manager/vscode
-    ../../modules/home-manager/libreoffice
-    ../../modules/home-manager/android-studio
   ];
-
 
   nixpkgs = {
     overlays = [
@@ -38,9 +37,9 @@
   gitName = "eijiensing";
   gitEmail = "eijitron@gmail.com";
 
-	hyprlandMonitor = [
-		"eDP-1, preferred, 0x0, 1"
-	];
+  hyprlandMonitor = [
+    "eDP-1, preferred, 0x0, 1"
+  ];
 
   programs = {
     home-manager.enable = true;

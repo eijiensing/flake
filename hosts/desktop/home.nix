@@ -22,7 +22,6 @@
     ../../modules/home-manager/macchina
     ../../modules/home-manager/obsidian
     ../../modules/home-manager/pgadmin
-    ../../modules/home-manager/poedit
     ../../modules/home-manager/prismlauncher
     ../../modules/home-manager/proton
     ../../modules/home-manager/teams
