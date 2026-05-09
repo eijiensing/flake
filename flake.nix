@@ -19,7 +19,7 @@
 
     # Quickshell
     quickshell = {
-      url = "github:quickshell-mirror/quickshell?rev=e9bad67619ee9937a1bbecfc6ad3b4231d2ecdc3";
+      url = "github:quickshell-mirror/quickshell?rev=d1760ed1f31c02a95b37a9bf4084129c829ebe7f";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
