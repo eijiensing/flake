@@ -12,14 +12,6 @@
 
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprland-preview-share-picker = {
-      url = "github:WhySoBad/hyprland-preview-share-picker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Quickshell
     quickshell = {

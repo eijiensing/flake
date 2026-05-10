@@ -277,6 +277,27 @@
         "type": "github"
       }
     },
+    "hyprland-preview-share-picker": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772618757,
+        "narHash": "sha256-c/nM1NAmSl5qWEblK4E1vtjxuVDukHPER81eC/tp4UM=",
+        "owner": "WhySoBad",
+        "repo": "hyprland-preview-share-picker",
+        "rev": "344394a8669fb82ff2744d2780327dd402ffb76a",
+        "submodules": true,
+        "type": "github"
+      },
+      "original": {
+        "owner": "WhySoBad",
+        "repo": "hyprland-preview-share-picker",
+        "type": "github"
+      }
+    },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
@@ -611,6 +632,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
+        "hyprland-preview-share-picker": "hyprland-preview-share-picker",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
