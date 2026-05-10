@@ -11,7 +11,10 @@
     unstable.hyprshutdown
   ];
 
-  home.file.".config/hypr".source = ./config;
+  home.file.".config/hypr" = {
+    source = ./config;
+    recursive = true;
+  };
   home.file.".config/hypr/host-config.lua".source =
     ../../../hosts/${hostname}/hyprland-host-config.lua;
 }
