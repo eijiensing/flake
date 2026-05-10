@@ -1,6 +1,8 @@
 require("binds")
 require("config")
 require("animations")
+require("rules")
+require("host-config")
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("quickshell")

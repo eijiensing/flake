@@ -1,14 +1,16 @@
 {
   pkgs,
   hostname,
+  inputs,
   ...
 }:
 {
-  home.packages = with pkgs; [
-    brightnessctl
-    wl-clipboard
-    playerctl
-    unstable.hyprshutdown
+  home.packages = [
+    pkgs.brightnessctl
+    pkgs.wl-clipboard
+    pkgs.playerctl
+    pkgs.unstable.hyprshutdown
+    inputs.hyprland-preview-share-picker.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.file.".config/hypr" = {
