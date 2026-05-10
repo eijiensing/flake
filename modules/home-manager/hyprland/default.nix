@@ -1,8 +1,6 @@
 {
   pkgs,
-  config,
-  lib,
-  inputs,
+  hostname,
   ...
 }:
 {
@@ -13,6 +11,7 @@
     unstable.hyprshutdown
   ];
 
+  home.file.".config/hypr".source = ./config;
   home.file.".config/hypr/host-config.lua".source =
-    ../../../hosts/${config.networking.hostName}/hyprland-host-config.lua;
+    ../../../hosts/${hostname}/hyprland-host-config.lua;
 }

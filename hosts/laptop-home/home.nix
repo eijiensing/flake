@@ -31,10 +31,6 @@
   gitName = "eijiensing";
   gitEmail = "eijitron@gmail.com";
 
-	hyprlandMonitor = [
-		"eDP-1, preferred, 0x0, 1"
-	];
-
   programs = {
     home-manager.enable = true;
     firefox.enable = true;

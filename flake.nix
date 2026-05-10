@@ -77,21 +77,30 @@
       homeConfigurations = {
         "eiji@desktop" = home-manager.lib.homeManagerConfiguration {
           pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            hostname = "desktop";
+          };
           modules = [
             ./hosts/desktop/home.nix
           ];
         };
         "eiji@laptop-home" = home-manager.lib.homeManagerConfiguration {
           pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            hostname = "laptop-home";
+          };
           modules = [
             ./hosts/laptop-home/home.nix
           ];
         };
         "eiji@laptop-work" = home-manager.lib.homeManagerConfiguration {
           pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            hostname = "laptop-work";
+          };
           modules = [
             ./hosts/laptop-work/home.nix
           ];
