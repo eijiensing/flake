@@ -1,7 +1,7 @@
 {
   pkgs,
   hostname,
-  inputs,
+  # inputs,
   ...
 }:
 {
