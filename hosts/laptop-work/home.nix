@@ -17,6 +17,7 @@
     ../../modules/home-manager/libreoffice
     ../../modules/home-manager/teams
     ../../modules/home-manager/vscode
+    ../../modules/home-manager/krita
   ];
 
   nixpkgs = {
