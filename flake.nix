@@ -12,10 +12,10 @@
 
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland-preview-share-picker = { # Submodules are broken
-    #   url = "git+https://github.com/WhySoBad/hyprland-preview-share-picker?submodules=1";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprland-preview-share-picker = { # Submodules are broken
+      url = "git+https://github.com/WhySoBad/hyprland-preview-share-picker?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Quickshell
     quickshell = {

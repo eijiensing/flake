@@ -1,7 +1,7 @@
 {
   pkgs,
   hostname,
-  # inputs,
+  inputs,
   ...
 }:
 {
@@ -10,7 +10,7 @@
     pkgs.wl-clipboard
     pkgs.playerctl
     pkgs.unstable.hyprshutdown
-    # inputs.hyprland-preview-share-picker.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.hyprland-preview-share-picker.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.file.".config/hypr" = {
