@@ -5,7 +5,7 @@ hl.bind("SUPER + G", hl.dsp.exec_cmd(variables.commands.file_browser))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(variables.commands.browser))
 hl.bind("SUPER + R", hl.dsp.exec_cmd(variables.commands.app_runner))
 
-hl.bind("SUPER + C", hl.dsp.window.kill("activewindow"))
+hl.bind("SUPER + C", hl.dsp.window.close("activewindow"))
 hl.bind("SUPER + V", hl.dsp.window.float("toggle", "activewindow"))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen("fullscreen", "toggle", "activewindow"))
 
