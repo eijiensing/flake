@@ -5,9 +5,6 @@ import Quickshell
 
 Item {
     anchors.fill: parent
-		property color backgroundColor: "#000000"
-		property color primaryColor: "#000000"
-		property color secondaryColor: "#000000"
 		property var sidebar
 
     // Clock
@@ -30,7 +27,7 @@ Item {
 								width: 28
 								height: 28
 								radius: 14
-								color: secondaryColor
+								color: ThemeManager.secondary
 								Layout.alignment: Qt.AlignHCenter
 								Layout.bottomMargin: 4
 
@@ -38,7 +35,7 @@ Item {
 										anchors.horizontalCenterOffset: 0.6
 										anchors.centerIn: parent
 										text: ""
-										color: backgroundColor
+										color: ThemeManager.background
 										font.pixelSize: 24
 										font.bold: true
 								}
@@ -52,6 +49,7 @@ Item {
 
 						RadialVolume {}
 						RadialBattery {}
+						ThemePicker {}
         }
 
         // Middle section (fills space)
@@ -68,7 +66,7 @@ Item {
 
             // Clock HH/MM
             Text {
-                color: secondaryColor
+                color: ThemeManager.secondary
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "HH")
@@ -76,7 +74,7 @@ Item {
             }
 
             Text {
-                color: secondaryColor
+                color: ThemeManager.secondary
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "mm")
@@ -86,7 +84,7 @@ Item {
 
             // Date dd/MM
             Text {
-                color: secondaryColor
+                color: ThemeManager.secondary
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.formatDateTime(clock.date, "dd/MM")
@@ -95,7 +93,7 @@ Item {
 
             // Day of week
             Text {
-                color: secondaryColor
+                color: ThemeManager.secondary
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 8

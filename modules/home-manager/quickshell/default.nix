@@ -1,10 +1,12 @@
-{ inputs, pkgs, ... }: {
-  home.file.".config/quickshell".source = ./config;
-	qt = {
-		enable = true;
-	};
+{ inputs, pkgs, ... }:
+{
+  # home.file.".config/quickshell".source = ./config;
+  qt = {
+    enable = true;
+  };
   home.packages = [
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
-		pkgs.kdePackages.qtdeclarative # also includes qmlls
-	];
+    pkgs.kdePackages.qtdeclarative # also includes qmlls
+    pkgs.kdePackages.qt5compat
+  ];
 }

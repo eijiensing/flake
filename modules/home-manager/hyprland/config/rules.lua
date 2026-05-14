@@ -23,13 +23,3 @@ hl.window_rule({
 
 	suppress_event = "activatefocus"
 })
-
-hl.on("window.open", function(w)
-	local width = w.size.x
-	local height = w.size.y
-
-	-- Float windows smaller than a threshold
-	if width < 900 and height < 700 then
-		hl.dispatch(hl.dsp.window.float({ action = "enable", window = w }))
-	end
-end)

@@ -3,13 +3,10 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 import Quickshell.Hyprland
+import qs.components
 
 Scope {
     id: root
-
-    property color backgroundColor: "#FCF6EA"
-    property color primaryColor: "#81A8DE"
-    property color secondaryColor: "#978D74"
 
     // State to toggle the sidebar open and closed
     property bool isOpen: false
@@ -79,8 +76,8 @@ Scope {
                         width: 400
                         height: parent.height
                         x: root.isOpen ? 8 : -400
-                        color: root.backgroundColor
-                        border.color: root.secondaryColor
+                        color: ThemeManager.background
+                        border.color: ThemeManager.secondary
                         border.width: 2
                         radius: 20
                         property int currentTab: 0
@@ -130,7 +127,7 @@ Scope {
                                                 Text {
                                                     anchors.centerIn: parent
                                                     text: modelData
-                                                    color: sidebarContent.currentTab === index ? root.primaryColor : root.secondaryColor
+                                                    color: sidebarContent.currentTab === index ? ThemeManager.primary : ThemeManager.secondary
                                                     font.pixelSize: 12
                                                     font.bold: true
 
@@ -156,7 +153,7 @@ Scope {
                                         width: tabBar.tabWidth
                                         height: 3
                                         radius: 2
-                                        color: root.primaryColor
+                                        color: ThemeManager.primary
 
                                         x: sidebarContent.currentTab * (tabBar.tabWidth + tabBar.spacing)
 
@@ -172,7 +169,7 @@ Scope {
                                     Rectangle {
                                         width: parent.width
                                         height: 1
-                                        color: root.secondaryColor
+                                        color: ThemeManager.secondary
                                         opacity: 0.15
                                     }
                                 }
@@ -214,7 +211,7 @@ Scope {
                                                 width: notificationList.width
                                                 height: 100
                                                 radius: 12
-                                                color: delegateMouseArea.containsMouse ? Qt.lighter(root.primaryColor, 1.1) : root.primaryColor
+                                                color: delegateMouseArea.containsMouse ? Qt.lighter(ThemeManager.primary, 1.1) : ThemeManager.primary
                                                 opacity: 0.9
                                                 Behavior on color {
                                                     ColorAnimation {
@@ -248,7 +245,7 @@ Scope {
                                                         Text {
                                                             text: modelData.appName
                                                             font.bold: true
-                                                            color: root.backgroundColor
+                                                            color: ThemeManager.background
                                                             font.pixelSize: 12
                                                             Layout.fillWidth: true
                                                             elide: Text.ElideRight
@@ -258,14 +255,14 @@ Scope {
                                                     Text {
                                                         text: modelData.summary
                                                         font.bold: true
-                                                        color: root.backgroundColor
+                                                        color: ThemeManager.background
                                                         font.pixelSize: 14
                                                         elide: Text.ElideRight
                                                         Layout.fillWidth: true
                                                     }
                                                     Text {
                                                         text: modelData.body
-                                                        color: root.backgroundColor
+                                                        color: ThemeManager.background
                                                         font.pixelSize: 12
                                                         elide: Text.ElideRight
                                                         maximumLineCount: 2
@@ -283,7 +280,7 @@ Scope {
                                                     width: 24
                                                     height: 24
                                                     radius: 12
-                                                    color: root.secondaryColor
+                                                    color: ThemeManager.secondary
                                                     opacity: dismissArea.containsMouse ? 1.0 : 0.0
                                                     Behavior on opacity {
                                                         NumberAnimation {
@@ -294,7 +291,7 @@ Scope {
                                                     Text {
                                                         anchors.centerIn: parent
                                                         text: "✕"
-                                                        color: root.backgroundColor
+                                                        color: ThemeManager.background
                                                         font.bold: true
                                                     }
 
@@ -362,7 +359,7 @@ Scope {
                                                 width: 56
                                                 height: 56
                                                 radius: 12
-                                                color: trayMouseArea.containsMouse ? Qt.lighter(root.primaryColor, 1.1) : root.primaryColor
+                                                color: trayMouseArea.containsMouse ? Qt.lighter(ThemeManager.primary, 1.1) : ThemeManager.primary
                                                 opacity: 0.9
                                                 Behavior on color {
                                                     ColorAnimation {

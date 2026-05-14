@@ -3,13 +3,12 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Pipewire
 import Quickshell.Widgets
+import Qt5Compat.GraphicalEffects
 
 Item {
     id: radialVolume
     width: 36
     height: 36
-    property color barColor: "#81A8DE"
-    property color backgroundColor: "#978d74"
     property int lineWidth: 6
 
     PwObjectTracker {
@@ -19,36 +18,47 @@ Item {
     Canvas {
         id: canvas
         anchors.fill: parent
-        onPaint: {
-            var ctx = getContext("2d")
-            ctx.clearRect(0, 0, width, height)
 
-            const sink = Pipewire.defaultAudioSink
-            var v = 0
-            var muted = false
+        Connections {
+            target: ThemeManager
+            function onPrimaryChanged() {
+                canvas.requestPaint();
+            }
+            function onSecondaryChanged() {
+                canvas.requestPaint();
+            }
+        }
+
+        onPaint: {
+            var ctx = getContext("2d");
+            ctx.clearRect(0, 0, width, height);
+
+            const sink = Pipewire.defaultAudioSink;
+            var v = 0;
+            var muted = false;
             if (Pipewire.ready && sink?.ready && sink?.audio) {
-                v = Number(sink.audio.volume) || 0
-                muted = sink.audio.muted
+                v = Number(sink.audio.volume) || 0;
+                muted = sink.audio.muted;
             }
 
             // Circle center
-            const cx = width/2
-            const cy = height/2
-            const radius = width/2 - lineWidth
+            const cx = width / 2;
+            const cy = height / 2;
+            const radius = width / 2 - lineWidth;
 
             // Draw background circle
-            ctx.beginPath()
-            ctx.arc(cx, cy, radius, 0, 2*Math.PI)
-            ctx.lineWidth = lineWidth
-            ctx.strokeStyle = backgroundColor
-            ctx.stroke()
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
+            ctx.lineWidth = lineWidth;
+            ctx.strokeStyle = ThemeManager.primary;
+            ctx.stroke();
 
             // Draw progress arc
-           const endAngle = Math.min(v, 2) * 2 * Math.PI // allow >100%
-            ctx.beginPath()
-            ctx.arc(cx, cy, radius, -Math.PI/2, -Math.PI/2 - endAngle, true)
-            ctx.strokeStyle = muted ? "#555555" : barColor
-            ctx.stroke()
+            const endAngle = Math.min(v, 2) * 2 * Math.PI; // allow >100%
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius, -Math.PI / 2, -Math.PI / 2 - endAngle, true);
+            ctx.strokeStyle = muted ? "#555555" : ThemeManager.secondary;
+            ctx.stroke();
         }
 
         // Refresh every frame for volume updates
@@ -66,26 +76,37 @@ Item {
         width: 12
         height: 12
         fillMode: Image.PreserveAspectFit
-
+        visible: false  // hide the original, ColorOverlay renders it
         source: {
-            const sink = Pipewire.defaultAudioSink
-            if (!Pipewire.ready || !sink?.ready || !sink?.audio) return "../assets/volume-off.svg"
+            const sink = Pipewire.defaultAudioSink;
+            if (!Pipewire.ready || !sink?.ready || !sink?.audio)
+                return "../assets/volume-off.svg";
 
-            if (sink.audio.muted) return "../assets/volume-off.svg"
+            if (sink.audio.muted)
+                return "../assets/volume-off.svg";
 
-            const vol = Number(sink.audio.volume) || 0
-            if (vol <= 0.33) return "../assets/volume.svg"
-            else if (vol <= 0.66) return "../assets/volume-1.svg"
-            else return "../assets/volume-2.svg"
+            const vol = Number(sink.audio.volume) || 0;
+            if (vol <= 0.33)
+                return "../assets/volume.svg";
+            else if (vol <= 0.66)
+                return "../assets/volume-1.svg";
+            else
+                return "../assets/volume-2.svg";
         }
+    }
+
+    ColorOverlay {
+        anchors.fill: icon
+        source: icon
+        color: ThemeManager.text
     }
 
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            const sink = Pipewire.defaultAudioSink
+            const sink = Pipewire.defaultAudioSink;
             if (sink?.ready && sink?.audio) {
-                sink.audio.muted = !sink.audio.muted
+                sink.audio.muted = !sink.audio.muted;
             }
         }
     }
