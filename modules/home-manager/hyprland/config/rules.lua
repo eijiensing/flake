@@ -14,7 +14,6 @@ hl.window_rule({
 hl.window_rule({
 	match = { class = "steam_app_.*", title = ".+" },
 	float = true,
-	center = true,
 })
 
 hl.window_rule({
@@ -32,6 +31,5 @@ hl.on("window.open", function(w)
 	-- Float windows smaller than a threshold
 	if width < 900 and height < 700 then
 		hl.dispatch(hl.dsp.window.float({ action = "enable", window = w }))
-		hl.dispatch(hl.dsp.window.center({ window = w }))
 	end
 end)

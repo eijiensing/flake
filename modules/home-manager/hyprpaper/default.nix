@@ -3,11 +3,14 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ (builtins.toString ./fy_bnb.jpg) ];
+      ipc = "on";
+      preload = [
+        (builtins.toString ./fy_bnb.jpg)
+        (builtins.toString ./fixedimmortaltravel.jpg)
+      ];
       wallpaper = [
         ", ${builtins.toString ./fy_bnb.jpg}"
       ];
     };
   };
 }
-
