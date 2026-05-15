@@ -54,6 +54,7 @@ Singleton {
         stateAdapter.currentIndex = index;
         _applyHyprpaper();
         _applyBorder();
+        _applyGtk();
     }
 
     function next() {
@@ -117,6 +118,25 @@ Singleton {
         }
     }
 
+    Process {
+        id: gtkProc
+        running: false
+
+        onExited: function (code) {
+            if (code !== 0) {
+                console.warn("gtk css write failed:", code);
+            } else {
+                thunarQuitProc.running = true;
+            }
+        }
+    }
+
+    Process {
+        id: thunarQuitProc
+        command: ["thunar", "--quit"]
+        running: false
+    }
+
     // ── Private helpers ──────────────────────────────────────────────────
     function _applyHyprpaper() {
         if (!theme)
@@ -132,6 +152,25 @@ Singleton {
         borderProc.running = false;
         borderProc.command = ["bash", "-c", `hyprctl eval 'hl.config({ general = { col = { active_border = { colors = {"${theme.primary}"} } } } })' && ` + `hyprctl dispatch 'hl.dsp.window.set_prop({ prop = "no_anim", value = "0" })'`];
         borderProc.running = true;
+    }
+
+    function _applyGtk() {
+        if (!theme)
+            return;
+        const p = theme.primary;
+        const s = theme.secondary;
+        const bg = theme.background;
+        const t = theme.text;
+        const css = `@define-color primary    ${p};
+@define-color secondary  ${s};
+@define-color background ${bg};
+@define-color text       ${t};
+`;
+        // prepend only the palette block; the rest of gtk.css is managed by Nix
+        // write to a separate override file that gtk.css imports
+        gtkProc.running = false;
+        gtkProc.command = ["bash", "-c", `printf '%s' ${JSON.stringify(css)} > /home/eiji/.config/gtk-3.0/colors.css`];
+        gtkProc.running = true;
     }
 
     Component.onCompleted: themesFile.reload()

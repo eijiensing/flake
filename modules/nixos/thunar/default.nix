@@ -2,7 +2,10 @@
 {
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [ thunar-volman thunar-archive-plugin ];
+    plugins = with pkgs.xfce; [
+      thunar-volman
+      thunar-archive-plugin
+    ];
   };
   services.gvfs.enable = true;
   services.udisks2.enable = true;
@@ -11,8 +14,4 @@
     mtpfs
     libmtp
   ];
-
-  environment.etc."xdg/xfce4/helpers.rc".text = ''
-    		TerminalEmulator=alacritty
-    	'';
 }

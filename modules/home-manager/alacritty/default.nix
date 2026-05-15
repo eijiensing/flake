@@ -33,4 +33,9 @@
   home.sessionVariables = {
     TERMINAL = "alacritty";
   };
+	
+	# For thunar
+  home.file.".config/xfce4/helpers.rc".text = ''
+    TerminalEmulator=alacritty
+  '';
 }
