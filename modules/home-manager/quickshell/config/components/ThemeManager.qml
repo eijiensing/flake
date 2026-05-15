@@ -161,15 +161,8 @@ Singleton {
         const s = theme.secondary;
         const bg = theme.background;
         const t = theme.text;
-        const css = `@define-color primary    ${p};
-@define-color secondary  ${s};
-@define-color background ${bg};
-@define-color text       ${t};
-`;
-        // prepend only the palette block; the rest of gtk.css is managed by Nix
-        // write to a separate override file that gtk.css imports
         gtkProc.running = false;
-        gtkProc.command = ["bash", "-c", `printf '%s' ${JSON.stringify(css)} > /home/eiji/.config/gtk-3.0/colors.css`];
+        gtkProc.command = ["bash", "-c", `{ echo '@define-color primary    ${p};'; echo '@define-color secondary  ${s};'; echo '@define-color background ${bg};'; echo '@define-color text       ${t};'; } > /home/eiji/.config/gtk-3.0/colors.css`];
         gtkProc.running = true;
     }
 
