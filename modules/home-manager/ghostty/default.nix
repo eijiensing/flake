@@ -12,6 +12,8 @@
       window-padding-y = 16;
 			quit-after-last-window-closed = true;
 			quit-after-last-window-closed-delay = "5m";
+			resize-overlay = "never";
+			confirm-close-surface = false;
       config-file = "/home/eiji/.config/ghostty/theme.ghostty";
     };
   };
