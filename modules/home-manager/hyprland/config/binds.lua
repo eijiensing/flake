@@ -10,8 +10,8 @@ hl.bind("SUPER + V", hl.dsp.window.float("toggle", "activewindow"))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen("fullscreen", "toggle", "activewindow"))
 
 hl.bind("SUPER + H", hl.dsp.focus({ direction = "l" }))
-hl.bind("SUPER + J", hl.dsp.focus({ direction = "u" }))
-hl.bind("SUPER + K", hl.dsp.focus({ direction = "d" }))
+hl.bind("SUPER + J", hl.dsp.focus({ direction = "d" }))
+hl.bind("SUPER + K", hl.dsp.focus({ direction = "u" }))
 hl.bind("SUPER + L", hl.dsp.focus({ direction = "r" }))
 
 -- hl.bind("SUPER + M", hl.dsp.exec_cmd("hyprshutdown"))

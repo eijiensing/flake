@@ -12,30 +12,14 @@
       };
     };
   };
-  xdg.desktopEntries.alacritty = {
-    name = "Alacritty";
-    comment = "GPU-accelerated terminal emulator";
-    exec = "alacritty %F";
-    icon = "alacritty";
-    type = "Application";
-    categories = [
-      "System"
-      "TerminalEmulator"
-      "Utility"
-    ];
-    noDisplay = false;
-  };
-
   xdg.mimeApps.defaultApplications = {
-    "x-scheme-handler/terminal" = "alacritty.desktop";
+    "x-scheme-handler/terminal" = "ghostty.desktop";
   };
-
   home.sessionVariables = {
-    TERMINAL = "alacritty";
+    TERMINAL = "ghostty";
   };
-	
-	# For thunar
+  # For thunar
   home.file.".config/xfce4/helpers.rc".text = ''
-    TerminalEmulator=alacritty
+    TerminalEmulator=ghostty
   '';
 }

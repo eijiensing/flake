@@ -9,6 +9,7 @@
         background = "#FCF6EA";
         secondary = "#978D74";
 				text = "#000000";
+				terminal = "Gruvbox Light Hard";
       }
       {
         name = "Fixed Immortal Travel";
@@ -17,6 +18,7 @@
         secondary = "#4B3B2C";
         background = "#1D1916";
 				text = "#876B22";
+				terminal = "Gruvbox Dark Hard";
       }
     ];
   };

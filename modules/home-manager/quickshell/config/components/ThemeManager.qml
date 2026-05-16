@@ -55,6 +55,7 @@ Singleton {
         _applyHyprpaper();
         _applyBorder();
         _applyGtk();
+        _applyGhostty();
     }
 
     function next() {
@@ -137,6 +138,15 @@ Singleton {
         running: false
     }
 
+    Process {
+        id: ghosttyProc
+        running: false
+        onExited: code => {
+            if (code !== 0)
+                console.warn("ghostty theme command failed:", code);
+        }
+    }
+
     // ── Private helpers ──────────────────────────────────────────────────
     function _applyHyprpaper() {
         if (!theme)
@@ -164,6 +174,14 @@ Singleton {
         gtkProc.running = false;
         gtkProc.command = ["bash", "-c", `{ echo '@define-color primary    ${p};'; echo '@define-color secondary  ${s};'; echo '@define-color background ${bg};'; echo '@define-color text       ${t};'; } > /home/eiji/.config/gtk-3.0/colors.css`];
         gtkProc.running = true;
+    }
+
+    function _applyGhostty() {
+        if (!theme)
+            return;
+        ghosttyProc.running = false;
+        ghosttyProc.command = ["bash", "-c", `echo 'theme = ${theme.terminal}' > /home/eiji/.config/ghostty/theme.ghostty && ` + `systemctl reload --user app-com.mitchellh.ghostty.service`];
+        ghosttyProc.running = true;
     }
 
     Component.onCompleted: themesFile.reload()
