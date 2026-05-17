@@ -21,5 +21,6 @@ ShellRoot {
 
 		VerticalBar {
 			sidebar: sidebar
+			notifications: notifServer
 		}
 }

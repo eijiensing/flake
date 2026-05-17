@@ -5,7 +5,8 @@ import Quickshell
 
 Item {
     anchors.fill: parent
-		property var sidebar
+    property var sidebar
+    property var notifications
 
     // Clock
     SystemClock {
@@ -21,35 +22,35 @@ Item {
         ColumnLayout {
             Layout.topMargin: 12
             Layout.fillWidth: true
-						Layout.alignment: Qt.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter
 
-						Rectangle {
-								width: 28
-								height: 28
-								radius: 14
-								color: ThemeManager.secondary
-								Layout.alignment: Qt.AlignHCenter
-								Layout.bottomMargin: 4
+            Rectangle {
+                width: 28
+                height: 28
+                radius: 14
+                color: root.notifications.trackedNotifications.values.length === 0 ? ThemeManager.secondary : ThemeManager.primary
+                Layout.alignment: Qt.AlignHCenter
+                Layout.bottomMargin: 4
 
-								Text {
-										anchors.horizontalCenterOffset: 0.6
-										anchors.centerIn: parent
-										text: ""
-										color: ThemeManager.background
-										font.pixelSize: 24
-										font.bold: true
-								}
+                Text {
+                    anchors.horizontalCenterOffset: 0.6
+                    anchors.centerIn: parent
+                    text: ""
+                    color: ThemeManager.background
+                    font.pixelSize: 24
+                    font.bold: true
+                }
 
-								MouseArea {
-										anchors.fill: parent
-										cursorShape: Qt.PointingHandCursor
-										onClicked: sidebar.toggle()
-								}
-						}
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: sidebar.toggle()
+                }
+            }
 
-						RadialVolume {}
-						RadialBattery {}
-						ThemePicker {}
+            RadialVolume {}
+            RadialBattery {}
+            ThemePicker {}
         }
 
         // Middle section (fills space)
@@ -99,8 +100,8 @@ Item {
                 font.pixelSize: 8
 
                 text: {
-                    const youbi = ["日", "月", "火", "水", "木", "金", "土"]
-                    return youbi[clock.date.getDay()] + "曜日"
+                    const youbi = ["日", "月", "火", "水", "木", "金", "土"];
+                    return youbi[clock.date.getDay()] + "曜日";
                 }
             }
         }

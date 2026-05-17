@@ -9,6 +9,7 @@ Scope {
     id: root
 
 		property var sidebar
+    property var notifications
 
     Variants {
         model: Quickshell.screens
@@ -36,6 +37,7 @@ Scope {
 
 										VerticalBarContent {
 												sidebar: root.sidebar
+												notifications: notifServer
 										}
                 }
 
