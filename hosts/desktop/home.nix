@@ -24,6 +24,7 @@
     ../../modules/home-manager/pgadmin
     ../../modules/home-manager/prismlauncher
     ../../modules/home-manager/proton
+    ../../modules/home-manager/syncthing
     ../../modules/home-manager/teams
     ../../modules/home-manager/transmission
     ../../modules/home-manager/vscode
