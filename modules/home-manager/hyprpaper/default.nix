@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-  home.file.".local/share/themes.json".text = builtins.toJSON {
+  home.file.".local/share/shell/themes.json".text = builtins.toJSON {
     wallpapers = [
       {
         name = "Footless bird";
@@ -9,7 +9,8 @@
         background = "#FCF6EA";
         secondary = "#978D74";
 				text = "#000000";
-				terminal = "Gruvbox Light Hard";
+				alacritty = "dawnfox";
+				dark = false;
       }
       {
         name = "Fixed Immortal Travel";
@@ -18,7 +19,8 @@
         secondary = "#4B3B2C";
         background = "#1D1916";
 				text = "#876B22";
-				terminal = "Gruvbox Dark Hard";
+				alacritty = "kanagawa-dragon";
+				dark = true;
       }
     ];
   };

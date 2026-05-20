@@ -1,6 +1,6 @@
 local vars = {
 	commands = {
-		terminal = "ghostty +new-window",
+		terminal = "alacritty",
 		file_browser = "thunar",
 		browser = "firefox",
 		app_runner = "rofi -show drun"

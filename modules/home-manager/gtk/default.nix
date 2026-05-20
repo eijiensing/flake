@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+	home.packages = [
+		pkgs.glib
+	];
   gtk = {
     enable = true;
     font.name = "Noto Sans";
@@ -12,10 +15,6 @@
       gtk-icon-theme-name = "Papirus-Dark-Maia";
       gtk-cursor-theme-name = "Capitaine Cursors - White";
     };
-    gtk3.extraCss = ''
-      @import url("colors.css");
-      ${builtins.readFile ./gtk.css}
-    '';
   };
 
   home.file.".icons/default".source = "${pkgs.capitaine-cursors}/share/icons/capitaine-cursors-white";

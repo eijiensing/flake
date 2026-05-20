@@ -4,8 +4,8 @@
 		./jq
 		./golang
 		./rofi
-    # ./alacritty
-    ./ghostty
+    ./alacritty
+    # ./ghostty
     ./firefox
     ./fish
     ./fzf

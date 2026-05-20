@@ -1,8 +1,10 @@
 { ... }:
 {
+  home.file.".local/share/shell/alacritty-themes".source = ./themes;
   programs.alacritty = {
     enable = true;
     settings = {
+      general.import = [ "~/.local/share/shell/alacritty-theme.toml" ];
       colors.primary.background = "#1D2021";
       font.normal.family = "CaskaydiaMono Nerd Font Mono";
       font.normal.style = "regular";
@@ -13,13 +15,13 @@
     };
   };
   xdg.mimeApps.defaultApplications = {
-    "x-scheme-handler/terminal" = "ghostty.desktop";
+    "x-scheme-handler/terminal" = "alacritty.desktop";
   };
   home.sessionVariables = {
-    TERMINAL = "ghostty";
+    TERMINAL = "alacritty";
   };
   # For thunar
   home.file.".config/xfce4/helpers.rc".text = ''
-    TerminalEmulator=ghostty
+    TerminalEmulator=alacritty
   '';
 }

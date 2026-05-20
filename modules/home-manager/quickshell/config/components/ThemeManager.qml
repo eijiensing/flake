@@ -55,7 +55,6 @@ Singleton {
         _applyHyprpaper();
         _applyBorder();
         _applyGtk();
-        _applyGhostty();
     }
 
     function next() {
@@ -65,7 +64,7 @@ Singleton {
     // ── Theme config (read-only, written by Nix) ─────────────────────────
     FileView {
         id: themesFile
-        path: "/home/eiji/.local/share/themes.json"
+        path: "/home/eiji/.local/share/shell/themes.json"
         watchChanges: false
         onLoaded: {
             root.wallpapers = themesAdapter.wallpapers;
@@ -82,7 +81,7 @@ Singleton {
     // ── Persisted state (read/write) ─────────────────────────────────────
     FileView {
         id: stateFile
-        path: "/home/eiji/.local/share/wallpaper-state.json"
+        path: "/home/eiji/.local/share/shell/wallpaper-state.json"
         watchChanges: false
         onLoaded: {
             const saved = stateAdapter.currentIndex;
@@ -126,24 +125,18 @@ Singleton {
         onExited: function (code) {
             if (code !== 0) {
                 console.warn("gtk css write failed:", code);
-            } else {
-                thunarQuitProc.running = true;
             }
         }
     }
 
     Process {
-        id: thunarQuitProc
-        command: ["thunar", "--quit"]
+        id: alacrittyProc
         running: false
-    }
 
-    Process {
-        id: ghosttyProc
-        running: false
-        onExited: code => {
-            if (code !== 0)
-                console.warn("ghostty theme command failed:", code);
+        onExited: function (code) {
+            if (code !== 0) {
+                console.warn("alacritty command failed:", code);
+            }
         }
     }
 
@@ -167,21 +160,26 @@ Singleton {
     function _applyGtk() {
         if (!theme)
             return;
-        const p = theme.primary;
-        const s = theme.secondary;
-        const bg = theme.background;
-        const t = theme.text;
+        const gtkTheme = theme.dark ? "Adwaita" : "Adwaita-Light";
+        const scheme = theme.dark ? "prefer-dark" : "prefer-light";
+
         gtkProc.running = false;
-        gtkProc.command = ["bash", "-c", `{ echo '@define-color primary    ${p};'; echo '@define-color secondary  ${s};'; echo '@define-color background ${bg};'; echo '@define-color text       ${t};'; } > /home/eiji/.config/gtk-3.0/colors.css`];
+        gtkProc.command = ["bash", "-c", `
+        gsettings set org.gnome.desktop.interface gtk-theme '${gtkTheme}' &&
+        gsettings set org.gnome.desktop.interface color-scheme '${scheme}'
+    `];
         gtkProc.running = true;
     }
 
-    function _applyGhostty() {
+    function _applyAlacitty() {
         if (!theme)
             return;
-        ghosttyProc.running = false;
-        ghosttyProc.command = ["bash", "-c", `echo 'theme = ${theme.terminal}' > /home/eiji/.config/ghostty/theme.ghostty && ` + `systemctl reload --user app-com.mitchellh.ghostty.service`];
-        ghosttyProc.running = true;
+        alacrittyProc.running = false;
+        alacrittyProc.command = ["bash", "-c", `
+					ln -sf ~/.local/share/shell/alacritty-themes/${theme.alacritty}.toml ~/.local/share/shell/alacritty-theme.toml &&
+					touch ~/.config/alacritty/alacritty.toml
+    `];
+        alacrittyProc.running = true;
     }
 
     Component.onCompleted: themesFile.reload()
