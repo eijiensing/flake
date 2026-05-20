@@ -10,6 +10,7 @@
         secondary = "#978D74";
 				text = "#000000";
 				alacritty = "dawnfox";
+				neovim = "dawnfox";
 				dark = false;
       }
       {
@@ -20,6 +21,7 @@
         background = "#1D1916";
 				text = "#876B22";
 				alacritty = "kanagawa-dragon";
+				neovim = "kanagawa-dragon";
 				dark = true;
       }
     ];

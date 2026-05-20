@@ -4,8 +4,10 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      general.import = [ "~/.local/share/shell/alacritty-theme.toml" ];
-      colors.primary.background = "#1D2021";
+      general.import = [
+        "~/.local/share/shell/alacritty-theme.toml"
+				"~/.config/alacritty/theme-trigger.toml"
+      ];
       font.normal.family = "CaskaydiaMono Nerd Font Mono";
       font.normal.style = "regular";
       window.padding = {

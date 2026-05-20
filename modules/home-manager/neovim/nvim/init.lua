@@ -19,11 +19,15 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 
 vim.pack.add({
-	{ src = "https://github.com/sainnhe/gruvbox-material" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	-- themes
+	{ src = "https://github.com/sainnhe/gruvbox-material" },
+	{ src = "https://github.com/edeneast/nightfox.nvim" },
+	{ src = "https://github.com/rebelot/kanagawa.nvim" },
+
 })
 
 -- require'nvim-treesitter'.install { 'all' }
@@ -31,16 +35,16 @@ vim.pack.add({
 require("oil").setup({ keymaps = { ["\\"] = "actions.close" } })
 
 require("fzf-lua").setup({
-  grep = {
-    rg_opts = table.concat({
-      "--column",
-      "--line-number",
-      "--no-heading",
-      "--color=always",
-      "--smart-case",
-      "--hidden",
-    }, " "),
-  },
+	grep = {
+		rg_opts = table.concat({
+			"--column",
+			"--line-number",
+			"--no-heading",
+			"--color=always",
+			"--smart-case",
+			"--hidden",
+		}, " "),
+	},
 })
 
 map("v", ">", ">gv")
@@ -53,9 +57,16 @@ map("n", "grd", vim.diagnostic.open_float)
 map("n", "gd", ":FzfLua lsp_definitions<CR>")
 map("n", "grr", ":FzfLua lsp_references<CR>")
 
-vim.lsp.enable({ "gopls","zls","lua_ls", "vtsls", "rust_analyzer", "qmlls", "nixd" })
+vim.lsp.enable({ "gopls", "zls", "lua_ls", "vtsls", "rust_analyzer", "qmlls", "nixd" })
 
 -- colors
 vim.g.gruvbox_material_background = "hard"
-vim.cmd.colorscheme("gruvbox-material")
+
+local theme_file = vim.fn.expand("~/.local/share/shell/nvim-theme.lua")
+if vim.fn.filereadable(theme_file) == 1 then
+	dofile(theme_file)
+else
+	vim.cmd.colorscheme("gruvbox-material")
+end
+
 vim.cmd(":hi statusline guibg=NONE")

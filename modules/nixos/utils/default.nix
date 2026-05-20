@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = [
     pkgs.file
+    pkgs.comma
     pkgs.btop
     pkgs.nvtopPackages.amd
     pkgs.nvtopPackages.nvidia

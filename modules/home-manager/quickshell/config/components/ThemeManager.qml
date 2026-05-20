@@ -55,6 +55,8 @@ Singleton {
         _applyHyprpaper();
         _applyBorder();
         _applyGtk();
+        _applyAlacritty();
+        _applyNeovim();
     }
 
     function next() {
@@ -140,6 +142,15 @@ Singleton {
         }
     }
 
+    Process {
+        id: neovimProc
+        running: false
+        onExited: code => {
+            if (code !== 0)
+                console.warn("neovim theme command failed:", code);
+        }
+    }
+
     // ── Private helpers ──────────────────────────────────────────────────
     function _applyHyprpaper() {
         if (!theme)
@@ -171,15 +182,28 @@ Singleton {
         gtkProc.running = true;
     }
 
-    function _applyAlacitty() {
+    function _applyAlacritty() {
         if (!theme)
             return;
         alacrittyProc.running = false;
         alacrittyProc.command = ["bash", "-c", `
-					ln -sf ~/.local/share/shell/alacritty-themes/${theme.alacritty}.toml ~/.local/share/shell/alacritty-theme.toml &&
-					touch ~/.config/alacritty/alacritty.toml
+				ln -sf ~/.local/share/shell/alacritty-themes/${theme.alacritty}.toml ~/.local/share/shell/alacritty-theme.toml &&
+				touch ~/.config/alacritty/theme-trigger.toml
     `];
         alacrittyProc.running = true;
+    }
+
+    function _applyNeovim() {
+        if (!theme)
+            return;
+        neovimProc.running = false;
+        neovimProc.command = ["bash", "-c", `
+        echo 'vim.cmd.colorscheme("${theme.neovim}")' > ~/.local/share/shell/nvim-theme.lua &&
+        for sock in /run/user/1001/nvim.*.0; do
+            nvim --server "$sock" --remote-expr "execute('colorscheme ${theme.neovim}')" 2>/dev/null
+        done
+    `];
+        neovimProc.running = true;
     }
 
     Component.onCompleted: themesFile.reload()
