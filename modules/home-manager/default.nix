@@ -7,6 +7,7 @@
     ./alacritty
     # ./ghostty
     ./firefox
+    ./chrome
     ./fish
     ./fzf
     ./git
