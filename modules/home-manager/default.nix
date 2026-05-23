@@ -5,7 +5,6 @@
 		./golang
 		./rofi
     ./alacritty
-    # ./ghostty
     ./firefox
     ./chrome
     ./fish
@@ -18,5 +17,7 @@
     ./quickshell
     ./screenshot
     ./tmux
+		./comma
+		./nix-index
   ];
 }
