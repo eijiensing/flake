@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-	home.packages = with pkgs; [
-		ungoogled-chrome
-	];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    ungoogled-chromium
+  ];
 }
