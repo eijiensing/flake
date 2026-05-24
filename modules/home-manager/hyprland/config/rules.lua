@@ -10,3 +10,8 @@ hl.window_rule({
     },
     persistent_size = true,
 })
+
+hl.window_rule({
+  match = { class = ".*" },
+  sync_fullscreen = true,
+})
