@@ -43,7 +43,7 @@ hl.bind(
 )
 
 hl.bind(
-	"Print",
+	"SUPER + SHIFT + S",
 	hl.dsp.exec_cmd(
 		'grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png'
 	)
