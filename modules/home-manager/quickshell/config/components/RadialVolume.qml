@@ -50,14 +50,14 @@ Item {
             ctx.beginPath();
             ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
             ctx.lineWidth = lineWidth;
-            ctx.strokeStyle = ThemeManager.primary;
+            ctx.strokeStyle = ThemeManager.secondary;
             ctx.stroke();
 
             // Draw progress arc
             const endAngle = Math.min(v, 2) * 2 * Math.PI; // allow >100%
             ctx.beginPath();
             ctx.arc(cx, cy, radius, -Math.PI / 2, -Math.PI / 2 - endAngle, true);
-            ctx.strokeStyle = muted ? "#555555" : ThemeManager.secondary;
+            ctx.strokeStyle = muted ? "#555555" : ThemeManager.primary;
             ctx.stroke();
         }
 
