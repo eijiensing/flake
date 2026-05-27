@@ -201,6 +201,7 @@ Singleton {
         echo 'vim.cmd.colorscheme("${theme.neovim}")' > ~/.local/share/shell/nvim-theme.lua &&
         for sock in /run/user/1001/nvim.*.0; do
             nvim --server "$sock" --remote-expr "execute('colorscheme ${theme.neovim}')" 2>/dev/null
+            nvim --server "$sock" --remote-expr "execute('set background=${theme.dark ? "dark" : "light"}')" 2>/dev/null
         done
     `];
         neovimProc.running = true;

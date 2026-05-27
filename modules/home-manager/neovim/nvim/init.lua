@@ -27,7 +27,7 @@ vim.pack.add({
 	{ src = "https://github.com/sainnhe/gruvbox-material" },
 	{ src = "https://github.com/edeneast/nightfox.nvim" },
 	{ src = "https://github.com/rebelot/kanagawa.nvim" },
-	{ src = "https://github.com/dchinmay2/alabaster.nvim/tree/main" },
+	{ src = "https://github.com/dchinmay2/alabaster.nvim" },
 
 })
 
