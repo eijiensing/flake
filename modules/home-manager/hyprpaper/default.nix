@@ -31,19 +31,19 @@
         secondary = "#232522";
         background = "#0f1110";
         text = "#f9f8f6";
-        alacritty = "kanagawa-dragon";
-        neovim = "kanagawa-dragon";
+        alacritty = "alabaster_dark";
+        neovim = "alabaster";
         dark = true;
       }
       {
         name = "A ridiculous smile";
         path = builtins.toString ./kleinsmile.webp;
-        primary = "#d47c77";
-        secondary = "#7e6b65";
-        background = "#a2958e";
+        primary = "#fcb33b";
+        secondary = "#4e4443";
+        background = "#b3a5a2";
         text = "#302f34";
-        alacritty = "kanagawa-dragon";
-        neovim = "kanagawa-dragon";
+        alacritty = "alabaster";
+        neovim = "alabaster";
         dark = true;
       }
     ];
