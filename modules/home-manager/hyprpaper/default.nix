@@ -27,10 +27,10 @@
       {
         name = "Light was the meaning to everything";
         path = builtins.toString ./derrickdoors.webp;
-        primary = "#f8f2e7";
-        secondary = "#faf6f5";
+        primary = "#5e534a";
+        secondary = "#232522";
         background = "#0f1110";
-        text = "#f8f2e7";
+        text = "#f9f8f6";
         alacritty = "kanagawa-dragon";
         neovim = "kanagawa-dragon";
         dark = true;
@@ -38,7 +38,7 @@
       {
         name = "A ridiculous smile";
         path = builtins.toString ./kleinsmile.webp;
-        primary = "#7e6b65";
+        primary = "#d47c77";
         secondary = "#7e6b65";
         background = "#a2958e";
         text = "#302f34";
