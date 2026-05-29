@@ -42,8 +42,8 @@
         secondary = "#806663";
         background = "#b3a5a2";
         text = "#302f34";
-        alacritty = "alabaster";
-        neovim = "alabaster";
+        alacritty = "seoul256-light";
+        neovim = "seoul256-light";
         dark = false;
       }
     ];
@@ -55,8 +55,10 @@
       ipc = true;
       splash = false;
       preload = [
-        (builtins.toString ./fy_bnb.jpg)
-        (builtins.toString ./fixedimmortaltravel.jpg)
+        (builtins.toString ./fy_bnb.webp)
+        (builtins.toString ./fixedimmortaltravel.webp)
+        (builtins.toString ./derrickdoors.webp)
+        (builtins.toString ./kleinsmile.webp)
       ];
     };
   };

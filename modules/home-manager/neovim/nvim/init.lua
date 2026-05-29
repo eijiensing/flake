@@ -28,6 +28,7 @@ vim.pack.add({
 	{ src = "https://github.com/edeneast/nightfox.nvim" },
 	{ src = "https://github.com/rebelot/kanagawa.nvim" },
 	{ src = "https://github.com/dchinmay2/alabaster.nvim" },
+	{ src = "https://github.com/junegunn/seoul256.vim" },
 
 })
 
