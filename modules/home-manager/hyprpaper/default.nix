@@ -38,13 +38,13 @@
       {
         name = "A ridiculous smile";
         path = builtins.toString ./kleinsmile.webp;
-        primary = "#fcb33b";
-        secondary = "#4e4443";
+        primary = "#b85348";
+        secondary = "#806663";
         background = "#b3a5a2";
         text = "#302f34";
         alacritty = "alabaster";
         neovim = "alabaster";
-        dark = true;
+        dark = false;
       }
     ];
   };
