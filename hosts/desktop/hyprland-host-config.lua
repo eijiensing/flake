@@ -12,8 +12,8 @@ hl.monitor({
   scale = 1,
 })
 
-hl.workspace_rule({ workspace = "2", monitor = "DP-3" })
-hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "1", monitor = "DP-3" })
+hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1" })
 
 hl.device({
 	name = "ugtablet-deco-01-stylus",
