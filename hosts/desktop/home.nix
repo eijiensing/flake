@@ -31,6 +31,7 @@
     ../../modules/home-manager/yt-dlp
     ../../modules/home-manager/zed
     ../../modules/home-manager/zig
+    ../../modules/home-manager/vllm
   ];
 
   nixpkgs = {

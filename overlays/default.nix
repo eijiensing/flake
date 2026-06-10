@@ -1,5 +1,6 @@
 # This file defines overlays
-{inputs, ...}: {
+{ inputs, ... }:
+{
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -7,6 +8,9 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
+    vllm-rocm = prev.python3.pkgs.vllm.override {
+      rocmSupport = true;
+    };
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
