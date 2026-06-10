@@ -1,0 +1,6 @@
+{ ... }:
+{
+  services.litellm = {
+    enable = true;
+  };
+}

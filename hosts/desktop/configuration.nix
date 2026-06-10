@@ -15,6 +15,7 @@
     ../../modules/nixos/ratbag
     ../../modules/nixos/postgresql
     ../../modules/nixos/nix-ld
+    ../../modules/nixos/litellm
   ];
 
   nixpkgs = {
