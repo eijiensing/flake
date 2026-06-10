@@ -1,5 +1,6 @@
 {
   imports = [
+		./nix
 		./thunar
     ./fonts
     ./udev
