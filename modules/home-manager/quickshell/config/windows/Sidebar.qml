@@ -203,7 +203,7 @@ Scope {
                                             clip: true
                                             spacing: 12
 
-                                            model: root.notifications.trackedNotifications.values
+                                            model: root.notifications.trackedNotifications
 
                                             delegate: Rectangle {
                                                 required property var modelData

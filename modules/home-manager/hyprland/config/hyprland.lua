@@ -5,8 +5,11 @@ require("rules")
 require("host-config")
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("quickshell")
 	hl.exec_cmd("systemctl --user start hyprpaper.service")
 	hl.exec_cmd("systemctl --user start easyeffects.service")
+end)
+
+hl.on("hyprland.ready", function()
+	hl.exec_cmd("bash -c 'while ! dbus-send --session --dest=org.freedesktop.DBus --type=method_call --print-reply /org/freedesktop/DBus org.freedesktop.DBus.ListNames > /dev/null 2>&1; do sleep 0.2; done && quickshell'")
 	hl.exec_cmd("hyprctl dispatch workspace 1")
 end)
