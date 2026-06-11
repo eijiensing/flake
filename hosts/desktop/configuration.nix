@@ -12,10 +12,8 @@
     ../../modules/nixos/flatpak
     ../../modules/nixos/java
     ../../modules/nixos/steam
-    ../../modules/nixos/ratbag
     ../../modules/nixos/postgresql
     ../../modules/nixos/nix-ld
-    ../../modules/nixos/ollama
   ];
 
   nixpkgs = {
@@ -26,6 +24,10 @@
     ];
     config = {
       allowUnfree = true;
+      rocmSupport = true;
+      permittedInsecurePackages = [
+        "python3.13-vllm-0.16.0"
+      ];
     };
   };
 

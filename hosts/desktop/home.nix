@@ -9,28 +9,22 @@
 {
   imports = [
     ../../modules/home-manager
-    ../../modules/home-manager/android-studio
     ../../modules/home-manager/audacity
     ../../modules/home-manager/bruno
     ../../modules/home-manager/clapper
     ../../modules/home-manager/discord
     ../../modules/home-manager/dotnet
     ../../modules/home-manager/easyeffects
-    ../../modules/home-manager/hurl
     ../../modules/home-manager/krita
     ../../modules/home-manager/lutris
-    ../../modules/home-manager/macchina
     ../../modules/home-manager/obsidian
     ../../modules/home-manager/pgadmin
     ../../modules/home-manager/prismlauncher
     ../../modules/home-manager/proton
     ../../modules/home-manager/syncthing
     ../../modules/home-manager/teams
-    ../../modules/home-manager/transmission
-    ../../modules/home-manager/vscode
     ../../modules/home-manager/yt-dlp
     ../../modules/home-manager/zed
-    ../../modules/home-manager/zig
     ../../modules/home-manager/vllm
   ];
 
@@ -42,6 +36,10 @@
     ];
     config = {
       allowUnfree = true;
+      rocmSupport = true;
+      permittedInsecurePackages = [
+        "python3.13-vllm-0.16.0"
+      ];
     };
   };
   home = {

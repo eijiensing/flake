@@ -25,18 +25,6 @@ hl.config({
 	},
 
 	decoration = {
-		blur = {
-			brightness = 1,
-			contrast = 1.400000,
-			enabled = true,
-			ignore_opacity = true,
-			new_optimizations = true,
-			noise = 0,
-			passes = 2,
-			size = 3,
-			xray = true,
-		},
-
 		shadow = {
 			color = "rgba(00000055)",
 			enabled = true,

@@ -12,11 +12,8 @@
     ../../modules/home-manager/bruno
     ../../modules/home-manager/dotnet
     ../../modules/home-manager/pgadmin
-    ../../modules/home-manager/android-studio
-    ../../modules/home-manager/hurl
     ../../modules/home-manager/libreoffice
     ../../modules/home-manager/teams
-    ../../modules/home-manager/vscode
     ../../modules/home-manager/krita
   ];
 

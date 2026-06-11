@@ -1,12 +1,11 @@
 {
   imports = [
-		./nix
-		./thunar
+    ./nix
+    ./thunar
     ./fonts
     ./udev
     ./hyprland
     ./ly
-    ./rust
     ./utils
   ];
 }

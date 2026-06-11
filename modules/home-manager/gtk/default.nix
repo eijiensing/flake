@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-	home.packages = [
-		pkgs.glib
-	];
   gtk = {
     enable = true;
     font.name = "Noto Sans";

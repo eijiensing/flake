@@ -10,6 +10,11 @@
   modifications = final: prev: {
     vllm-rocm = prev.python3.pkgs.vllm.override {
       rocmSupport = true;
+      rocmPackages = prev.rocmPackages;
+      torch = prev.python3.pkgs.torch.override {
+        rocmSupport = true;
+        rocmPackages = prev.rocmPackages;
+      };
     };
   };
 
