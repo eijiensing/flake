@@ -26,6 +26,7 @@
     ../../modules/home-manager/yt-dlp
     ../../modules/home-manager/zed
     ../../modules/home-manager/vllm
+    ../../modules/home-manager/artix-game-launcher
   ];
 
   nixpkgs = {
