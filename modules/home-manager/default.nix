@@ -6,7 +6,7 @@
 		./rofi
     ./alacritty
     ./firefox
-    ./chrome
+    # ./chrome
     ./fish
     ./fzf
     ./git

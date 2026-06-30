@@ -14,6 +14,9 @@
     ../../modules/home-manager/pgadmin
     ../../modules/home-manager/libreoffice
     ../../modules/home-manager/teams
+    ../../modules/home-manager/hurl
+    ../../modules/home-manager/libreoffice
+    ../../modules/home-manager/teams
     ../../modules/home-manager/krita
   ];
 
