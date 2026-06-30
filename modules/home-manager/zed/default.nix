@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  home.packages = with pkgs; [
-    zed-editor-fhs
-  ];
+  programs.zed-editor = {
+		enable = true;
+  };
 }

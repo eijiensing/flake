@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-  home.file.".config/quickshell".source = ./config;
+  # home.file.".config/quickshell".source = ./config;
   qt = {
     enable = true;
   };
