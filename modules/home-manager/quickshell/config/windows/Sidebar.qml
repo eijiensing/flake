@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 import Quickshell.Hyprland
+import Quickshell.Bluetooth
 import qs.components
 
 Scope {
@@ -11,6 +12,7 @@ Scope {
     // State to toggle the sidebar open and closed
     property bool isOpen: false
     property var notifications
+    property var notificationCache: []
 
     function toggle() {
         isOpen = !isOpen;
@@ -63,18 +65,34 @@ Scope {
                     width: 408
                     anchors {
                         top: parent.top
-                        bottom: parent.bottom
                         left: parent.left
                         leftMargin: 40
                         topMargin: 6
-                        bottomMargin: 6
                     }
+                    height: Math.min(headerHeight + tabContentHeight + 52, parent.height - 12)
                     clip: true
+
+                    Behavior on height {
+                        NumberAnimation {
+                            duration: 350
+                            easing.type: Easing.OutExpo
+                        }
+                    }
+
+                    property real headerHeight: 40
+                    property real tabContentHeight: {
+                        switch (sidebarContent.currentTab) {
+                            case 0: return 300;
+                            case 1: return 150;
+                            case 2: return 400;
+                        }
+                        return 300;
+                    }
 
                     Rectangle {
                         id: sidebarContent
                         width: 400
-                        height: parent.height
+                        height: sidebarContainer.height
                         x: root.isOpen ? 8 : -400
                         color: ThemeManager.background
                         border.color: ThemeManager.secondary
@@ -95,16 +113,14 @@ Scope {
                         }
 
                         ColumnLayout {
+                            id: contentLayout
                             anchors.fill: parent
-                            anchors.margins: 24
-                            spacing: 24
+                            anchors.margins: 16
+                            spacing: 12
 
+                            // Tabs header
                             Column {
                                 Layout.fillWidth: true
-                                spacing: 4
-
-                                // Tabs header
-                                Column {
                                     width: parent.width
 
                                     Row {
@@ -118,7 +134,7 @@ Scope {
                                         property real tabWidth: (width - spacing * (tabCount - 1)) / tabCount
 
                                         Repeater {
-                                            model: ["Notifications", "Tray", "Apps"]
+                                            model: ["Notifications", "Tray", "Bluetooth"]
 
                                             delegate: Item {
                                                 width: tabBar.tabWidth
@@ -165,7 +181,7 @@ Scope {
                                         }
                                     }
 
-                                    // Divider (now guaranteed visible)
+                                    // Divider
                                     Rectangle {
                                         width: parent.width
                                         height: 1
@@ -173,16 +189,23 @@ Scope {
                                         opacity: 0.15
                                     }
                                 }
-                            }
 
-                            // Tab Content Area
+                                // Tab Content Area
                             Item {
+                                id: tabContent
                                 Layout.fillWidth: true
-                                Layout.fillHeight: true
+                                Layout.preferredHeight: sidebarContainer.tabContentHeight
                                 clip: true
 
+                                Behavior on Layout.preferredHeight {
+                                    NumberAnimation {
+                                        duration: 350
+                                        easing.type: Easing.OutExpo
+                                    }
+                                }
+
                                 Row {
-                                    width: parent.width * 2
+                                    width: parent.width * 3
                                     height: parent.height
                                     x: -parent.width * sidebarContent.currentTab
                                     Behavior on x {
@@ -194,145 +217,96 @@ Scope {
 
                                     // Tab 0: Notifications
                                     Item {
-                                        width: parent.width / 2
+                                        width: parent.width / 3
                                         height: parent.height
 
-                                        ListView {
-                                            id: notificationList
+                                        Flickable {
+                                            id: notificationScroll
                                             anchors.fill: parent
                                             clip: true
-                                            spacing: 12
-
+                                            contentWidth: width
+                                            contentHeight: notificationColumn.height
+                                            boundsBehavior: Flickable.StopAtBounds
+                                            flickableDirection: Flickable.VerticalFlick
                                             model: root.notifications.trackedNotifications
 
-                                            delegate: Rectangle {
-                                                required property var modelData
+                                            Column {
+                                                id: notificationColumn
+                                                width: parent.width
+                                                spacing: 12
 
-                                                width: notificationList.width
-                                                height: 100
-                                                radius: 12
-                                                color: delegateMouseArea.containsMouse ? Qt.lighter(ThemeManager.primary, 1.1) : ThemeManager.primary
-                                                opacity: 0.9
-                                                Behavior on color {
-                                                    ColorAnimation {
-                                                        duration: 150
-                                                    }
-                                                }
+                                                Repeater {
+                                                    model: root.notificationCache
 
-                                                MouseArea {
-                                                    id: delegateMouseArea
-                                                    anchors.fill: parent
-                                                    hoverEnabled: true
-                                                    cursorShape: Qt.PointingHandCursor
-                                                    onClicked: {
-                                                        if (typeof modelData.invoke === "function") {
-                                                            modelData.invoke("default");
-                                                        } else if (typeof modelData.invokeDefaultAction === "function") {
-                                                            modelData.invokeDefaultAction();
-                                                        } else if (typeof modelData.dismiss === "function") {
-                                                            modelData.dismiss();
+                                                    delegate: Rectangle {
+                                                        property var cached: typeof modelData !== "undefined" ? modelData : null
+                                                        property var notif: cached ? cached.notif : null
+
+                                                        width: notificationColumn.width
+                                                        height: 100
+                                                        radius: 12
+                                                        color: delegateMouseArea.containsMouse ? Qt.lighter(ThemeManager.primary, 1.1) : ThemeManager.primary
+                                                        opacity: 0.9
+                                                        Behavior on color {
+                                                            ColorAnimation {
+                                                                duration: 150
+                                                            }
+                                                        }
+
+                                                        ColumnLayout {
+                                                            anchors.fill: parent
+                                                            anchors.margins: 16
+                                                            spacing: 4
+
+                                                            RowLayout {
+                                                                Layout.fillWidth: true
+                                                                Text {
+                                                                    text: cached ? cached.appName || "" : ""
+                                                                    font.bold: true
+                                                                    color: ThemeManager.background
+                                                                    font.pixelSize: 12
+                                                                    Layout.fillWidth: true
+                                                                    elide: Text.ElideRight
+                                                                }
+                                                            }
+
+                                                            Text {
+                                                                text: cached ? cached.summary || "" : ""
+                                                                font.bold: true
+                                                                color: ThemeManager.background
+                                                                font.pixelSize: 14
+                                                                elide: Text.ElideRight
+                                                                Layout.fillWidth: true
+                                                            }
+                                                            Text {
+                                                                text: cached ? cached.body || "" : ""
+                                                                color: ThemeManager.background
+                                                                font.pixelSize: 12
+                                                                elide: Text.ElideRight
+                                                                maximumLineCount: 2
+                                                                wrapMode: Text.Wrap
+                                                                Layout.fillWidth: true
+                                                                Layout.fillHeight: true
+                                                            }
+                                                        }
+
+                                                        MouseArea {
+                                                            id: delegateMouseArea
+                                                            anchors.fill: parent
+                                                            hoverEnabled: true
+                                                            cursorShape: Qt.PointingHandCursor
+                                                            onClicked: {
+                                                                        var item = cached
+                                                                        if (notif && typeof notif.dismiss === "function") {
+                                                                            notif.dismiss()
+                                                                        }
+                                                                        root.notificationCache = root.notificationCache.filter(function(i) {
+                                                                            return i.notif !== item.notif
+                                                                        })
+                                                                        console.log("after filter, cache len:", root.notificationCache.length)
+                                                                    }
                                                         }
                                                     }
-                                                }
-
-                                                ColumnLayout {
-                                                    anchors.fill: parent
-                                                    anchors.margins: 16
-                                                    spacing: 4
-
-                                                    RowLayout {
-                                                        Layout.fillWidth: true
-                                                        Text {
-                                                            text: modelData.appName
-                                                            font.bold: true
-                                                            color: ThemeManager.background
-                                                            font.pixelSize: 12
-                                                            Layout.fillWidth: true
-                                                            elide: Text.ElideRight
-                                                        }
-                                                    }
-
-                                                    Text {
-                                                        text: modelData.summary
-                                                        font.bold: true
-                                                        color: ThemeManager.background
-                                                        font.pixelSize: 14
-                                                        elide: Text.ElideRight
-                                                        Layout.fillWidth: true
-                                                    }
-                                                    Text {
-                                                        text: modelData.body
-                                                        color: ThemeManager.background
-                                                        font.pixelSize: 12
-                                                        elide: Text.ElideRight
-                                                        maximumLineCount: 2
-                                                        wrapMode: Text.Wrap
-                                                        Layout.fillWidth: true
-                                                        Layout.fillHeight: true
-                                                    }
-                                                }
-
-                                                // Dismiss button overlay (appears on hover)
-                                                Rectangle {
-                                                    anchors.right: parent.right
-                                                    anchors.top: parent.top
-                                                    anchors.margins: 8
-                                                    width: 24
-                                                    height: 24
-                                                    radius: 12
-                                                    color: ThemeManager.secondary
-                                                    opacity: dismissArea.containsMouse ? 1.0 : 0.0
-                                                    Behavior on opacity {
-                                                        NumberAnimation {
-                                                            duration: 150
-                                                        }
-                                                    }
-
-                                                    Text {
-                                                        anchors.centerIn: parent
-                                                        text: "✕"
-                                                        color: ThemeManager.background
-                                                        font.bold: true
-                                                    }
-
-                                                    MouseArea {
-                                                        id: dismissArea
-                                                        anchors.fill: parent
-                                                        hoverEnabled: true
-                                                        cursorShape: Qt.PointingHandCursor
-                                                        onClicked: modelData.dismiss()
-                                                    }
-                                                }
-                                            }
-
-                                            // Nice animations for adding/removing items
-                                            add: Transition {
-                                                NumberAnimation {
-                                                    property: "opacity"
-                                                    from: 0
-                                                    to: 1
-                                                    duration: 300
-                                                }
-                                                NumberAnimation {
-                                                    property: "x"
-                                                    from: 100
-                                                    to: 0
-                                                    duration: 300
-                                                    easing.type: Easing.OutExpo
-                                                }
-                                            }
-                                            remove: Transition {
-                                                NumberAnimation {
-                                                    property: "opacity"
-                                                    to: 0
-                                                    duration: 300
-                                                }
-                                            }
-                                            displaced: Transition {
-                                                NumberAnimation {
-                                                    properties: "x,y"
-                                                    duration: 300
-                                                    easing.type: Easing.OutExpo
                                                 }
                                             }
                                         }
@@ -340,7 +314,7 @@ Scope {
 
                                     // Tab 1: System Tray
                                     Item {
-                                        width: parent.width / 2
+                                        width: parent.width / 3
                                         height: parent.height
 
                                         GridView {
@@ -397,6 +371,16 @@ Scope {
                                                     }
                                                 }
                                             }
+                                        }
+                                    }
+
+                                    // Tab 2: Bluetooth
+                                    Item {
+                                        width: parent.width / 3
+                                        height: parent.height
+
+                                        BluetoothManager {
+                                            anchors.fill: parent
                                         }
                                     }
                                 }

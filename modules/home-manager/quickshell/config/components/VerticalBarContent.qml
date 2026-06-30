@@ -28,7 +28,7 @@ Item {
                 width: 28
                 height: 28
                 radius: 14
-                color: root.notifications.trackedNotifications.values.length === 0 ? ThemeManager.secondary : ThemeManager.primary
+                color: sidebar.notificationCache.length === 0 ? ThemeManager.secondary : ThemeManager.primary
                 Layout.alignment: Qt.AlignHCenter
                 Layout.bottomMargin: 4
 
