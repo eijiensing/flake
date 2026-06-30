@@ -12,18 +12,9 @@
     ../../modules/home-manager/bruno
     ../../modules/home-manager/dotnet
     ../../modules/home-manager/pgadmin
-<<<<<<< HEAD
-    ../../modules/home-manager/libreoffice
-    ../../modules/home-manager/teams
-    ../../modules/home-manager/hurl
-    ../../modules/home-manager/libreoffice
-    ../../modules/home-manager/teams
-=======
-    ../../modules/home-manager/hurl
     ../../modules/home-manager/libreoffice
     ../../modules/home-manager/teams
     ../../modules/home-manager/zed
->>>>>>> 843eefb (zed)
     ../../modules/home-manager/krita
   ];
 
