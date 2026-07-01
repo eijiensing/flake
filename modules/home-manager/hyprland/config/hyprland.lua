@@ -5,7 +5,7 @@ require("rules")
 require("host-config")
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("systemctl --user start hyprpaper.service")
+	hl.exec_cmd("systemctl --user start awww.service")
 	hl.exec_cmd("systemctl --user start easyeffects.service")
 	hl.exec_cmd("quickshell")
 	hl.exec_cmd("hyprctl dispatch workspace 1")

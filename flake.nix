@@ -16,10 +16,6 @@
       url = "git+https://github.com/WhySoBad/hyprland-preview-share-picker?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-		hyprpaper = {
-			url = "github:hyprwm/hyprpaper?rev=20fc0fa6c2056c388a4cd69cb394a9f989dd27c0";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 
     # Quickshell
     quickshell = {

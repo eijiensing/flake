@@ -52,7 +52,7 @@ Singleton {
             return;
         currentIndex = index;
         stateAdapter.currentIndex = index;
-        _applyHyprpaper();
+        _applyAwww();
         _applyBorder();
         _applyGtk();
         _applyAlacritty();
@@ -89,7 +89,7 @@ Singleton {
             const saved = stateAdapter.currentIndex;
             const valid = saved >= 0 && saved < root.wallpapers.length;
             root.currentIndex = valid ? saved : 0;
-            root._applyHyprpaper();
+            root._applyAwww();
             root._applyBorder();
         }
         onAdapterUpdated: writeAdapter()
@@ -100,13 +100,13 @@ Singleton {
         }
     }
 
-    // ── Hyprpaper command ────────────────────────────────────────────────
+    // ── Awww command ────────────────────────────────────────────────
     Process {
-        id: hyprpaperProc
+        id: awwwProc
         running: false
         onExited: code => {
             if (code !== 0)
-                console.warn("hyprpaper command failed:", code);
+                console.warn("awww command failed:", code);
         }
     }
 
@@ -126,7 +126,7 @@ Singleton {
 
         onExited: function (code) {
             if (code !== 0) {
-                console.warn("gtk css write failed:", code);
+                console.warn("gsettings failed:", code);
             }
         }
     }
@@ -152,12 +152,12 @@ Singleton {
     }
 
     // ── Private helpers ──────────────────────────────────────────────────
-    function _applyHyprpaper() {
+    function _applyAwww() {
         if (!theme)
             return;
-        hyprpaperProc.running = false;
-        hyprpaperProc.command = ["hyprctl", "hyprpaper", "wallpaper", "," + theme.path];
-        hyprpaperProc.running = true;
+        awwwProc.running = false;
+        awwwProc.command = ["awww", "img", theme.path];
+        awwwProc.running = true;
     }
 
     function _applyBorder() {

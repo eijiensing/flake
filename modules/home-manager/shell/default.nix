@@ -48,18 +48,4 @@
       }
     ];
   };
-  services.hyprpaper = {
-    enable = false;
-    package = inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    settings = {
-      ipc = true;
-      splash = false;
-      preload = [
-        (builtins.toString ./fy_bnb.webp)
-        (builtins.toString ./fixedimmortaltravel.webp)
-        (builtins.toString ./derrickdoors.webp)
-        (builtins.toString ./kleinsmile.webp)
-      ];
-    };
-  };
 }

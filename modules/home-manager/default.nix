@@ -6,13 +6,12 @@
 		./rofi
     ./alacritty
     ./firefox
-    # ./chrome
     ./fish
     ./fzf
     ./git
     ./gtk
     ./hyprland
-    ./hyprpaper
+    ./shell
 		./awww
     ./neovim
     ./quickshell

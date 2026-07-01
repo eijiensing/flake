@@ -228,7 +228,7 @@ Scope {
                                             contentHeight: notificationColumn.height
                                             boundsBehavior: Flickable.StopAtBounds
                                             flickableDirection: Flickable.VerticalFlick
-                                            model: root.notifications.trackedNotifications
+                                            // model: root.notifications.trackedNotifications
 
                                             Column {
                                                 id: notificationColumn
