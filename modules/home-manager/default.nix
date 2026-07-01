@@ -13,6 +13,7 @@
     ./gtk
     ./hyprland
     ./hyprpaper
+		./awww
     ./neovim
     ./quickshell
     ./screenshot

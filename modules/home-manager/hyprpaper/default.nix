@@ -49,7 +49,7 @@
     ];
   };
   services.hyprpaper = {
-    enable = true;
+    enable = false;
     package = inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
       ipc = true;
