@@ -156,7 +156,8 @@ Singleton {
         if (!theme)
             return;
         awwwProc.running = false;
-        awwwProc.command = ["awww", "img", theme.path];
+        awwwProc.command = ["awww", "img", theme.path, "-t", "wipe", "--transition-angle", "180", "--transition-duration", "1", "--transition-fps", "60"];
+
         awwwProc.running = true;
     }
 
