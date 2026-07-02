@@ -82,9 +82,12 @@ Scope {
                     property real headerHeight: 40
                     property real tabContentHeight: {
                         switch (sidebarContent.currentTab) {
-                            case 0: return 300;
-                            case 1: return 150;
-                            case 2: return 400;
+                        case 0:
+                            return 300;
+                        case 1:
+                            return 150;
+                        case 2:
+                            return 400;
                         }
                         return 300;
                     }
@@ -121,76 +124,76 @@ Scope {
                             // Tabs header
                             Column {
                                 Layout.fillWidth: true
+                                width: parent.width
+
+                                Row {
+                                    id: tabBar
                                     width: parent.width
 
-                                    Row {
-                                        id: tabBar
-                                        width: parent.width
+                                    height: 24
+                                    spacing: 16
 
-                                        height: 24
-                                        spacing: 16
+                                    property int tabCount: 3
+                                    property real tabWidth: (width - spacing * (tabCount - 1)) / tabCount
 
-                                        property int tabCount: 3
-                                        property real tabWidth: (width - spacing * (tabCount - 1)) / tabCount
+                                    Repeater {
+                                        model: ["Notifications", "Tray", "Bluetooth"]
 
-                                        Repeater {
-                                            model: ["Notifications", "Tray", "Bluetooth"]
+                                        delegate: Item {
+                                            width: tabBar.tabWidth
+                                            height: tabBar.height
 
-                                            delegate: Item {
-                                                width: tabBar.tabWidth
-                                                height: tabBar.height
+                                            Text {
+                                                anchors.centerIn: parent
+                                                text: modelData
+                                                color: sidebarContent.currentTab === index ? ThemeManager.primary : ThemeManager.secondary
+                                                font.pixelSize: 12
+                                                font.bold: true
 
-                                                Text {
-                                                    anchors.centerIn: parent
-                                                    text: modelData
-                                                    color: sidebarContent.currentTab === index ? ThemeManager.primary : ThemeManager.secondary
-                                                    font.pixelSize: 12
-                                                    font.bold: true
-
-                                                    Behavior on color {
-                                                        ColorAnimation {
-                                                            duration: 200
-                                                        }
+                                                Behavior on color {
+                                                    ColorAnimation {
+                                                        duration: 200
                                                     }
                                                 }
+                                            }
 
-                                                MouseArea {
-                                                    anchors.fill: parent
-                                                    cursorShape: Qt.PointingHandCursor
-                                                    onClicked: sidebarContent.currentTab = index
-                                                }
+                                            MouseArea {
+                                                anchors.fill: parent
+                                                cursorShape: Qt.PointingHandCursor
+                                                onClicked: sidebarContent.currentTab = index
                                             }
                                         }
-                                    }
-
-                                    // Sliding underline
-                                    Rectangle {
-                                        id: tabIndicator
-                                        width: tabBar.tabWidth
-                                        height: 3
-                                        radius: 2
-                                        color: ThemeManager.primary
-
-                                        x: sidebarContent.currentTab * (tabBar.tabWidth + tabBar.spacing)
-
-                                        Behavior on x {
-                                            NumberAnimation {
-                                                duration: 350
-                                                easing.type: Easing.OutExpo
-                                            }
-                                        }
-                                    }
-
-                                    // Divider
-                                    Rectangle {
-                                        width: parent.width
-                                        height: 1
-                                        color: ThemeManager.secondary
-                                        opacity: 0.15
                                     }
                                 }
 
-                                // Tab Content Area
+                                // Sliding underline
+                                Rectangle {
+                                    id: tabIndicator
+                                    width: tabBar.tabWidth
+                                    height: 3
+                                    radius: 2
+                                    color: ThemeManager.primary
+
+                                    x: sidebarContent.currentTab * (tabBar.tabWidth + tabBar.spacing)
+
+                                    Behavior on x {
+                                        NumberAnimation {
+                                            duration: 350
+                                            easing.type: Easing.OutExpo
+                                        }
+                                    }
+                                }
+
+                                // Divider
+                                Rectangle {
+                                    width: parent.width
+                                    height: 1
+                                    color: ThemeManager.secondary
+                                    opacity: 0.15
+                                }
+                            }
+
+                            // Tab Content Area
                             Item {
                                 id: tabContent
                                 Layout.fillWidth: true
@@ -296,15 +299,16 @@ Scope {
                                                             hoverEnabled: true
                                                             cursorShape: Qt.PointingHandCursor
                                                             onClicked: {
-                                                                        var item = cached
-                                                                        if (notif && typeof notif.dismiss === "function") {
-                                                                            notif.dismiss()
-                                                                        }
-                                                                        root.notificationCache = root.notificationCache.filter(function(i) {
-                                                                            return i.notif !== item.notif
-                                                                        })
-                                                                        console.log("after filter, cache len:", root.notificationCache.length)
-                                                                    }
+                                                                var entry = cached;
+                                                                var notifRef = notif;
+                                                                // Filter first while the notification reference is still valid
+                                                                root.notificationCache = root.notificationCache.filter(function (i) {
+                                                                    return i !== entry;
+                                                                });
+                                                                if (notifRef && typeof notifRef.dismiss === "function") {
+                                                                    notifRef.dismiss();
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
