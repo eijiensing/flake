@@ -12,6 +12,7 @@
     ../../modules/nixos
     ../../modules/nixos/nvidia
     ../../modules/nixos/postgresql
+    ../../modules/nixos/docker
   ];
 
   nixpkgs = {
@@ -41,6 +42,7 @@
         "networkmanager"
         "audio"
         "input"
+        "docker"
       ];
     };
   };
