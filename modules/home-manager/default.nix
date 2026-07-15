@@ -1,9 +1,10 @@
 {
   imports = [
-		./extraction
-		./jq
-		./golang
-		./rofi
+    ./extraction
+    ./pass
+    ./jq
+    ./golang
+    ./rofi
     ./alacritty
     ./firefox
     ./fish
@@ -12,12 +13,12 @@
     ./gtk
     ./hyprland
     ./shell
-		./awww
+    ./awww
     ./neovim
     ./quickshell
     ./screenshot
     ./tmux
-		./comma
-		./nix-index
+    ./comma
+    ./nix-index
   ];
 }
