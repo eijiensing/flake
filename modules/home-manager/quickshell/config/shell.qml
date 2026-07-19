@@ -5,33 +5,27 @@ import QtQuick.Window
 import Quickshell
 import Quickshell.Services.Notifications
 import "windows"
+import "components"
 
 ShellRoot {
     id: root
 
-		NotificationServer {
-			id: notifServer
-			onNotification: n => {
-					n.tracked = true
-					var cached = {
-						appName: n.appName || "",
-						summary: n.summary || "",
-						body: n.body || "",
-						notif: n
-					}
-					var copy = sidebar.notificationCache.slice()
-					copy.push(cached)
-					sidebar.notificationCache = copy
-				}
-		}
+    NotificationServer {
+        id: notifServer
+    }
+
+    NotificationManager {
+        id: notifManager
+        server: notifServer
+    }
 
     Sidebar {
         id: sidebar
-        notifications: notifServer
+        manager: notifManager
     }
 
     VerticalBar {
         sidebar: sidebar
-        notifications: notifServer
+        manager: notifManager
     }
 }

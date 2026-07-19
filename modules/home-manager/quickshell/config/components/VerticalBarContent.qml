@@ -6,7 +6,7 @@ import Quickshell
 Item {
     anchors.fill: parent
     property var sidebar
-    property var notifications
+    property var manager
 
     // Clock
     SystemClock {
@@ -28,7 +28,7 @@ Item {
                 width: 28
                 height: 28
                 radius: 14
-                color: sidebar.notificationCache.length === 0 ? ThemeManager.secondary : ThemeManager.primary
+                color: manager && manager.hasNotifications ? ThemeManager.primary : ThemeManager.secondary
                 Layout.alignment: Qt.AlignHCenter
                 Layout.bottomMargin: 4
 

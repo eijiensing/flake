@@ -17,6 +17,10 @@ Item {
 
     readonly property bool discovering: adapter && adapter.discovering
 
+    // Expose the total content height so the sidebar can size dynamically
+    readonly property real contentHeight:
+        64 + (adapter && adapter.enabled ? 8 + scrollArea.contentHeight : 0)
+
     onAdapterChanged: {
         stopDiscovery()
     }

@@ -9,6 +9,10 @@ Item {
     id: radialBattery
     width: 36
     height: 36
+    // Hide on systems without a battery (desktops)
+    readonly property bool hasBattery: UPower.ready && UPower.devices
+        && UPower.devices.values.some(function(d) { return d && d.type === 2; }) || false
+    visible: hasBattery
 
     property int lineWidth: 6
 

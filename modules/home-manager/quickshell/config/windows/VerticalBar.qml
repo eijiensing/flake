@@ -2,14 +2,13 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 import Quickshell.Widgets
-import Quickshell.Services.Notifications
 import qs.components
 
 Scope {
     id: root
 
-		property var sidebar
-    property var notifications
+    property var sidebar
+    property var manager
 
     Variants {
         model: Quickshell.screens
@@ -35,10 +34,10 @@ Scope {
                     anchors.fill: parent
                     color: ThemeManager.background
 
-										VerticalBarContent {
-												sidebar: root.sidebar
-												notifications: notifServer
-										}
+	                                    VerticalBarContent {
+	                                        sidebar: root.sidebar
+	                                        manager: root.manager
+	                                    }
                 }
 
             }
