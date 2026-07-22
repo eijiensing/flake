@@ -1,0 +1,4 @@
+{ ... }:
+{
+  programs.appimage.enable = true;
+}

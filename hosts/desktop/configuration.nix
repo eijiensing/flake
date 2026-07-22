@@ -14,6 +14,7 @@
     ../../modules/nixos/steam
     ../../modules/nixos/postgresql
     ../../modules/nixos/nix-ld
+    ../../modules/nixos/appimage
   ];
 
   nixpkgs = {
