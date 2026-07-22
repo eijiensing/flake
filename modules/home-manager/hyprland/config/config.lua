@@ -25,6 +25,9 @@ hl.config({
 	},
 
 	decoration = {
+		blur = {
+			enabled = false,
+		},
 		shadow = {
 			color = "rgba(00000055)",
 			enabled = true,
