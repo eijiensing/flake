@@ -10,8 +10,8 @@ Item {
     width: 36
     height: 36
     // Hide on systems without a battery (desktops)
-    readonly property bool hasBattery: UPower.ready && UPower.devices
-        && UPower.devices.values.some(function(d) { return d && d.type === 2; }) || false
+    // UPower.displayDevice is always non-null and reflects the system battery
+    readonly property bool hasBattery: UPower.displayDevice.ready && UPower.displayDevice.isPresent
     visible: hasBattery
 
     property int lineWidth: 6
