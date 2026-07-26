@@ -7,5 +7,6 @@
     ./hyprland
     ./ly
     ./utils
+		./gnome-key-ring
   ];
 }

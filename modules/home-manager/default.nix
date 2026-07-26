@@ -1,7 +1,6 @@
 {
   imports = [
     ./extraction
-    ./gnome-key-ring
     ./jq
     ./golang
     ./rofi
