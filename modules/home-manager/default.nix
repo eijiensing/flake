@@ -1,7 +1,7 @@
 {
   imports = [
     ./extraction
-    ./pass
+    ./gnome-key-ring
     ./jq
     ./golang
     ./rofi
