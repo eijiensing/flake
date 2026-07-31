@@ -12,7 +12,8 @@
 
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland?rev=5e441cae538c9396f2ee30338419bec12969608c";
-    hyprland-preview-share-picker = { # Submodules are broken
+    hyprland-preview-share-picker = {
+      # Submodules are broken
       url = "git+https://github.com/WhySoBad/hyprland-preview-share-picker?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -22,6 +23,7 @@
       url = "github:quickshell-mirror/quickshell?rev=d1760ed1f31c02a95b37a9bf4084129c829ebe7f";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    # metaball-blobs.url = "path:/home/eiji/.config/quickshell";
 
     # Neovim
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay?rev=1e7087c03f0fb1935f73bd28ba044714cfab34f4";

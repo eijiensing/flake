@@ -8,7 +8,7 @@ hl.config({
 			inactive_border = "0x00000000",
 		},
 		gaps_in = 4,
-		gaps_out = 28,
+		gaps_out = 8,
 		layout = "dwindle",
 	},
 	input = {

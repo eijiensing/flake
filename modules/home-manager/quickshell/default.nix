@@ -1,12 +1,18 @@
 { inputs, pkgs, ... }:
+# let
+#   metaball-blobs = inputs.metaball-blobs.packages.${pkgs.stdenv.hostPlatform.system}.metaball-blobs;
+# in
 {
-  # home.file.".config/quickshell".source = ./config;
   qt = {
     enable = true;
   };
   home.packages = [
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
-    pkgs.kdePackages.qtdeclarative # also includes qmlls
+    # metaball-blobs
+    pkgs.kdePackages.qtdeclarative
     pkgs.kdePackages.qt5compat
   ];
+  # home.sessionVariables = {
+  #   QML_IMPORT_PATH = "${metaball-blobs}/lib/qt6/qml";
+  # };
 }
