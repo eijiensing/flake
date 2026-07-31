@@ -18,12 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Quickshell
-    quickshell = {
-      url = "github:quickshell-mirror/quickshell?rev=d1760ed1f31c02a95b37a9bf4084129c829ebe7f";
+    # Caelestia shell (vendored source)
+    caelestia-shell = {
+      url = "path:./modules/home-manager/caelestia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    # metaball-blobs.url = "path:/home/eiji/.config/quickshell";
 
     # Neovim
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay?rev=1e7087c03f0fb1935f73bd28ba044714cfab34f4";

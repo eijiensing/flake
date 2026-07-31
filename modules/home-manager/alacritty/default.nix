@@ -1,12 +1,12 @@
 { ... }:
 {
-  home.file.".local/share/shell/alacritty-themes".source = ./themes;
+  home.file.".config/alacritty/theme-trigger.toml".text = "";
   programs.alacritty = {
     enable = true;
     settings = {
       general.import = [
-        "~/.local/share/shell/alacritty-theme.toml"
-				"~/.config/alacritty/theme-trigger.toml"
+        "~/.local/state/caelestia/theme/alacritty.toml"
+        "~/.config/alacritty/theme-trigger.toml"
       ];
       font.normal.family = "CaskaydiaMono Nerd Font Mono";
       font.normal.style = "regular";

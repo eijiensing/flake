@@ -11,8 +11,6 @@
     ./git
     ./gtk
     ./hyprland
-    ./shell
-    ./awww
     ./neovim
     ./quickshell
     ./screenshot

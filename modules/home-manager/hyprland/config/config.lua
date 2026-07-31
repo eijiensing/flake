@@ -8,7 +8,7 @@ hl.config({
 			inactive_border = "0x00000000",
 		},
 		gaps_in = 4,
-		gaps_out = 8,
+		gaps_out = 12,
 		layout = "dwindle",
 	},
 	input = {
@@ -35,7 +35,7 @@ hl.config({
 			range = 20,
 			render_power = 3,
 		},
-		rounding = 16,
+		rounding = 20,
 	},
 	animations = {
 		enabled = true,

@@ -7,7 +7,6 @@
     iconTheme.name = "Papirus-Dark-Maia";
     iconTheme.package = pkgs.papirus-maia-icon-theme;
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
       gtk-key-theme-name = "Default";
       gtk-icon-theme-name = "Papirus-Dark-Maia";
       gtk-cursor-theme-name = "Capitaine Cursors - White";
