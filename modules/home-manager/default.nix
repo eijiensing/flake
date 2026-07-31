@@ -3,7 +3,6 @@
     ./extraction
     ./jq
     ./golang
-    ./rofi
     ./alacritty
     ./firefox
     ./fish

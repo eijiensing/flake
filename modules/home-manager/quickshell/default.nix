@@ -54,7 +54,7 @@
         { id = "tray"; }
         { id = "clock"; }
         { id = "statusIcons"; }
-        { id = "power"; }
+        # { id = "power"; }
       ];
       dashboard.enabled = false;
       services.useTwelveHourClock = false;
