@@ -1,4 +1,10 @@
-{ inputs, pkgs, lib, config, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
@@ -48,8 +54,14 @@
       bar.entries = [
         { id = "logo"; }
         { id = "idleInhibitor"; }
-        { id = "workspaces"; enabled = false; }
-        { id = "activeWindow"; enabled = false; }
+        {
+          id = "workspaces";
+          enabled = false;
+        }
+        {
+          id = "activeWindow";
+          enabled = false;
+        }
         { id = "spacer"; }
         { id = "tray"; }
         { id = "clock"; }
@@ -59,6 +71,14 @@
       dashboard.enabled = false;
       services.useTwelveHourClock = false;
       sidebar.enabled = false;
+
+      general = {
+        idle = {
+          lockBeforeSleep = false;
+          inhibitWhenAudio = true;
+          timeouts = [ ];
+        };
+      };
     };
   };
 
@@ -132,7 +152,8 @@
 
   # Wallpapers for the built-in picker
   home.file."Pictures/Wallpapers/fy_bnb.webp".source = ./wallpapers/fy_bnb.webp;
-  home.file."Pictures/Wallpapers/fixedimmortaltravel.webp".source = ./wallpapers/fixedimmortaltravel.webp;
+  home.file."Pictures/Wallpapers/fixedimmortaltravel.webp".source =
+    ./wallpapers/fixedimmortaltravel.webp;
   home.file."Pictures/Wallpapers/derrickdoors.webp".source = ./wallpapers/derrickdoors.webp;
   home.file."Pictures/Wallpapers/kleinsmile.webp".source = ./wallpapers/kleinsmile.webp;
 
