@@ -14,6 +14,7 @@
         x = 16;
         y = 16;
       };
+			terminal.osc52 = "CopyPaste";
     };
   };
   xdg.mimeApps.defaultApplications = {
