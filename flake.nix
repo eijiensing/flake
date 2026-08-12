@@ -18,6 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix-index db
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
     # Caelestia shell (vendored source)
     caelestia-shell = {
       url = "path:./modules/home-manager/caelestia-shell";
@@ -57,6 +61,8 @@
           modules = [
             ./hosts/desktop/configuration.nix
             self.nixosModules
+            inputs.nix-index-database.nixosModules.default
+            { programs.nix-index-database.comma.enable = true; }
           ];
         };
         laptop-home = nixpkgs.lib.nixosSystem {
@@ -64,6 +70,8 @@
           modules = [
             ./hosts/laptop-home/configuration.nix
             self.nixosModules
+            inputs.nix-index-database.nixosModules.default
+            { programs.nix-index-database.comma.enable = true; }
           ];
         };
         laptop-work = nixpkgs.lib.nixosSystem {
@@ -71,6 +79,8 @@
           modules = [
             ./hosts/laptop-work/configuration.nix
             self.nixosModules
+            inputs.nix-index-database.nixosModules.default
+            { programs.nix-index-database.comma.enable = true; }
           ];
         };
       };

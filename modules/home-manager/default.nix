@@ -1,20 +1,19 @@
 {
   imports = [
-    ./extraction
-    ./jq
-    ./golang
+		./termscp
     ./alacritty
+    ./extraction
     ./firefox
     ./fish
     ./fzf
     ./git
+    ./golang
     ./gtk
     ./hyprland
+    ./jq
     ./neovim
     ./quickshell
     ./screenshot
     ./tmux
-    ./comma
-    ./nix-index
   ];
 }
