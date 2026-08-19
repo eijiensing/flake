@@ -1,6 +1,5 @@
 {
   imports = [
-		./termscp
     ./alacritty
     ./extraction
     ./firefox

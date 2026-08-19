@@ -9,9 +9,12 @@
 {
   imports = [
     ../../modules/home-manager
+    ../../modules/home-manager/artix-game-launcher
     ../../modules/home-manager/audacity
     ../../modules/home-manager/bruno
+    ../../modules/home-manager/calibre
     ../../modules/home-manager/clapper
+    ../../modules/home-manager/deadlock-mod-manager
     ../../modules/home-manager/discord
     ../../modules/home-manager/dotnet
     ../../modules/home-manager/easyeffects
@@ -25,8 +28,6 @@
     ../../modules/home-manager/teams
     ../../modules/home-manager/yt-dlp
     ../../modules/home-manager/zed
-    ../../modules/home-manager/deadlock-mod-manager
-    ../../modules/home-manager/artix-game-launcher
   ];
 
   nixpkgs = {
