@@ -42,9 +42,9 @@ binds {
     Super+G { spawn "thunar"; } // file browser
     Super+B { spawn "firefox"; } // browser
 
-    // Launcher and screen lock come from the caelestia shell, as before.
-    // They only do something while `caelestia shell` is running on niri.
-    Super+R { spawn-sh "caelestia shell drawers toggle launcher"; }
+    // Launcher and screen lock came from the caelestia shell. We now use
+    // fuzzel for the launcher; the lock still needs caelestia running on niri.
+    Super+R { spawn "fuzzel"; }
     Super+semicolon { spawn-sh "caelestia shell lock lock"; }
 
     // ── Window management ─────────────────────────────────────────
