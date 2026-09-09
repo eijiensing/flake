@@ -8,10 +8,10 @@
     ./git
     ./golang
     ./gtk
-    ./hyprland
+    # ./hyprland
     ./jq
     ./neovim
-    ./quickshell
+    # ./quickshell
     ./screenshot
     ./tmux
   ];

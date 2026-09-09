@@ -4,7 +4,7 @@
     ./thunar
     ./fonts
     ./udev
-    ./hyprland
+    # ./hyprland
     ./ly
     ./utils
 		./gnome-key-ring
