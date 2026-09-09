@@ -1,4 +1,5 @@
 {
+  pkgs,
   hostname,
   lib,
   ...
@@ -9,6 +10,10 @@ in
 {
   # App launcher for the Super+R bind.
   programs.fuzzel.enable = true;
+
+  home.packages = [
+    pkgs.xwayland-satellite # XWayland for X11-only apps (Steam, Discord, …)
+  ];
 
   # niri reads a single KDL config file. The shared part lives in ./config.kdl;
   # the per-host part (outputs, etc.) is appended from

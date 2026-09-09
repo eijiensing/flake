@@ -2,6 +2,9 @@
 // Keybinds migrated from the old Hyprland setup.
 // Docs: https://niri-wm.github.io/niri/
 
+// XWayland: niri 25.08+ integrates with xwayland-satellite automatically
+// (creates the X11 socket, exports $DISPLAY, spawns it on demand) as long as
+// the binary is on $PATH. It is installed via home.packages in this module.
 input {
     keyboard {
         xkb {
