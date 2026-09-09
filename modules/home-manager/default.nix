@@ -11,6 +11,7 @@
     # ./hyprland
     ./jq
     ./neovim
+    ./niri
     # ./quickshell
     ./screenshot
     ./tmux

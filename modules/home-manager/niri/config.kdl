@@ -1,0 +1,107 @@
+// niri config — managed by the flake (modules/home-manager/niri).
+// Keybinds migrated from the old Hyprland setup.
+// Docs: https://niri-wm.github.io/niri/
+
+input {
+    keyboard {
+        xkb {
+            // Matches the old Hyprland `kb_options = "caps:escape"`.
+            options "caps:escape"
+        }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        // Matches the old Hyprland `accel_profile = "flat"`.
+        accel-profile "flat"
+    }
+}
+
+layout {
+    // Old Hyprland had 12 px outer / 4 px inner gaps; niri has a single gap value.
+    gaps 12
+
+    focus-ring {
+        // Old Hyprland used a 2 px border in the Material-You primary color.
+        width 2
+        active-color "#81A8DE"
+        inactive-color "#00000000"
+    }
+}
+
+// Screenshots taken with niri's own screenshot actions land here.
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+binds {
+    // ── Apps ──────────────────────────────────────────────────────
+    Super+Q { spawn "alacritty"; } // terminal
+    Super+G { spawn "thunar"; } // file browser
+    Super+B { spawn "firefox"; } // browser
+
+    // Launcher and screen lock come from the caelestia shell, as before.
+    // They only do something while `caelestia shell` is running on niri.
+    Super+R { spawn-sh "caelestia shell drawers toggle launcher"; }
+    Super+semicolon { spawn-sh "caelestia shell lock lock"; }
+
+    // ── Window management ─────────────────────────────────────────
+    Super+C { close-window; } // close the focused window
+    Super+V { toggle-window-floating; } // float / un-float
+    Super+F { fullscreen-window; } // fullscreen toggle
+    Super+M { quit; } // exit niri (was Hyprland's exit)
+
+    // Move the focused workspace to the other monitor
+    // (Hyprland's `workspace, monitor:+1`).
+    Super+P { move-workspace-to-monitor-next; }
+
+    // ── Focus (vim keys, same as Hyprland) ───────────────────────
+    Super+H { focus-column-left; }
+    Super+J { focus-window-down; }
+    Super+K { focus-window-up; }
+    Super+L { focus-column-right; }
+
+    // ── Workspaces ────────────────────────────────────────────────
+    Super+1 { focus-workspace 1; }
+    Super+2 { focus-workspace 2; }
+    Super+3 { focus-workspace 3; }
+    Super+4 { focus-workspace 4; }
+    Super+5 { focus-workspace 5; }
+    Super+6 { focus-workspace 6; }
+    Super+7 { focus-workspace 7; }
+    Super+8 { focus-workspace 8; }
+    Super+9 { focus-workspace 9; }
+
+    Super+Shift+1 { move-window-to-workspace 1; }
+    Super+Shift+2 { move-window-to-workspace 2; }
+    Super+Shift+3 { move-window-to-workspace 3; }
+    Super+Shift+4 { move-window-to-workspace 4; }
+    Super+Shift+5 { move-window-to-workspace 5; }
+    Super+Shift+6 { move-window-to-workspace 6; }
+    Super+Shift+7 { move-window-to-workspace 7; }
+    Super+Shift+8 { move-window-to-workspace 8; }
+    Super+Shift+9 { move-window-to-workspace 9; }
+
+    // ── Screenshots ───────────────────────────────────────────────
+    // Region → clipboard + file (same as the old Hyprland bind).
+    Super+Shift+S { spawn-sh r#"grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png"#; }
+
+    // niri's own screenshot actions (kept from the default config).
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    // ── Volume / brightness / media keys ──────────────────────────
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl set 5%-"; }
+
+    XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
+}
