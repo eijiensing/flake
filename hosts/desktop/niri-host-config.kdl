@@ -3,7 +3,7 @@
 // suffix, niri automatically picks the highest refresh rate for the resolution.
 
 output "HDMI-A-1" {
-    // LG Electronics LG FHD — max 100 Hz
+    // LG Electronics LG FHD. 100 Hz is advertised but the panel shows
     mode "1920x1080@100.000"
     position x=0 y=0
     scale 1.0

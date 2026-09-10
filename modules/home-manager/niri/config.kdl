@@ -1,14 +1,14 @@
-// niri config — managed by the flake (modules/home-manager/niri).
-// Keybinds migrated from the old Hyprland setup.
-// Docs: https://niri-wm.github.io/niri/
+prefer-no-csd
 
-// XWayland: niri 25.08+ integrates with xwayland-satellite automatically
-// (creates the X11 socket, exports $DISPLAY, spawns it on demand) as long as
-// the binary is on $PATH. It is installed via home.packages in this module.
+gestures {
+	hot-corners {
+		off 
+	}
+}
+
 input {
     keyboard {
         xkb {
-            // Matches the old Hyprland `kb_options = "caps:escape"`.
             options "caps:escape"
         }
     }
@@ -19,52 +19,69 @@ input {
     }
 
     mouse {
-        // Matches the old Hyprland `accel_profile = "flat"`.
         accel-profile "flat"
     }
+		focus-follows-mouse max-scroll-amount="0%"
 }
 
 layout {
-    // Old Hyprland had 12 px outer / 4 px inner gaps; niri has a single gap value.
+    preset-column-widths {
+        proportion 0.5
+        proportion 1.0
+    }
+
     gaps 12
 
-    focus-ring {
-        // Old Hyprland used a 2 px border in the Material-You primary color.
-        width 2
+    border {
+        width 4
         active-color "#81A8DE"
         inactive-color "#00000000"
     }
+		focus-ring {
+			off
+		}
 }
 
-// Screenshots taken with niri's own screenshot actions land here.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+recent-windows {
+	off
+}
 
 binds {
     // ── Apps ──────────────────────────────────────────────────────
-    Super+Q { spawn "alacritty"; } // terminal
-    Super+G { spawn "thunar"; } // file browser
-    Super+B { spawn "firefox"; } // browser
-
-    // Launcher and screen lock came from the caelestia shell. We now use
-    // fuzzel for the launcher; the lock still needs caelestia running on niri.
+    Super+Q { spawn "alacritty"; }
+    Super+G { spawn "thunar"; }
+    Super+B { spawn "firefox"; }
     Super+R { spawn "fuzzel"; }
-    Super+semicolon { spawn-sh "caelestia shell lock lock"; }
 
     // ── Window management ─────────────────────────────────────────
-    Super+C { close-window; } // close the focused window
-    Super+V { toggle-window-floating; } // float / un-float
-    Super+F { fullscreen-window; } // fullscreen toggle
-    Super+M { quit; } // exit niri (was Hyprland's exit)
+    Super+C { close-window; }
+    Super+Shift+V { toggle-window-floating; }
+    Super+V { switch-preset-window-width; }
 
-    // Move the focused workspace to the other monitor
-    // (Hyprland's `workspace, monitor:+1`).
+    Super+F { fullscreen-window; }
+    Super+M { quit; }
+
     Super+P { move-workspace-to-monitor-next; }
 
-    // ── Focus (vim keys, same as Hyprland) ───────────────────────
     Super+H { focus-column-left; }
     Super+J { focus-window-down; }
     Super+K { focus-window-up; }
     Super+L { focus-column-right; }
+
+    Super+Tab { focus-monitor-next; }
+    Super+E { toggle-overview; }
 
     // ── Workspaces ────────────────────────────────────────────────
     Super+1 { focus-workspace 1; }
@@ -88,10 +105,8 @@ binds {
     Super+Shift+9 { move-window-to-workspace 9; }
 
     // ── Screenshots ───────────────────────────────────────────────
-    // Region → clipboard + file (same as the old Hyprland bind).
     Super+Shift+S { spawn-sh r#"grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png"#; }
 
-    // niri's own screenshot actions (kept from the default config).
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
