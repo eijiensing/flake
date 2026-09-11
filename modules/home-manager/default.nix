@@ -8,6 +8,7 @@
     ./git
     ./golang
     ./gtk
+    ./awww
     # ./hyprland
     ./jq
     ./neovim
