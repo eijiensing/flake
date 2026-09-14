@@ -33,6 +33,9 @@
     command-not-found.enable = false;
   };
 
+	# tiny efi partition
+	boot.loader.systemd-boot.configurationLimit = 2;
+
   users.users = {
     eiji = {
       shell = pkgs.fish;
