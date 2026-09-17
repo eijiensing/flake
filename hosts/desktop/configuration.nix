@@ -53,13 +53,9 @@
     };
   };
 
-  fileSystems."/drives/hdd" = {
-    device = "/dev/disk/by-uuid/1fc9b3cd-81cd-4136-a378-ab3e39a1328b";
+  fileSystems."/drives/lexar" = {
+    device = "/dev/disk/by-uuid/c279dda4-affc-4cc2-8fd4-776bb78de515";
     fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail"
-    ];
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

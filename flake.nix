@@ -10,23 +10,9 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Hyprland
-    hyprland.url = "github:hyprwm/Hyprland?rev=5e441cae538c9396f2ee30338419bec12969608c";
-    hyprland-preview-share-picker = {
-      # Submodules are broken
-      url = "git+https://github.com/WhySoBad/hyprland-preview-share-picker?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Nix-index db
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Caelestia shell (vendored source)
-    caelestia-shell = {
-      url = "path:./modules/home-manager/caelestia-shell";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
 
     # Neovim
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay?rev=1e7087c03f0fb1935f73bd28ba044714cfab34f4";
