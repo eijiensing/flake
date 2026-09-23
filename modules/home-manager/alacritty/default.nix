@@ -1,7 +1,8 @@
 { ... }:
 {
   home.file.".config/alacritty/theme-trigger.toml".text = "";
-  home.file.".local/state/alacritty/enfocado_light.toml" = ./enfocado_light.toml;
+  home.file.".local/state/alacritty/enfocado_light.toml".source = ./enfocado_light.toml;
+
   programs.alacritty = {
     enable = true;
     settings = {
