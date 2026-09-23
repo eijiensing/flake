@@ -1,11 +1,12 @@
 { ... }:
 {
   home.file.".config/alacritty/theme-trigger.toml".text = "";
+  home.file.".local/state/alacritty/enfocado_light.toml" = ./enfocado_light.toml;
   programs.alacritty = {
     enable = true;
     settings = {
       general.import = [
-        "~/.local/state/caelestia/theme/alacritty.toml"
+        "~/.local/state/alacritty/enfocado_light.toml"
         "~/.config/alacritty/theme-trigger.toml"
       ];
       font.normal.family = "CaskaydiaMono Nerd Font Mono";
@@ -14,7 +15,7 @@
         x = 16;
         y = 16;
       };
-			terminal.osc52 = "CopyPaste";
+      terminal.osc52 = "CopyPaste";
     };
   };
   xdg.mimeApps.defaultApplications = {
