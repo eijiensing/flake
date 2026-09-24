@@ -30,6 +30,7 @@ vim.pack.add({
 	{ src = "https://github.com/dchinmay2/alabaster.nvim" },
 	{ src = "https://github.com/junegunn/seoul256.vim" },
 	{ src = "https://github.com/wuelnerdotexe/vim-enfocado" },
+	{ src = "https://github.com/romgrk/github-light.vim" }
 })
 
 -- require'nvim-treesitter'.install { 'all' }
@@ -62,8 +63,9 @@ map("n", "grr", ":FzfLua lsp_references<CR>")
 vim.lsp.enable({ "gopls", "zls", "lua_ls", "vtsls", "rust_analyzer", "qmlls", "nixd", "csharp-ls" })
 
 -- colors
-vim.cmd.colorscheme("enfocado")
+
 vim.opt.background = "light"
+vim.cmd.colorscheme("github-light")
 
 
 vim.cmd(":hi statusline guibg=NONE")
