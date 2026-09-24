@@ -16,6 +16,7 @@
     ../../modules/home-manager/clapper
     ../../modules/home-manager/deadlock-mod-manager
     ../../modules/home-manager/discord
+    ../../modules/home-manager/vesktop
     ../../modules/home-manager/dotnet
     ../../modules/home-manager/easyeffects
     ../../modules/home-manager/krita
