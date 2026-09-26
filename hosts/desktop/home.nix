@@ -15,9 +15,9 @@
     ../../modules/home-manager/calibre
     ../../modules/home-manager/clapper
     ../../modules/home-manager/deadlock-mod-manager
-    ../../modules/home-manager/discord
+    # ../../modules/home-manager/discord
     ../../modules/home-manager/vesktop
-    ../../modules/home-manager/dotnet
+    # ../../modules/home-manager/dotnet
     ../../modules/home-manager/easyeffects
     ../../modules/home-manager/krita
     ../../modules/home-manager/lutris
@@ -27,7 +27,7 @@
     ../../modules/home-manager/proton
     ../../modules/home-manager/syncthing
     ../../modules/home-manager/teams
-    ../../modules/home-manager/yt-dlp
+    # ../../modules/home-manager/yt-dlp
     ../../modules/home-manager/zed
   ];
 
@@ -40,9 +40,9 @@
     config = {
       allowUnfree = true;
       rocmSupport = true;
-      permittedInsecurePackages = [
-        "python3.13-vllm-0.16.0"
-      ];
+      # permittedInsecurePackages = [
+      #   "python3.13-vllm-0.16.0"
+      # ];
     };
   };
   home = {
