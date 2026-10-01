@@ -1,8 +1,11 @@
+// GPUI desktop shell (bar/island)
+spawn-at-startup "gpui-shell"
+
 prefer-no-csd
 
 gestures {
 	hot-corners {
-		off 
+		off
 	}
 }
 

@@ -13,6 +13,7 @@ in
 
   home.packages = [
     pkgs.xwayland-satellite # XWayland for X11-only apps (Steam, Discord, …)
+    pkgs.gpui-shell # GPUI desktop shell (bar/island), spawned by niri at startup
   ];
 
   # niri reads a single KDL config file. The shared part lives in ./config.kdl;

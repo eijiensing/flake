@@ -16,6 +16,9 @@
 
     # Neovim
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay?rev=1e7087c03f0fb1935f73bd28ba044714cfab34f4";
+
+    # My GPUI desktop shell
+    gpui-shell.url = "github:eijiensing/gpui-shell";
   };
 
   outputs =
@@ -35,7 +38,7 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      packages = forAllSystems (system: import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; inherit inputs; });
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
       overlays = import ./overlays { inherit inputs; };
       nixosModules = import ./modules/nixos;
