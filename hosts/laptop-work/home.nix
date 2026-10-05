@@ -16,6 +16,7 @@
     ../../modules/home-manager/teams
     ../../modules/home-manager/zed
     ../../modules/home-manager/krita
+    ../../modules/home-manager/godot
   ];
 
   nixpkgs = {
