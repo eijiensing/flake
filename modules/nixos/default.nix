@@ -4,7 +4,6 @@
     ./thunar
     ./fonts
     ./udev
-    # ./hyprland
 		./niri
     ./ly
     ./utils

@@ -9,11 +9,9 @@
     ./golang
     ./gtk
     ./awww
-    # ./hyprland
     ./jq
     ./neovim
     ./niri
-    # ./quickshell
     ./screenshot
     ./tmux
   ];

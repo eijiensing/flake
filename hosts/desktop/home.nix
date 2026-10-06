@@ -18,7 +18,6 @@
     # ../../modules/home-manager/discord
     ../../modules/home-manager/vesktop
     # ../../modules/home-manager/dotnet
-    ../../modules/home-manager/easyeffects
     ../../modules/home-manager/krita
     ../../modules/home-manager/lutris
     ../../modules/home-manager/obsidian
