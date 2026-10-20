@@ -79,7 +79,7 @@ binds {
     Super+Q { spawn "alacritty"; }
     Super+G { spawn "thunar"; }
     Super+B { spawn "firefox"; }
-    Super+R { spawn "fuzzel"; }
+    Super+R { spawn-sh "gpui-shell launcher"; }
 
     // ── Window management ─────────────────────────────────────────
     Super+C { close-window; }

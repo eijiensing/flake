@@ -8,9 +8,6 @@ let
   hostConfig = ../../../hosts/${hostname}/niri-host-config.kdl;
 in
 {
-  # App launcher for the Super+R bind.
-  programs.fuzzel.enable = true;
-
   home.packages = [
     pkgs.xwayland-satellite # XWayland for X11-only apps (Steam, Discord, …)
     pkgs.gpui-shell # GPUI desktop shell (bar/island), spawned by niri at startup
