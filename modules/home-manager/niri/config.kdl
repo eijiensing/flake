@@ -1,5 +1,7 @@
 // GPUI desktop shell (bar/island)
 spawn-at-startup "gpui-shell"
+spawn-at-startup "awww-daemon" "--namespace" "overview"
+spawn-at-startup "sh" "-c" "sleep 2; awww img --namespace overview ~/Pictures/Wallpapers/fixedimmortaltravel.webp"
 
 prefer-no-csd
 
@@ -25,6 +27,11 @@ input {
         accel-profile "flat"
     }
 		focus-follows-mouse max-scroll-amount="0%"
+}
+
+layer-rule {
+    match namespace="^awww-daemonoverview$"
+    place-within-backdrop true
 }
 
 layout {
