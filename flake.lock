@@ -26,11 +26,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1792490404,
-        "narHash": "sha256-F0YAqgY+hqXceWnH72bU5rIPlBcdQLOfYZk+ws1mL98=",
+        "lastModified": 1792589472,
+        "narHash": "sha256-Q9UcBug1NzYC2wByACOZEm0aULoRarX+z2+Ls7TvM1g=",
         "owner": "eijiensing",
         "repo": "gpui-shell",
-        "rev": "197e0f69ff70d69857ad592c9fbf66e856623a72",
+        "rev": "3b96700bdd7873e3d85e9ce79debac45af056d04",
         "type": "github"
       },
       "original": {
