@@ -15,7 +15,7 @@
     ../../modules/home-manager/calibre
     ../../modules/home-manager/clapper
     ../../modules/home-manager/deadlock-mod-manager
-    # ../../modules/home-manager/discord
+    ../../modules/home-manager/ai
     ../../modules/home-manager/vesktop
     # ../../modules/home-manager/dotnet
     ../../modules/home-manager/krita
