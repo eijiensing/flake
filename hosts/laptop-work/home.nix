@@ -13,6 +13,7 @@
     ../../modules/home-manager/dotnet
     ../../modules/home-manager/pgadmin
     ../../modules/home-manager/libreoffice
+    ../../modules/home-manager/obsidian
     ../../modules/home-manager/teams
     ../../modules/home-manager/zed
     ../../modules/home-manager/krita
