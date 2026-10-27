@@ -35,8 +35,6 @@ layer-rule {
 }
 
 layout {
-		empty-workspace-above-first
-
     preset-column-widths {
         proportion 0.5
         proportion 1.0
@@ -102,7 +100,7 @@ binds {
     Super+L { focus-column-right; }
     Super+Shift+H { move-column-left; }
     Super+Shift+J { move-column-to-workspace-down; }
-    Super+Shift+K { move-column-to-workspace-up; }
+    Super+Shift+K { spawn "~/.config/niri/move-column-to-maybe-workspace-up.fish"; }
     Super+Shift+L { move-column-right; }
     Super+Control+Shift+H { move-column-to-monitor-left; }
     Super+Control+Shift+J { move-column-to-monitor-down; }
@@ -133,12 +131,7 @@ binds {
     Super+Shift+8 { move-window-to-workspace 8; }
     Super+Shift+9 { move-window-to-workspace 9; }
 
-    // ── Screenshots ───────────────────────────────────────────────
-    // Super+Shift+S { spawn-sh r#"grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png"#; }
-
     Super+Shift+S { screenshot; }
-    // Ctrl+Print { screenshot-screen; }
-    // Alt+Print { screenshot-window; }
 
     // ── Volume / brightness / media keys ──────────────────────────
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"; }
