@@ -6,13 +6,16 @@ in
   programs.firefox = {
     enable = true;
     # The extension is built from source and is not signed by AMO. Release
-    # Firefox ignores xpinstall.signatures.required, so use ESR where the
-    # preference is honored (see the Preferences policy below).
-    package = pkgs.firefox-esr;
+    # Firefox ignores xpinstall.signatures.required, so use Developer Edition
+    # where signing is not required.
+    package = pkgs.firefox-devedition;
     configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles.default = {
       id = 0;
-      name = "default";
+      # Developer Edition treats a profile without this exact name as a first
+      # run and tries to rewrite profiles.ini, which is a read-only symlink to
+      # the Nix store in Home Manager. The path stays "default".
+      name = "dev-edition-default";
       isDefault = true;
     };
 

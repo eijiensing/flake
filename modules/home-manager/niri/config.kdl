@@ -35,6 +35,8 @@ layer-rule {
 }
 
 layout {
+		empty-workspace-above-first
+
     preset-column-widths {
         proportion 0.5
         proportion 1.0
@@ -78,7 +80,7 @@ binds {
     // ── Apps ──────────────────────────────────────────────────────
     Super+Q { spawn "alacritty"; }
     Super+G { spawn "thunar"; }
-    Super+B { spawn "firefox"; }
+    Super+B { spawn "firefox-devedition"; }
     Super+R { spawn-sh "gpui-shell launcher"; }
 		// this command will be replaced with gpui-shell overview
     Super+O { spawn-sh "gpui-shell tray"; }
@@ -98,10 +100,14 @@ binds {
     Super+J { focus-workspace-down; }
     Super+K { focus-workspace-up; }
     Super+L { focus-column-right; }
-    Super+Shift+H { move-column-to-monitor-left; }
-    Super+Shift+J { move-column-to-monitor-down; }
-    Super+Shift+K { move-column-to-monitor-up; }
-    Super+Shift+L { move-column-to-monitor-right; }
+    Super+Shift+H { move-column-to-left; }
+    Super+Shift+J { move-column-to-workspace-down; }
+    Super+Shift+K { move-column-to-workspace-up; }
+    Super+Shift+L { move-column-to-right; }
+    Super+Control+Shift+H { move-column-to-monitor-left; }
+    Super+Control+Shift+J { move-column-to-monitor-down; }
+    Super+Control+Shift+K { move-column-to-monitor-up; }
+    Super+Control+Shift+L { move-column-to-monitor-right; }
 
     Super+Tab { focus-monitor-next; }
     Super+E { toggle-overview; }
