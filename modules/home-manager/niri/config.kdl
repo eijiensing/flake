@@ -100,10 +100,10 @@ binds {
     Super+J { focus-workspace-down; }
     Super+K { focus-workspace-up; }
     Super+L { focus-column-right; }
-    Super+Shift+H { move-column-to-left; }
+    Super+Shift+H { move-column-left; }
     Super+Shift+J { move-column-to-workspace-down; }
     Super+Shift+K { move-column-to-workspace-up; }
-    Super+Shift+L { move-column-to-right; }
+    Super+Shift+L { move-column-right; }
     Super+Control+Shift+H { move-column-to-monitor-left; }
     Super+Control+Shift+J { move-column-to-monitor-down; }
     Super+Control+Shift+K { move-column-to-monitor-up; }
