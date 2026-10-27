@@ -188,7 +188,28 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "yt-firefox": "yt-firefox"
+      }
+    },
+    "yt-firefox": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793107381,
+        "narHash": "sha256-3NYSexoUi+ws6bRyiCEyrsNddMApzRsBS9w4PL/PJ60=",
+        "owner": "eijiensing",
+        "repo": "yt-firefox",
+        "rev": "c2dcb525775b13d70f03992986b5e14fa4351b2e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eijiensing",
+        "repo": "yt-firefox",
+        "type": "github"
       }
     }
   },

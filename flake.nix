@@ -19,6 +19,10 @@
 
     # My GPUI desktop shell
     gpui-shell.url = "github:eijiensing/gpui-shell";
+
+    # My Firefox extension
+    yt-firefox.url = "github:eijiensing/yt-firefox";
+    yt-firefox.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
