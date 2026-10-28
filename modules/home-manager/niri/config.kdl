@@ -80,8 +80,7 @@ binds {
     Super+G { spawn "thunar"; }
     Super+B { spawn "firefox-devedition"; }
     Super+R { spawn-sh "gpui-shell launcher"; }
-		// this command will be replaced with gpui-shell overview
-    Super+O { spawn-sh "gpui-shell tray"; }
+    Super+O { spawn-sh "gpui-shell overview"; }
 
     // ── Window management ─────────────────────────────────────────
     Super+C { close-window; }

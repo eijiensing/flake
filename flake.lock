@@ -26,11 +26,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1792589472,
-        "narHash": "sha256-Q9UcBug1NzYC2wByACOZEm0aULoRarX+z2+Ls7TvM1g=",
+        "lastModified": 1793191785,
+        "narHash": "sha256-Da5dU0y8SIKswJ32WWY27Sr0pJ9D5XujvUexHTRFHhE=",
         "owner": "eijiensing",
         "repo": "gpui-shell",
-        "rev": "3b96700bdd7873e3d85e9ce79debac45af056d04",
+        "rev": "ec15621d89a025235552905ff3d9f37ad9a116c5",
         "type": "github"
       },
       "original": {
@@ -199,11 +199,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793107381,
-        "narHash": "sha256-3NYSexoUi+ws6bRyiCEyrsNddMApzRsBS9w4PL/PJ60=",
+        "lastModified": 1793180021,
+        "narHash": "sha256-ktnHCDJNm+xtIswJvNM5n+vGldF69WCZ/W+b1TjJ3LI=",
         "owner": "eijiensing",
         "repo": "yt-firefox",
-        "rev": "c2dcb525775b13d70f03992986b5e14fa4351b2e",
+        "rev": "e9b1bf4fdbe92ae88fdd3a20f05916669f473346",
         "type": "github"
       },
       "original": {
