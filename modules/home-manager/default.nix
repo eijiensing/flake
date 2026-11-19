@@ -13,6 +13,7 @@
     ./neovim
     ./niri
     ./screenshot
+    ./thunar
     ./tmux
   ];
 }

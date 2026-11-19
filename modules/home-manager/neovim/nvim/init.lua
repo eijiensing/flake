@@ -60,7 +60,7 @@ map("n", "grd", vim.diagnostic.open_float)
 map("n", "gd", ":FzfLua lsp_definitions<CR>")
 map("n", "grr", ":FzfLua lsp_references<CR>")
 
-vim.lsp.enable({ "gopls", "zls", "lua_ls", "vtsls", "rust_analyzer", "qmlls", "nixd", "csharp-ls" })
+vim.lsp.enable({ "eslint","gopls", "zls", "lua_ls", "vtsls", "rust_analyzer", "qmlls", "nixd", "csharp-ls" })
 
 -- colors
 

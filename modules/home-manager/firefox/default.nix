@@ -1,4 +1,9 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   ytFirefox = inputs.yt-firefox.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
@@ -17,6 +22,10 @@ in
       # the Nix store in Home Manager. The path stays "default".
       name = "dev-edition-default";
       isDefault = true;
+
+      settings = {
+        "middlemouse.paste" = false;
+      };
     };
 
     policies = {
